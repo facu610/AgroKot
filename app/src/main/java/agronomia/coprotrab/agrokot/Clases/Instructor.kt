@@ -1,4 +1,4 @@
-package agronomia.coprotrab.agrokot
+package agronomia.coprotrab.agrokot.Clases
 
 class Instructor (nombre:String, usuario:String, contrasena: String ){
 

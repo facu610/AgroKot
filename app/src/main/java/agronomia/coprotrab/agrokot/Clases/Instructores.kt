@@ -1,4 +1,4 @@
-package agronomia.coprotrab.agrokot
+package agronomia.coprotrab.agrokot.Clases
 
 class  Instructores (instructores: ArrayList<Instructor>){
 

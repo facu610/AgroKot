@@ -1,5 +1,6 @@
-package agronomia.coprotrab.agrokot
+package agronomia.coprotrab.agrokot.Actividades
 
+import agronomia.coprotrab.agrokot.R
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast

@@ -1,4 +1,4 @@
-package agronomia.coprotrab.agrokot
+package agronomia.coprotrab.agrokot.Clases
 
 import android.content.Context
 import android.net.ConnectivityManager
