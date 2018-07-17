@@ -10,13 +10,13 @@
         android:id="@+id/tv_Instr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Instructor:" />
+        android:text="@string/instructor" />
 
     <TextView
         android:id="@+id/tv_Zona"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Zona" />
+        android:text="@string/zona" />
 
     <Button
         android:id="@+id/b_CambiarInstr"

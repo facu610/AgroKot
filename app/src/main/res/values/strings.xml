@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AgroKot</string>
+    <string name="instructor">Instructor:</string>
+    <string name="zona">Zona</string>
 </resources>

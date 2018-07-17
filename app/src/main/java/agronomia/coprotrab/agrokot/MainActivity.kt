@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.InputStream
 import java.net.URL
@@ -64,6 +65,39 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,"No hay Internet", Toast.LENGTH_LONG).show()
             }
         }
+
+
+
+        ///PARTE JSON
+
+        var respuesta = "{ \"instructores\" : [ " +
+                "{" +
+                " \"nombre\" : \"Facu\" ," +
+                " \"usuario\" : \"facu1\" ," +
+                " \"contrasena\" : \"1234}," +
+
+                "{" +
+                " \"nombre\" : \"Juan Perez\" ," +
+                " \"usuario\" : \"juanp\" ," +
+                " \"contrasena\" : \"1234}" +
+                "]" +
+                "}"
+        val gson = Gson()
+        val res = gson.fromJson(respuesta, Instructores::class.java)
+        Log.d("GSON", res.instructores?.count().toString())
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
     //Codigo Para Validar RED y Descargar Datos
     private fun descargarDatos(url:String):String{
