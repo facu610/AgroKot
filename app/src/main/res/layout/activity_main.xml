@@ -10,13 +10,13 @@
         android:id="@+id/tv_Instr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/instructor" />
+        android:text="@string/muestrainstructor" />
 
     <TextView
         android:id="@+id/tv_Zona"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/zona" />
+        android:text="@string/muestrazona" />
 
     <Button
         android:id="@+id/b_Fichas"
