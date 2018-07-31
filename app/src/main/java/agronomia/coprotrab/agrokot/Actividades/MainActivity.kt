@@ -1,18 +1,19 @@
 package agronomia.coprotrab.agrokot.Actividades
 
+import agronomia.coprotrab.agrokot.Clases.Instructor
+import agronomia.coprotrab.agrokot.Clases.Instructor_Adapter
 import agronomia.coprotrab.agrokot.Clases.Instructores
 import agronomia.coprotrab.agrokot.Clases.Network
 import agronomia.coprotrab.agrokot.R
 import android.content.Intent
+import android.media.Image
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.google.gson.Gson
+import org.jetbrains.anko.toast
 
 
 class MainActivity : AppCompatActivity() {

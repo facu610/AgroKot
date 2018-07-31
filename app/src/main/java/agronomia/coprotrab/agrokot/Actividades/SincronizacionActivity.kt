@@ -60,6 +60,10 @@ class SincronizacionActivity : AppCompatActivity() {
                 " \"contrasena\" : \"1234\"}" +
                 "]" +
                 "}"
+
+
+
+
         val gson = Gson()
         val res = gson.fromJson(respuesta, Instructores::class.java)
         Log.d("GSON", res.instructores?.count().toString())
