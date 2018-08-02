@@ -1,19 +1,13 @@
 package agronomia.coprotrab.agrokot.Actividades
 
-import agronomia.coprotrab.agrokot.Clases.Instructor
-import agronomia.coprotrab.agrokot.Clases.Instructor_Adapter
-import agronomia.coprotrab.agrokot.Clases.Instructores
-import agronomia.coprotrab.agrokot.Clases.Network
+import agronomia.coprotrab.agrokot.Clases.Adaptadores.MenuItem_Adapter
+import agronomia.coprotrab.agrokot.Clases.MenuItem
 import agronomia.coprotrab.agrokot.R
 import android.content.Intent
-import android.media.Image
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
-import com.google.gson.Gson
-import org.jetbrains.anko.toast
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,25 +23,35 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val bFichas = findViewById<Button>(R.id.b_Fichas)
-        val bSincro = findViewById<Button>(R.id.b_Sincronizacion)
-
         tvInstr = findViewById<TextView>(R.id.tv_Instr)
         tvZona = findViewById<TextView>(R.id.tv_Zona)
 
         tvInstr?.text = "Facu Martinez"
         tvZona?.text = "10"
 
-        bSincro.setOnClickListener{
 
-            val intentSincronizacion = Intent(this, SincronizacionActivity::class.java)
-            startActivity(intentSincronizacion)
+        var menuitems = ArrayList<MenuItem>()
+
+        menuitems.add(MenuItem("Recursos", R.drawable.ic_bookweb))
+        menuitems.add(MenuItem("Configuración", R.drawable.ic_configweb))
+        menuitems.add(MenuItem("Fichas", R.drawable.ic_fichasweb))
+        menuitems.add(MenuItem("Sincronización", R.drawable.ic_syncweb))
+
+        var grid:GridView = findViewById(R.id.gv_menuprin)
+        val adaptador = MenuItem_Adapter(this, menuitems)
+        grid.adapter = adaptador
+
+        grid.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            if (menuitems.get(position).nombre == "Fichas") {
+                val intent = Intent(this, FichaActivity::class.java)
+                intent.putExtra(TAG, "instructor-Facu Martinez")
+                startActivity(intent) }
+            if (menuitems.get(position).nombre == "Sincronización") {
+                val intentSincronizacion = Intent(this, SincronizacionActivity::class.java)
+                startActivity(intentSincronizacion)
+               }
+            //Toast.makeText(this, menuitems.get(position).nombre, Toast.LENGTH_LONG).show()
         }
-        bFichas.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, FichaActivity::class.java)
-            intent.putExtra(TAG, "instructor-Facu Martinez")
-            startActivity(intent)
-        })
     }
 
     fun validaDato(et:EditText): Boolean {

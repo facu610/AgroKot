@@ -1,5 +1,6 @@
-package agronomia.coprotrab.agrokot.Clases
+package agronomia.coprotrab.agrokot.Clases.Adaptadores
 
+import agronomia.coprotrab.agrokot.Clases.Instructor
 import agronomia.coprotrab.agrokot.R
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import kotlinx.android.synthetic.main.template_instr.view.*
 
 class Instructor_Adapter(var contex:Context, items:ArrayList<Instructor>):BaseAdapter() {
 
@@ -26,7 +26,7 @@ class Instructor_Adapter(var contex:Context, items:ArrayList<Instructor>):BaseAd
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
-        var holder:ViewHolder?=null
+        var holder: ViewHolder?=null
 
         var vista:View? = convertView
         if(vista == null){
