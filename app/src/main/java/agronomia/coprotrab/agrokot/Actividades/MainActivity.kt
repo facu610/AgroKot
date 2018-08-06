@@ -1,12 +1,11 @@
 package agronomia.coprotrab.agrokot.Actividades
 
-import agronomia.coprotrab.agrokot.Clases.Adaptadores.MenuItem_Adapter
+import agronomia.coprotrab.agrokot.Clases.Adapters.MenuItem_Adapter
 import agronomia.coprotrab.agrokot.Clases.MenuItem
 import agronomia.coprotrab.agrokot.R
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.*
 
 
