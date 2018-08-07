@@ -9,17 +9,21 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_temp_nombre"
+            android:id="@+id/tv_temp_nombre_instr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="asdasd" />
+            android:text="" />
 
         <TextView
-            android:id="@+id/tv_temp_usuario"
+            android:id="@+id/tv_temp_user_instr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="asdasd" />
-
+            android:text="" />
+        <TextView
+            android:id="@+id/tv_temp_zona_instr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
         />
     </LinearLayout>
 </LinearLayout>

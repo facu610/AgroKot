@@ -33,8 +33,8 @@ class DBHelper (ctx: Context) : ManagedSQLiteOpenHelper(ctx, "RegistroAgrotecnic
                 "User_Instr" to TEXT,
                 "Nombre_Instr" to TEXT,
                 "Zona_Instr" to INTEGER,
-                "Issuper_Instr" to TEXT,
-                "Idvehiculo_Instr" to TEXT,
+                "Issuper_Instr" to INTEGER,
+                "Idvehiculo_Instr" to INTEGER,
                 "Idmovil_Instr" to INTEGER,
                 "Pass_Instr" to TEXT)
 

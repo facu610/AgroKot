@@ -1,6 +1,7 @@
 package agronomia.coprotrab.agrokot.Actividades
 
 import agronomia.coprotrab.agrokot.Clases.Adapters.MenuItem_Adapter
+import agronomia.coprotrab.agrokot.Clases.DataResources.DBHelper
 import agronomia.coprotrab.agrokot.Clases.MenuItem
 import agronomia.coprotrab.agrokot.R
 import android.content.Intent
@@ -20,6 +21,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
 
 
         tvInstr = findViewById<TextView>(R.id.tv_Instr)

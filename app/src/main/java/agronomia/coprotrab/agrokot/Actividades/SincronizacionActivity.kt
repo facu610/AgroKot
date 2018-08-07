@@ -28,45 +28,45 @@ class SincronizacionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sincronizacion)
 
-        if (Network.validaConeccion(this)) {
-            Toast.makeText(this, "Si hay red", Toast.LENGTH_LONG).show()
-            Log.d("bSincroOnClick", descargarDatos("https://google.com"))
-            //SOLICITAR SOLICITUD HTPP
+//        if (Network.validaConeccion(this)) {
+//            Toast.makeText(this, "Si hay red", Toast.LENGTH_LONG).show()
+//            Log.d("bSincroOnClick", descargarDatos("https://google.com"))
+//            //SOLICITAR SOLICITUD HTPP
+//
+//        } else {
+//            Toast.makeText(this, "No hay Internet", Toast.LENGTH_LONG).show()
+//        }
 
+//        val bCambiarInstr = findViewById<Button>(R.id.b_CambiarInstr)
+//        bCambiarInstr.setOnClickListener(View.OnClickListener {
+//            val instr: String
+//            Toast.makeText(this, "Instructor cambiado con éxito, Bienvenido ", Toast.LENGTH_LONG).show()
+//        })
 
-
-
-        } else {
-            Toast.makeText(this, "No hay Internet", Toast.LENGTH_LONG).show()
-        }
-
-        val bCambiarInstr = findViewById<Button>(R.id.b_CambiarInstr)
-        bCambiarInstr.setOnClickListener(View.OnClickListener {
-            val instr: String
-
-            Toast.makeText(this, "Instructor cambiado con éxito, Bienvenido ", Toast.LENGTH_LONG).show()
-
+        val bSincroInstr = findViewById<Button>(R.id.b_SincroInstr)
+        bSincroInstr.setOnClickListener(View.OnClickListener{
+           var respuesta = solicitudHTPPVolley("http://192.168.50.108/AppAgronomia/api/AA_Instructores")
+           val gson = Gson()
+//           val res = gson.fromJson(respuesta, Instructores::class.java)
+//           Log.d("GSON", res.instructores?.count().toString())
         })
 
-        var respuesta = "{ \"instructores\" : [ " +
-                "{" +
-                " \"nombre\" : \"Facu\" ," +
-                " \"usuario\" : \"facu1\" ," +
-                " \"contrasena\" : \"1234\"}," +
-
-                "{" +
-                " \"nombre\" : \"Juan Perez\" ," +
-                " \"usuario\" : \"juanp\" ," +
-                " \"contrasena\" : \"1234\"}" +
-                "]" +
-                "}"
-
-
-
-
-        val gson = Gson()
-        val res = gson.fromJson(respuesta, Instructores::class.java)
-        Log.d("GSON", res.instructores?.count().toString())
+//        var respuesta = "{ \"instructores\" : [ " +
+//                "{" +
+//                " \"nombre\" : \"Facu\" ," +
+//                " \"usuario\" : \"facu1\" ," +
+//                " \"contrasena\" : \"1234\"}," +
+//
+//                "{" +
+//                " \"nombre\" : \"Juan Perez\" ," +
+//                " \"usuario\" : \"juanp\" ," +
+//                " \"contrasena\" : \"1234\"}" +
+//                "]" +
+//                "}"
+//
+//        val gson = Gson()
+//        val res = gson.fromJson(respuesta, Instructores::class.java)
+//        Log.d("GSON", res.instructores?.count().toString())
 
     }
 
@@ -82,6 +82,21 @@ class SincronizacionActivity : AppCompatActivity() {
         }, Response.ErrorListener { })
         cola.add(solicitud)
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private fun descargarDatos(url: String): String {
         val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()

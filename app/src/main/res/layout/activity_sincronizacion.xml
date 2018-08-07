@@ -19,7 +19,11 @@
         android:layout_height="wrap_content"
         android:text="Sinc. Fichas" />
 
-
+    <Button
+        android:id="@+id/b_SincroInstr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sinc. Instructores" />
 
 
 </LinearLayout>
