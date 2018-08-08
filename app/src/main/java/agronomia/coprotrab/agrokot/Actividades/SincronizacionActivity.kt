@@ -47,26 +47,26 @@ class SincronizacionActivity : AppCompatActivity() {
         bSincroInstr.setOnClickListener(View.OnClickListener{
            var respuesta = solicitudHTPPVolley("http://192.168.50.108/AppAgronomia/api/AA_Instructores")
            val gson = Gson()
-//           val res = gson.fromJson(respuesta, Instructores::class.java)
-//           Log.d("GSON", res.instructores?.count().toString())
+           //val res = gson.fromJson(respuesta, Instructores::class.java)
+           //Log.d("GSON", res.instructores?.count().toString())
         })
 
-//        var respuesta = "{ \"instructores\" : [ " +
-//                "{" +
-//                " \"nombre\" : \"Facu\" ," +
-//                " \"usuario\" : \"facu1\" ," +
-//                " \"contrasena\" : \"1234\"}," +
-//
-//                "{" +
-//                " \"nombre\" : \"Juan Perez\" ," +
-//                " \"usuario\" : \"juanp\" ," +
-//                " \"contrasena\" : \"1234\"}" +
-//                "]" +
-//                "}"
-//
-//        val gson = Gson()
-//        val res = gson.fromJson(respuesta, Instructores::class.java)
-//        Log.d("GSON", res.instructores?.count().toString())
+        var respuesta = "{ \"instructores\" : [ " +
+                "{" +
+                " \"nombre\" : \"Facu\" ," +
+                " \"usuario\" : \"facu1\" ," +
+                " \"contrasena\" : \"1234\"}," +
+
+                "{" +
+                " \"nombre\" : \"Juan Perez\" ," +
+                " \"usuario\" : \"juanp\" ," +
+                " \"contrasena\" : \"1234\"}" +
+                "]" +
+                "}"
+
+        val gson = Gson()
+        val res = gson.fromJson(respuesta, Instructores::class.java)
+        Log.d("GSON", res.instructores?.count().toString())
 
     }
 
