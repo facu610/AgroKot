@@ -1,10 +1,10 @@
 package agronomia.coprotrab.agrokot.Actividades
 
+
+import agronomia.coprotrab.agrokot.Clases.DataResources.DataAccess_RegistroAgrotecnico_App
+import agronomia.coprotrab.agrokot.Clases.Instructor
 import agronomia.coprotrab.agrokot.Clases.Instructores
-import agronomia.coprotrab.agrokot.Clases.Network
 import agronomia.coprotrab.agrokot.R
-import android.app.VoiceInteractor
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
@@ -17,8 +17,10 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
+import com.google.gson.JsonArray
+import org.jetbrains.anko.*
+import org.json.JSONObject
 import java.io.InputStream
-import java.net.ResponseCache
 import java.net.URL
 import javax.net.ssl.HttpsURLConnection
 
@@ -43,31 +45,40 @@ class SincronizacionActivity : AppCompatActivity() {
 //            Toast.makeText(this, "Instructor cambiado con éxito, Bienvenido ", Toast.LENGTH_LONG).show()
 //        })
 
+
         val bSincroInstr = findViewById<Button>(R.id.b_SincroInstr)
         bSincroInstr.setOnClickListener(View.OnClickListener{
-           var respuesta = solicitudHTPPVolley("http://192.168.50.108/AppAgronomia/api/AA_Instructores")
-           val gson = Gson()
-           //val res = gson.fromJson(respuesta, Instructores::class.java)
-           //Log.d("GSON", res.instructores?.count().toString())
+
+            doAsync {
+
+                val respuesta = URL("http://192.168.50.108/AppAgronomia/api/AA_Instructores").readText()
+                //val respuesta = URL("https://api.openweathermap.org/data/2.5/forecast/daily?mode=json&units=metric&cnt=7").readText()
+                //val respuesta = URL(" https://jsonplaceholder.typicode.com/posts").readText()
+                val gson=Gson()
+                val instr = gson.fromJson(respuesta, Array<Instructor>::class.java)
+
+                val newinstr = Instructor(instr[1].ID_Instr.toInt(), instr[1].User_Instr, instr[1].Nombre_Instr, instr[1].Zona_Instr, instr[1].Issuper_Instr, instr[1].Idvehiculo_Instr, instr[1].Idmovil_Instr, instr[1].Pass_Instr)
+                DataAccess_RegistroAgrotecnico_App(this@SincronizacionActivity).insert_Instructores(newinstr)
+
+                //val nombre:String = instr[2].Nombre_Instr
+
+
+
+                uiThread { longToast("Instructores Sincronizados")
+                           longToast(newinstr.Nombre_Instr)}
+            }
+
+
+
+
+
+
+
+
+
+//
+//
         })
-
-        var respuesta = "{ \"instructores\" : [ " +
-                "{" +
-                " \"nombre\" : \"Facu\" ," +
-                " \"usuario\" : \"facu1\" ," +
-                " \"contrasena\" : \"1234\"}," +
-
-                "{" +
-                " \"nombre\" : \"Juan Perez\" ," +
-                " \"usuario\" : \"juanp\" ," +
-                " \"contrasena\" : \"1234\"}" +
-                "]" +
-                "}"
-
-        val gson = Gson()
-        val res = gson.fromJson(respuesta, Instructores::class.java)
-        Log.d("GSON", res.instructores?.count().toString())
-
     }
 
     //Metodo Volley
@@ -75,28 +86,11 @@ class SincronizacionActivity : AppCompatActivity() {
         val cola = Volley.newRequestQueue(this)
         val solicitud = StringRequest(Request.Method.GET, url, Response.Listener<String> { response ->
             try {
-                Log.d("solicitudHttp", response)
             } catch (e: Exception) {
-
             }
         }, Response.ErrorListener { })
         cola.add(solicitud)
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     private fun descargarDatos(url: String): String {
         val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
@@ -120,4 +114,6 @@ class SincronizacionActivity : AppCompatActivity() {
             }
         }
     }
+
+
 }
