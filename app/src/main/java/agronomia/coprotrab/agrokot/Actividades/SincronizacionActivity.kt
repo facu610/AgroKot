@@ -1,25 +1,20 @@
 package agronomia.coprotrab.agrokot.Actividades
 
-
-import agronomia.coprotrab.agrokot.Clases.DataResources.DataAccess_RegistroAgrotecnico_App
+import agronomia.coprotrab.agrokot.Clases.DataResources.database
 import agronomia.coprotrab.agrokot.Clases.Instructor
-import agronomia.coprotrab.agrokot.Clases.Instructores
 import agronomia.coprotrab.agrokot.R
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
-import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
-import com.google.gson.JsonArray
 import org.jetbrains.anko.*
-import org.json.JSONObject
+import org.jetbrains.anko.db.insert
 import java.io.InputStream
 import java.net.URL
 import javax.net.ssl.HttpsURLConnection
@@ -47,6 +42,8 @@ class SincronizacionActivity : AppCompatActivity() {
 
 
         val bSincroInstr = findViewById<Button>(R.id.b_SincroInstr)
+        val bSincroSoc: Button = findViewById<Button>(R.id.b_SincroSocios)
+
         bSincroInstr.setOnClickListener(View.OnClickListener{
 
             doAsync {
@@ -55,29 +52,31 @@ class SincronizacionActivity : AppCompatActivity() {
                 //val respuesta = URL("https://api.openweathermap.org/data/2.5/forecast/daily?mode=json&units=metric&cnt=7").readText()
                 //val respuesta = URL(" https://jsonplaceholder.typicode.com/posts").readText()
                 val gson=Gson()
-                val instr = gson.fromJson(respuesta, Array<Instructor>::class.java)
+                val instructores = gson.fromJson(respuesta, Array<Instructor>::class.java)
 
-                val newinstr = Instructor(instr[1].ID_Instr.toInt(), instr[1].User_Instr, instr[1].Nombre_Instr, instr[1].Zona_Instr, instr[1].Issuper_Instr, instr[1].Idvehiculo_Instr, instr[1].Idmovil_Instr, instr[1].Pass_Instr)
-                DataAccess_RegistroAgrotecnico_App(this@SincronizacionActivity).insert_Instructores(newinstr)
-
-                //val nombre:String = instr[2].Nombre_Instr
-
-
-
-                uiThread { longToast("Instructores Sincronizados")
-                           longToast(newinstr.Nombre_Instr)}
+                database.use {
+                    instructores.forEach {
+                        insert("AA_Instructores",
+                                "ID_Instr" to it.ID_Instr,
+                                        "User_Instr" to it.User_Instr,
+                                        "Nombre_Instr" to it.Nombre_Instr,
+                                        "Zona_Instr" to it.Zona_Instr,
+                                        "Issuper_Instr" to it.Issuper_Instr,
+                                        "Idvehiculo_Instr" to it.Idvehiculo_Instr,
+                                        "Idmovil_Instr" to it.Idmovil_Instr,
+                                        "Pass_Instr" to it.Pass_Instr)
+                    }
+                }
+                uiThread { longToast("Instructores Sincronizados")}
             }
+        })
 
-
-
-
-
-
-
-
-
-//
-//
+        bSincroSoc.setOnClickListener(View.OnClickListener {
+            doAsync {
+                val respuesta = URL("http://192.168.50.108/AppAgronomia/api/MaeSocios").readText()
+                val gson = Gson()
+                //val socios = gson.fromJson(respuesta, ArrayList<Socio>::class.java)
+            }
         })
     }
 

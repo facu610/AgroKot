@@ -18,7 +18,7 @@ class DBHelper (ctx: Context) : ManagedSQLiteOpenHelper(ctx, "RegistroAgrotecnic
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        db!!.createTable("AA_Socios", true,
+        db.createTable("AA_Socios", true,
                 "ID_Soc" to INTEGER + PRIMARY_KEY,
                           "FET_Soc" to INTEGER,
                           "Nombre_Soc" to TEXT,
@@ -28,7 +28,7 @@ class DBHelper (ctx: Context) : ManagedSQLiteOpenHelper(ctx, "RegistroAgrotecnic
                           "Ubicacion_Soc" to TEXT,
                           "Telefono_Soc" to INTEGER)
 
-        db!!.createTable("AA_Instructores", true,
+        db.createTable("AA_Instructores", true,
                 "ID_Instr" to INTEGER + PRIMARY_KEY,
                 "User_Instr" to TEXT,
                 "Nombre_Instr" to TEXT,
