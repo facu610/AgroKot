@@ -18,15 +18,14 @@ class DBHelper (ctx: Context) : ManagedSQLiteOpenHelper(ctx, "RegistroAgrotecnic
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.createTable("AA_Socios", true,
+        db.createTable("AA_MaeSocios", true,
                 "ID_Soc" to INTEGER + PRIMARY_KEY,
                           "FET_Soc" to INTEGER,
                           "Nombre_Soc" to TEXT,
                           "Kilos_Soc" to INTEGER,
                           "Domicilio_Soc" to TEXT,
                           "Localidad_Soc" to TEXT,
-                          "Ubicacion_Soc" to TEXT,
-                          "Telefono_Soc" to INTEGER)
+                          "Telefono_Soc" to TEXT)
 
         db.createTable("AA_Instructores", true,
                 "ID_Instr" to INTEGER + PRIMARY_KEY,
@@ -47,11 +46,18 @@ class DBHelper (ctx: Context) : ManagedSQLiteOpenHelper(ctx, "RegistroAgrotecnic
         //      a la nueva, por lo que este método debería ser más elaborado.
 
         //Se elimina la versión anterior de la tabla
-        //db.execSQL("DROP TABLE IF EXISTS AA_Instructores")
+        db.dropTable("AA_Socios")
 
-        //Se crea la nueva versión de la tabla
-        //db.execSQL(sqlCreate)
-    }
+        db.createTable("AA_MaeSocios", true,
+                "ID_Soc" to INTEGER + PRIMARY_KEY,
+                "FET_Soc" to INTEGER,
+                "Nombre_Soc" to TEXT,
+                "Kilos_Soc" to INTEGER,
+                "Domicilio_Soc" to TEXT,
+                "Localidad_Soc" to TEXT,
+                "Telefono_Soc" to TEXT)
+
+        }
 
 }
 

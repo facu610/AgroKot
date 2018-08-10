@@ -1,13 +1,10 @@
 package agronomia.coprotrab.agrokot.Clases.Adapters
 
-import agronomia.coprotrab.agrokot.Clases.Instructor
-import agronomia.coprotrab.agrokot.R
+import agronomia.coprotrab.agrokot.Clases.Entidades.Instructor
 import android.content.Context
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.TextView
 
 class Instructor_Adapter(var contex:Context, items:ArrayList<Instructor>):BaseAdapter() {
 

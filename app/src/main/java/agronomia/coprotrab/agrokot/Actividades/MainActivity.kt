@@ -1,9 +1,8 @@
 package agronomia.coprotrab.agrokot.Actividades
 
 import agronomia.coprotrab.agrokot.Clases.Adapters.MenuItem_Adapter
-import agronomia.coprotrab.agrokot.Clases.DataResources.DBHelper
 import agronomia.coprotrab.agrokot.Clases.DataResources.DataAccess_RegistroAgrotecnico_App
-import agronomia.coprotrab.agrokot.Clases.Instructor
+import agronomia.coprotrab.agrokot.Clases.Entidades.Instructor
 import agronomia.coprotrab.agrokot.Clases.MenuItem
 import agronomia.coprotrab.agrokot.R
 import android.content.Intent
@@ -26,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        DataAccess_RegistroAgrotecnico_App(this).insert_Instructores(Instructor(9,"Sincronico","nombresincro",9,9,9,9,"as" ))
+        DataAccess_RegistroAgrotecnico_App(this).insert_Instructores(Instructor(9, "Sincronico", "nombresincro", 9, 9, 9, 9, "as"))
 
         tvInstr = findViewById<TextView>(R.id.tv_Instr)
         tvZona = findViewById<TextView>(R.id.tv_Zona)

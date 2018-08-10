@@ -1,7 +1,10 @@
 package agronomia.coprotrab.agrokot.Actividades
 
+import agronomia.coprotrab.agrokot.Clases.DataResources.DBHelper
+import agronomia.coprotrab.agrokot.Clases.DataResources.DataAccess_RegistroAgrotecnico_App
 import agronomia.coprotrab.agrokot.Clases.DataResources.database
-import agronomia.coprotrab.agrokot.Clases.Instructor
+import agronomia.coprotrab.agrokot.Clases.Entidades.Instructor
+import agronomia.coprotrab.agrokot.Clases.Entidades.MaeSocio
 import agronomia.coprotrab.agrokot.R
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -40,7 +43,6 @@ class SincronizacionActivity : AppCompatActivity() {
 //            Toast.makeText(this, "Instructor cambiado con éxito, Bienvenido ", Toast.LENGTH_LONG).show()
 //        })
 
-
         val bSincroInstr = findViewById<Button>(R.id.b_SincroInstr)
         val bSincroSoc: Button = findViewById<Button>(R.id.b_SincroSocios)
 
@@ -75,7 +77,21 @@ class SincronizacionActivity : AppCompatActivity() {
             doAsync {
                 val respuesta = URL("http://192.168.50.108/AppAgronomia/api/MaeSocios").readText()
                 val gson = Gson()
-                //val socios = gson.fromJson(respuesta, ArrayList<Socio>::class.java)
+                val maesocios = gson.fromJson(respuesta, Array<MaeSocio>::class.java)
+
+                database.use {
+                    maesocios.forEach {
+                        insert("AA_MaeSocio",
+                                "ID_Soc" to it.ID_Soc,
+                                        "FET_Soc" to it.FET_Soc,
+                                        "Nombre_Soc" to it.Nombre_Soc,
+                                        "Kilos_Soc" to it.Kilos_Soc,
+                                        "Domicilio_Soc" to it.Domicilio_Soc,
+                                        "Localidad_Soc" to it.Localidad_Soc,
+                                        "Telefono_Soc" to it.Telefono_Soc)
+                    }
+                }
+                uiThread { longToast("Socios Sincronizados. Total: " + maesocios.count().toString() ) }
             }
         })
     }

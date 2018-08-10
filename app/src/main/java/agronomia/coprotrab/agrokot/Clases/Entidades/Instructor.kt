@@ -1,4 +1,4 @@
-package agronomia.coprotrab.agrokot.Clases
+package agronomia.coprotrab.agrokot.Clases.Entidades
 
 class Instructor (id_instr:Int, user_inst:String, nombre_instr:String, zona_instr:Int, issuper_instr:Int, idvehi_instr:Int, idmovil_instr:Int, pass_instr: String ){
 

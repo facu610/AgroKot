@@ -1,6 +1,6 @@
 package agronomia.coprotrab.agrokot.Clases.DataResources
 
-import agronomia.coprotrab.agrokot.Clases.Instructor
+import agronomia.coprotrab.agrokot.Clases.Entidades.Instructor
 import android.content.Context
 import org.jetbrains.anko.db.MapRowParser
 import org.jetbrains.anko.db.delete
