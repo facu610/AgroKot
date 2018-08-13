@@ -13,10 +13,12 @@ import android.widget.*
 
 class MainActivity : AppCompatActivity() {
 
+    //VARIABLES FIJAS HASTA
     val TAG = "agronomia.coprotab.agrokot.INSTRUCTOR"
-
     var tvInstr:TextView? = null
     var tvZona:TextView? = null
+
+    val InstState = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

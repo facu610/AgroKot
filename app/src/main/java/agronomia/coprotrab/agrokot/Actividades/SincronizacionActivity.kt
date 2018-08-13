@@ -1,7 +1,5 @@
 package agronomia.coprotrab.agrokot.Actividades
 
-import agronomia.coprotrab.agrokot.Clases.DataResources.DBHelper
-import agronomia.coprotrab.agrokot.Clases.DataResources.DataAccess_RegistroAgrotecnico_App
 import agronomia.coprotrab.agrokot.Clases.DataResources.database
 import agronomia.coprotrab.agrokot.Clases.Entidades.Instructor
 import agronomia.coprotrab.agrokot.Clases.Entidades.MaeSocio
@@ -75,13 +73,13 @@ class SincronizacionActivity : AppCompatActivity() {
 
         bSincroSoc.setOnClickListener(View.OnClickListener {
             doAsync {
-                val respuesta = URL("http://192.168.50.108/AppAgronomia/api/MaeSocios").readText()
-                val gson = Gson()
-                val maesocios = gson.fromJson(respuesta, Array<MaeSocio>::class.java)
+                val respuestasocios = URL("http://192.168.50.108/AppAgronomia/api/MaeSocios").readText()
+                val gsonsocios = Gson()
+                val maesocios = gsonsocios.fromJson(respuestasocios, Array<MaeSocio>::class.java)
 
                 database.use {
                     maesocios.forEach {
-                        insert("AA_MaeSocio",
+                        insert("AA_MaeSocios",
                                 "ID_Soc" to it.ID_Soc,
                                         "FET_Soc" to it.FET_Soc,
                                         "Nombre_Soc" to it.Nombre_Soc,
