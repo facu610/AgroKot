@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/iv_template_Icono"
+        android:id="@+id/iv_temp_Icono"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:adjustViewBounds="false"
@@ -15,7 +15,7 @@
         app:srcCompat="@drawable/ic_bookweb" />
 
     <TextView
-        android:id="@+id/tv_template_nombreIcono"
+        android:id="@+id/tv_temp_nombreIcono"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="TextView"

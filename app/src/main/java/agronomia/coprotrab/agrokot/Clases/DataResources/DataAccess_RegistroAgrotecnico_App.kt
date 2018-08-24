@@ -1,6 +1,7 @@
 package agronomia.coprotrab.agrokot.Clases.DataResources
 
 import agronomia.coprotrab.agrokot.Clases.Entidades.Instructor
+import agronomia.coprotrab.agrokot.Clases.Entidades.MaeSocio
 import android.content.Context
 import org.jetbrains.anko.db.MapRowParser
 import org.jetbrains.anko.db.delete
@@ -57,6 +58,70 @@ class DataAccess_RegistroAgrotecnico_App(val context: Context) {
 
     fun delete_Instructores(instr: Instructor) = context.database.use {
         delete("AA_Instructores")
+    }
+
+    fun select_MaeSocios(): ArrayList<MaeSocio> = context.database.use {
+        val maesocios = ArrayList<MaeSocio>()
+
+        select("AA_MaeSocios", "ID_Soc", "FET_Soc", "Nombre_Soc", "Kilos_Soc", "Domicilio_Soc", "Localidad_Soc", "Telefono_Soc")
+                .parseList(object : MapRowParser<List<MaeSocio>> {
+                    override fun parseRow(columns: Map<String, Any?>): List<MaeSocio> {
+                        val ID_Soc = columns.getValue("ID_Soc")
+                        val FET_Soc = columns.getValue("FET_Soc")
+                        val Nombre_Soc = columns.getValue("Nombre_Soc")
+                        val Kilos_Soc = columns.getValue("Kilos_Soc")
+                        val Domicilio_Soc = columns.getValue("Domicilio_Soc")
+                        val Localidad_Soc = columns.getValue("Localidad_Soc")
+                        val Telefono_Soc = columns.getValue("Telefono_Soc")
+
+                        val maesocio = MaeSocio(ID_Soc.toString().toInt(),
+                                FET_Soc.toString().toInt(),
+                                Nombre_Soc.toString(),
+                                Kilos_Soc.toString().toInt(),
+                                Domicilio_Soc.toString(),
+                                Localidad_Soc.toString(),
+                                Telefono_Soc.toString()
+                        )
+
+                        maesocios.add(maesocio)
+
+                        return maesocios
+                    }
+                })
+
+        maesocios
+    }
+
+    fun select_MaeSocio(id_socio:Int): MaeSocio = context.database.use {
+
+        var maesocio: MaeSocio? = null
+
+        select("AA_MaeSocios")
+                .where("(ID_Soc = {id})",
+                        "id" to id_socio)
+                .parseOpt(object : MapRowParser<MaeSocio> {
+                    override fun parseRow(columns: Map<String, Any?>): MaeSocio {
+                        val ID_Soc = columns.getValue("ID_Soc")
+                        val FET_Soc = columns.getValue("FET_Soc")
+                        val Nombre_Soc = columns.getValue("Nombre_Soc")
+                        val Kilos_Soc = columns.getValue("Kilos_Soc")
+                        val Domicilio_Soc = columns.getValue("Domicilio_Soc")
+                        val Localidad_Soc = columns.getValue("Localidad_Soc")
+                        val Telefono_Soc = columns.getValue("Telefono_Soc")
+
+                        maesocio = MaeSocio(
+                                ID_Soc.toString().toInt(),
+                                FET_Soc.toString().toInt(),
+                                Nombre_Soc.toString(),
+                                Kilos_Soc.toString().toInt(),
+                                Domicilio_Soc.toString(),
+                                Localidad_Soc.toString(),
+                                Telefono_Soc.toString())
+
+                        return maesocio!!
+                    }
+                })
+        maesocio!!
     }
 }
 

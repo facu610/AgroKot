@@ -3,40 +3,118 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Actividades.FichaActivity">
 
 
-    <TextView
-        android:id="@+id/tv1"
+    <android.support.v7.widget.GridLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-    <TextView
-        android:id="@+id/tv2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-    <TextView
-        android:id="@+id/tv3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-    <TextView
-        android:id="@+id/tv4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="match_parent"
+        app:rowCount="13"
+        app:columnCount="2"
+        app:orientation="horizontal">
+
+
+        <TextView
+            android:text="Código Soc.: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        <TextView
+            android:id="@+id/tv_ActFich_ID_Soc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:text="Nombre Soc.: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        <TextView
+            android:id="@+id/tv_ActFich_Nombre_Soc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:text="Domicilio: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        <TextView
+            android:id="@+id/tv_ActFich_Dom_Soc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:text="Localidad: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        <TextView
+            android:id="@+id/tv_ActFich_Loc_Soc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+
+        <TextView
+            android:text="Teléfono: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        <TextView
+            android:id="@+id/tv_ActFich_Tel_Soc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:text="Compromiso: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        <TextView
+            android:id="@+id/tv_ActFich_Compro_Soc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
 
     <Button
-        android:id="@+id/b_Generales"
+        android:id="@+id/b_Act_Fic_Generales"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Generales" />
+        android:text="Generales"
+        app:layout_columnSpan="2" />
 
     <Button
-        android:id="@+id/b_Agronomicos"
+        android:id="@+id/b_Act_Fic_Agronomicos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Agronómicos" />
-</LinearLayout>
+        android:text="Agronómicos"
+        app:layout_columnSpan="2" />
+    <Button
+        android:id="@+id/b_Act_Fic_Infraestructura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Infraestructura"
+        app:layout_columnSpan="2" />
+    <Button
+        android:id="@+id/b_Act_Fic_Almacigos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Almácigos"
+        app:layout_columnSpan="2" />
+    <Button
+        android:id="@+id/b_Act_Fic_Plantacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Plantación"
+        app:layout_columnSpan="2" />
+    <Button
+        android:id="@+id/b_Act_Fic_Cosecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cosecha"
+        app:layout_columnSpan="2" />
+    <Button
+        android:id="@+id/b_Act_Fic_EmisionesGEI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Emisión GEI"
+        app:layout_columnSpan="2" />
+
+    </android.support.v7.widget.GridLayout>
+ </LinearLayout>

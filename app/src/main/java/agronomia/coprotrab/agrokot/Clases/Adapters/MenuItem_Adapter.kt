@@ -54,8 +54,8 @@ class MenuItem_Adapter(var contex: Context, items:ArrayList<MenuItem>): BaseAdap
         var nombre:TextView? = null
         var imagen:ImageView? = null
         init {
-            nombre = vista.findViewById(R.id.tv_template_nombreIcono)
-            imagen = vista.findViewById(R.id.iv_template_Icono)
+            nombre = vista.findViewById(R.id.tv_temp_nombreIcono)
+            imagen = vista.findViewById(R.id.iv_temp_Icono)
         }
 
     }

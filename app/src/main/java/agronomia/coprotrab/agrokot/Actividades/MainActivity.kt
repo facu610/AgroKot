@@ -13,21 +13,16 @@ import android.widget.*
 
 class MainActivity : AppCompatActivity() {
 
-    //VARIABLES FIJAS HASTA
-    val TAG = "agronomia.coprotab.agrokot.INSTRUCTOR"
+    //VARIABLES
+    val TAGACT = "agronomia.coprotab.agrokot.FICHA"
     var tvInstr:TextView? = null
     var tvZona:TextView? = null
 
-    val InstState = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-
-        DataAccess_RegistroAgrotecnico_App(this).insert_Instructores(Instructor(9, "Sincronico", "nombresincro", 9, 9, 9, 9, "as"))
 
         tvInstr = findViewById<TextView>(R.id.tv_Instr)
         tvZona = findViewById<TextView>(R.id.tv_Zona)
@@ -49,9 +44,10 @@ class MainActivity : AppCompatActivity() {
 
         grid.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             if (menuitems.get(position).nombre == "Fichas") {
-                val intent = Intent(this, FichaActivity::class.java)
-                intent.putExtra(TAG, "instructor-Facu Martinez")
-                startActivity(intent) }
+                val intentFichas = Intent(this, SocioActivity::class.java)
+                intentFichas.putExtra(TAGACT, "FICHA")
+                startActivity(intentFichas)
+            }
             if (menuitems.get(position).nombre == "Sincronización") {
                 val intentSincronizacion = Intent(this, SincronizacionActivity::class.java)
                 startActivity(intentSincronizacion)
