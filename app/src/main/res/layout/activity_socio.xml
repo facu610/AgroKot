@@ -14,7 +14,6 @@
         android:background="@color/primaryColor"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:titleTextColor="@color/primaryTextColor" />
 
     <TextView
@@ -23,7 +22,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="Seleccione un Socio"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/secondaryTextColor"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 

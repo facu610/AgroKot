@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragments.AgroAguaySueloFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <android.support.v7.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:columnCount="3"
+        app:useDefaultMargins="true"
+        app:orientation="horizontal"
+        app:rowCount="13">
+
+        <TextView
+            android:ems="7"
+            android:text="Suelo "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="3"/>
+
+
+
+        <TextView
+            android:ems="4"
+            android:text="N: "
+            android:gravity="right"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor"/>
+        <EditText
+            android:id="@+id/et_FAgro_AyS_N"
+            android:ems="4"
+            android:textColor="@color/secondaryTextColor" />
+        <Spinner
+            android:id="@+id/s_FAgro_AyS_Nu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"/>
+
+
+
+        <TextView
+            android:ems="4"
+            android:text="P: "
+            android:gravity="right"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor"/>
+        <EditText
+            android:id="@+id/et_FAgro_AyS_P"
+            android:ems="4"
+            android:textColor="@color/secondaryTextColor" />
+        <Spinner
+            android:id="@+id/s_FAgro_AyS_Pu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"/>
+
+
+
+        <TextView
+            android:ems="4"
+            android:text="K: "
+            android:gravity="right"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor"/>
+        <EditText
+            android:id="@+id/et_FAgro_AyS_K"
+            android:ems="4"
+            android:textColor="@color/secondaryTextColor" />
+        <Spinner
+            android:id="@+id/s_FAgro_AyS_Ku"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"/>
+
+
+
+        <TextView
+            android:ems="4"
+            android:text="MO: "
+            android:gravity="right"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor"/>
+        <EditText
+            android:id="@+id/et_FAgro_AyS_MO"
+            android:ems="4"
+            android:textColor="@color/secondaryTextColor" />
+        <Spinner
+            android:id="@+id/s_FAgro_AyS_MOu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"/>
+
+
+
+        <TextView
+            android:ems="4"
+            android:text="PH: "
+            android:gravity="right"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor" />
+        <EditText
+            android:id="@+id/et_FAgro_AyS_PHSuelo"
+            android:ems="4"
+            app:layout_columnSpan="2"
+            android:textColor="@color/secondaryTextColor" />
+
+
+
+        <TextView
+            android:ems="7"
+            android:text="Agua "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="3"/>
+
+
+
+        <TextView
+            android:ems="4"
+            android:text="CE: "
+            android:gravity="right"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor"/>
+        <EditText
+            android:id="@+id/et_FAgro_AyS_CE"
+            android:ems="4"
+            android:textColor="@color/secondaryTextColor" />
+        <Spinner
+            android:id="@+id/s_FAgro_AyS_CEu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"/>
+
+
+
+        <TextView
+            android:ems="4"
+            android:text="Carb: "
+            android:gravity="right"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor"/>
+        <EditText
+            android:id="@+id/et_FAgro_AyS_Carb"
+            android:ems="4"
+            android:textColor="@color/secondaryTextColor" />
+        <Spinner
+            android:id="@+id/s_FAgro_AyS_Carbu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"/>
+
+
+
+        <TextView
+            android:ems="4"
+            android:text="PH: "
+            android:gravity="right"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor" />
+        <EditText
+            android:id="@+id/et_FAgro_AyS_PHAgua"
+            android:ems="4"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="2"/>
+
+
+
+        <TextView
+            android:ems="7"
+            android:text="Observaciones: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="3"/>
+
+
+
+        <EditText
+            android:id="@+id/et_FAgro_AyS_Obs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center"
+            android:textColor="@color/secondaryTextColor"
+            android:textColorHint="@color/secondaryTextColor"
+            android:hint="Escriba aquí..."
+            app:layout_columnSpan="3"
+            android:inputType="numberSigned" />
+
+        <Button
+            android:id="@+id/b_FAgro_AyS_Guardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Guardar"
+            android:textSize="20dp"
+            app:layout_columnSpan="3"
+            android:drawableLeft="@drawable/ic_save_24dp"
+            app:layout_gravity="center"/>
+
+
+    </android.support.v7.widget.GridLayout>
+
+
+</LinearLayout>

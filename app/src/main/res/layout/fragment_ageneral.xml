@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragments.AgroGeneralFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <android.support.v7.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:columnCount="2"
+        app:useDefaultMargins="true"
+        app:orientation="horizontal"
+        app:rowCount="9">
+
+        <TextView
+            android:ems="7"
+            android:text="Has. Propias: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor" />
+
+        <EditText
+            android:id="@+id/et_FAgro_Gral_HPropias"
+            android:ems="8"
+            android:textColor="@color/secondaryTextColor" />
+
+        <TextView
+            android:ems="7"
+            android:text="Has. Arrendadas: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor" />
+
+        <EditText
+            android:id="@+id/et_FAgro_Gral_HArren"
+            android:ems="8"
+            android:textColor="@color/secondaryTextColor" />
+
+        <TextView
+            android:ems="7"
+            android:text="Has. Totales: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor" />
+
+        <TextView
+            android:id="@+id/tv_FAgro_Gral_HTotal"
+            android:ems="8"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor" />
+
+        <TextView
+
+            android:text="Categoría DTR: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor" />
+
+        <Spinner
+            android:id="@+id/s_FAgro_Gral_DTR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:minWidth="120dp"/>
+
+
+        <CheckBox
+            android:id="@+id/cb_FAgro_Gral_Verdeos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verdeos" />
+
+        <EditText
+            android:id="@+id/et_FAgro_Gral_HasVerdeos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/secondaryTextColor"
+            android:textColorHint="@color/secondaryTextColor"
+            android:hint="Hectáreas"
+            android:inputType="numberSigned" />
+
+        <CheckBox
+            android:id="@+id/cb_FAgro_Gral_Rotac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rotaciones" />
+
+        <EditText
+            android:id="@+id/et_FAgro_Gral_HasRotac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/secondaryTextColor"
+            android:textColorHint="@color/secondaryTextColor"
+            android:hint="Hectáreas"
+            android:inputType="numberSigned" />
+
+        <CheckBox
+            android:id="@+id/cb_FAgro_Gral_DepAPC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dep. APC" />
+        <CheckBox
+            android:id="@+id/cb_FAgro_Gral_CumpRec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Cumple Rec.?" />
+
+        <TextView
+
+            android:text="Manga Riego:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor" />
+
+        <EditText
+            android:id="@+id/et_FAgro_Gral_HasMangRieg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/secondaryTextColor"
+            android:textColorHint="@color/secondaryTextColor"
+            android:hint="Hectáreas"
+            android:inputType="numberSigned" />
+
+        <Button
+            android:id="@+id/b_FAgro_Gral_Guardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Guardar"
+            android:textSize="20dp"
+            android:padding="16dp"
+            app:layout_columnSpan="2"
+            android:drawableLeft="@drawable/ic_save_24dp"
+            app:layout_gravity="center"/>
+
+
+    </android.support.v7.widget.GridLayout>
+
+
+</LinearLayout>

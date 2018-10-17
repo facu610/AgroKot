@@ -7,114 +7,137 @@
     android:orientation="vertical"
     tools:context=".Actividades.FichaActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_act_ficha"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:titleTextColor="@color/primaryTextColor" />
+
 
     <android.support.v7.widget.GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:rowCount="13"
+        android:layout_margin="10dp"
         app:columnCount="2"
-        app:orientation="horizontal">
+        app:orientation="horizontal"
+        app:rowCount="13">
 
 
         <TextView
             android:text="Código Soc.: "
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:ems="6"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="1"/>
         <TextView
             android:id="@+id/tv_ActFich_ID_Soc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:ems="8"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="1"/>
+
+
 
         <TextView
             android:text="Nombre Soc.: "
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:ems="6"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="1"/>
         <TextView
             android:id="@+id/tv_ActFich_Nombre_Soc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:ems="8"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="1"/>
+
+
 
         <TextView
             android:text="Domicilio: "
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:ems="6"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="1"/>
         <TextView
             android:id="@+id/tv_ActFich_Dom_Soc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:ems="8"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="1"/>
+
+
 
         <TextView
             android:text="Localidad: "
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:ems="6"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="1"/>
         <TextView
             android:id="@+id/tv_ActFich_Loc_Soc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:ems="8"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="1"/>
+
 
 
         <TextView
             android:text="Teléfono: "
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:ems="6"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="1"/>
         <TextView
             android:id="@+id/tv_ActFich_Tel_Soc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:ems="8"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="1"/>
+
+
+
 
         <TextView
             android:text="Compromiso: "
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:ems="6"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="1"/>
         <TextView
             android:id="@+id/tv_ActFich_Compro_Soc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:ems="8"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="1"/>
 
 
-    <Button
-        android:id="@+id/b_Act_Fic_Generales"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Generales"
-        app:layout_columnSpan="2" />
+        <GridView
+            android:id="@+id/gv_menuficha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numColumns="2"
+            app:layout_columnSpan="2"/>
 
-    <Button
-        android:id="@+id/b_Act_Fic_Agronomicos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Agronómicos"
-        app:layout_columnSpan="2" />
-    <Button
-        android:id="@+id/b_Act_Fic_Infraestructura"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Infraestructura"
-        app:layout_columnSpan="2" />
-    <Button
-        android:id="@+id/b_Act_Fic_Almacigos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Almácigos"
-        app:layout_columnSpan="2" />
-    <Button
-        android:id="@+id/b_Act_Fic_Plantacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Plantación"
-        app:layout_columnSpan="2" />
-    <Button
-        android:id="@+id/b_Act_Fic_Cosecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cosecha"
-        app:layout_columnSpan="2" />
-    <Button
-        android:id="@+id/b_Act_Fic_EmisionesGEI"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Emisión GEI"
-        app:layout_columnSpan="2" />
+
+
 
     </android.support.v7.widget.GridLayout>
  </LinearLayout>

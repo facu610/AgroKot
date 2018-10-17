@@ -22,78 +22,107 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        app:alignmentMode="alignBounds"
         android:padding="5dp"
         app:columnCount="2"
         app:useDefaultMargins="true"
         app:orientation="horizontal"
-        app:rowCount="7">
+        app:rowCount="8">
 
 
         <TextView
             android:text="Finca: "
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:ems="7"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor" />
 
         <EditText
             android:id="@+id/et_Fgrales_Finca"
-            android:ems="5"
-            android:inputType="textPersonName"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            android:ems="7"
+            android:textColor="@color/secondaryTextColor"/>
 
 
         <TextView
             android:text="Localidad: "
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            android:ems="7"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor"/>
 
         <EditText
             android:id="@+id/et_Fgrales_Local"
-            android:ems="5"
-            android:inputType="textPersonName"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
-
+            android:ems="7"
+            android:textColor="@color/secondaryTextColor" />
 
         <TextView
             android:text="Riesgo APC"
+            android:ems="7"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor"
             app:layout_columnSpan="2" />
 
 
         <TextView
             android:text="1"
+            android:gravity="center"
+            android:ems="7"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textAlignment="center"/>
+            android:textColor="@color/secondaryTextColor" />
 
         <TextView
             android:text="Nombre Producto"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:gravity="center"
+            android:ems="7"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor" />
 
 
         <TextView
             android:text="Ubicación"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:ems="7"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor" />
 
         <ImageButton
             android:id="@+id/b_Fgrales_Ubic"
-            app:srcCompat="@drawable/ic_place" />
+            app:layout_gravity="center"
+            android:ems="7"
+            app:srcCompat="@drawable/ic_place_24dp"
+            android:background="@color/backgroundLightColor" />
 
         <TextView
             android:text="Latitud: "
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:ems="7"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor" />
 
         <TextView
             android:id="@+id/tv_Fgrales_Lat"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:ems="7"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor" />
 
 
         <TextView
             android:text="Longitud: "
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:ems="7"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor" />
 
         <TextView
             android:id="@+id/tv_Fgrales_Long"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:ems="7"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor"/>
 
+        <Button
+            android:id="@+id/b_Fgrales_Guardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Guardar"
+            android:textSize="20dp"
+            android:padding="16dp"
+            android:drawableLeft="@drawable/ic_save_24dp"
+            app:layout_gravity="bottom"
+           />
 
     </android.support.v7.widget.GridLayout>
-
 </LinearLayout>

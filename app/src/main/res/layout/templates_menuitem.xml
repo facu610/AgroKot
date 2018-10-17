@@ -11,16 +11,16 @@
         android:layout_height="150dp"
         android:adjustViewBounds="false"
         android:cropToPadding="false"
-        android:textAlignment="center"
-        app:srcCompat="@drawable/ic_bookweb" />
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/tv_temp_nombreIcono"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="TextView"
+        android:layout_marginBottom="10dp"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/secondaryLightColor" />
+        android:textColor="@color/secondaryTextColor" />
 
 </LinearLayout>

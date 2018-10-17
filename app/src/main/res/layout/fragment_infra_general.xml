@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragments.InfraGeneralFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <android.support.v7.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:columnCount="2"
+        app:useDefaultMargins="true"
+        app:orientation="horizontal"
+        app:rowCount="8">
+
+        <CheckBox
+            android:id="@+id/cb_FInfra_Gral_CumpRec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cumple Recomendaciones?"
+            app:layout_columnSpan="2"/>
+
+
+
+        <CheckBox
+            android:id="@+id/cb_FInfra_Gral_Galpon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Posee Galpón?"
+            app:layout_columnSpan="2"/>
+
+
+
+        <TextView
+            android:ems="6"
+            android:text="Galpón m3"
+            android:gravity="right"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor"/>
+        <EditText
+            android:id="@+id/et_FInfra_Gral_m3Galpon"
+            android:ems="4"
+            android:textColor="@color/secondaryTextColor"
+            android:inputType="number"/>
+
+
+
+        <TextView
+            android:ems="6"
+            android:text="Total Cañas"
+            android:gravity="right"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor"/>
+        <EditText
+            android:id="@+id/et_FInfra_Gral_TotCañas"
+            android:ems="4"
+            android:textColor="@color/secondaryTextColor"
+            android:inputType="number"/>
+
+
+
+        <TextView
+            android:ems="6"
+            android:text="Has/Estufas"
+            android:gravity="right"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/secondaryTextColor"/>
+        <EditText
+            android:id="@+id/et_FInfra_Fral_HasEst"
+            android:ems="4"
+            android:textColor="@color/secondaryTextColor" />
+
+
+
+        <TextView
+            android:ems="7"
+            android:text="Observaciones: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_columnSpan="2"/>
+
+
+
+        <EditText
+            android:id="@+id/et_FInfra_Gral_Obs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center"
+            android:textColor="@color/secondaryTextColor"
+            android:textColorHint="@color/secondaryTextColor"
+            android:hint="Escriba aquí..."
+            app:layout_columnSpan="2"
+            android:inputType="numberSigned" />
+
+        <Button
+            android:id="@+id/b_FInfra_Gral_Guardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Guardar"
+            android:textSize="20dp"
+            app:layout_columnSpan="2"
+            android:drawableLeft="@drawable/ic_save_24dp"
+            app:layout_gravity="center"/>
+
+
+    </android.support.v7.widget.GridLayout>
+
+
+</LinearLayout>

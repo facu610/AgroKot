@@ -4,21 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryDarkColor"
     android:orientation="vertical"
     android:theme="@style/AppTheme"
+    android:background="@color/backgroundLightColor"
     tools:context=".Actividades.MainActivity">
 
     <TextView
         android:id="@+id/tv_Instr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:ems="10"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/secondaryTextColor"
         android:text="@string/muestrainstructor" />
 
     <TextView
         android:id="@+id/tv_Zona"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:ems="10"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/secondaryTextColor"
         android:text="@string/muestrazona" />
 
     <GridView

@@ -8,8 +8,10 @@ import agronomia.coprotrab.agrokot.R
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.annotation.AttrRes
 import android.support.v7.widget.Toolbar
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -17,6 +19,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.support.v7.widget.SearchView
+import org.jetbrains.anko.colorAttr
 
 class SocioActivity : AppCompatActivity(){
 
@@ -67,6 +70,7 @@ class SocioActivity : AppCompatActivity(){
 
         toolbar = findViewById(R.id.tb_act_soc)
         toolbar?.title ="Fichas | Visitas"
+        toolbar?.setTitleMargin(10,10,10,10)
         setSupportActionBar(toolbar)
     }
 
@@ -78,6 +82,7 @@ class SocioActivity : AppCompatActivity(){
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         searchView.queryHint = "Escribe un nombre..."
         searchView.setOnQueryTextFocusChangeListener { v, hasFocus ->
+
         }
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {

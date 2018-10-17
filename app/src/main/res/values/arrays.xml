@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categoriasDTR">
+        <item>Sin Riesgo</item>
+        <item>Bajo Riesgo</item>
+        <item>Medio Riesgo</item>
+        <item>Alto Riesgo</item>
+    </string-array>
+
+    <string-array name="unidades">
+        <item>%</item>
+        <item>ppm.</item>
+    </string-array>
+
+
+
+</resources>
