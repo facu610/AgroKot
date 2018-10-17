@@ -93,7 +93,8 @@ class FGeneralesActivity : AppCompatActivity() {
                                 "Local_Soc" to et_Fgrales_Local.text.toString(),
                                 "Coord_Soc" to tv_Fgrales_Lat.text.toString() + " " + tv_Fgrales_Long.text.toString(),
                                 "Zona_Soc" to 1,
-                                "ToSincro" to 1)
+                                "ToSincro" to 1
+                        )
                     }
                     uiThread { longToast("Ficha Guardada ") }
                 }

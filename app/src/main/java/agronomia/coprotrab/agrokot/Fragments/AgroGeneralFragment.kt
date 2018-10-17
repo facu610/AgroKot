@@ -43,7 +43,11 @@ class AgroGeneralFragment : Fragment(){
 
         fichaexistente = DataAccess_RegistroAgrotecnico_App(activity!!).select_FGenerales(id_socio!!)
 
-        Toast.makeText(activity!!, "id socio " + id_socio.toString(), Toast.LENGTH_LONG)
+
+
+
+
+        //Toast.makeText(activity!!, "id socio " + id_socio.toString(), Toast.LENGTH_LONG).show()
 
 
 

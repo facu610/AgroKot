@@ -2,6 +2,7 @@ package agronomia.coprotrab.agrokot.Actividades
 
 import agronomia.coprotrab.agrokot.Clases.Adapters.MenuItem_Adapter
 import agronomia.coprotrab.agrokot.Clases.DataResources.DataAccess_RegistroAgrotecnico_App
+import agronomia.coprotrab.agrokot.Clases.Entidades.FichaGeneral
 import agronomia.coprotrab.agrokot.Clases.Entidades.MaeSocio
 import agronomia.coprotrab.agrokot.R
 import android.support.v7.app.AppCompatActivity
@@ -13,6 +14,7 @@ import android.content.Intent
 import android.widget.AdapterView
 import android.widget.GridView
 import android.widget.TextView
+import android.widget.Toast
 
 
 class FichaActivity : AppCompatActivity() {
@@ -27,6 +29,7 @@ class FichaActivity : AppCompatActivity() {
     var tv_actfich_tel_soc: TextView? = null
     var tv_actfich_compro_soc: TextView? = null
     var toolbar: Toolbar? = null
+    var fichaexistente: FichaGeneral? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +43,7 @@ class FichaActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         maesocio = DataAccess_RegistroAgrotecnico_App(this).select_MaeSocio(id_soc.toInt())
+        fichaexistente = DataAccess_RegistroAgrotecnico_App(this).select_FGenerales(maesocio?.ID_Soc!!)
 
         tv_actfich_id_soc = findViewById(R.id.tv_ActFich_ID_Soc)
         tv_actfich_nombre_soc = findViewById(R.id.tv_ActFich_Nombre_Soc)
@@ -58,12 +62,17 @@ class FichaActivity : AppCompatActivity() {
         var menuitems = ArrayList<MenuItem>()
 
         menuitems.add(agronomia.coprotrab.agrokot.Clases.MenuItem("Generales", R.drawable.ic_gral_30dp))
-        menuitems.add(agronomia.coprotrab.agrokot.Clases.MenuItem("Agronómicos", R.drawable.ic_agro_30dp))
-        menuitems.add(agronomia.coprotrab.agrokot.Clases.MenuItem("Infraestructura", R.drawable.ic_infra_30dp))
-        menuitems.add(agronomia.coprotrab.agrokot.Clases.MenuItem("Almácigos", R.drawable.ic_alma_30dp))
-        menuitems.add(agronomia.coprotrab.agrokot.Clases.MenuItem("Plantación", R.drawable.ic_plan_30dp))
-        menuitems.add(agronomia.coprotrab.agrokot.Clases.MenuItem("Cosecha", R.drawable.ic_cos_30dp))
-        menuitems.add(agronomia.coprotrab.agrokot.Clases.MenuItem("Emisiones GEI", R.drawable.ic_emis_30dp))
+
+        if (fichaexistente != null) {
+
+            menuitems.add(agronomia.coprotrab.agrokot.Clases.MenuItem("Agronómicos", R.drawable.ic_agro_30dp))
+            menuitems.add(agronomia.coprotrab.agrokot.Clases.MenuItem("Infraestructura", R.drawable.ic_infra_30dp))
+            menuitems.add(agronomia.coprotrab.agrokot.Clases.MenuItem("Almácigos", R.drawable.ic_alma_30dp))
+            menuitems.add(agronomia.coprotrab.agrokot.Clases.MenuItem("Plantación", R.drawable.ic_plan_30dp))
+            menuitems.add(agronomia.coprotrab.agrokot.Clases.MenuItem("Cosecha", R.drawable.ic_cos_30dp))
+            menuitems.add(agronomia.coprotrab.agrokot.Clases.MenuItem("Emisiones GEI", R.drawable.ic_emis_30dp))
+
+        }
 
         var grid: GridView = findViewById(R.id.gv_menuficha)
         val adaptador = MenuItem_Adapter(this, menuitems)
@@ -76,6 +85,7 @@ class FichaActivity : AppCompatActivity() {
                 startActivity(intentGrales)
             }
             if (menuitems.get(position).nombre == "Agronómicos") {
+
                 val intentAgro = Intent(this, FAgronomicosActivity::class.java)
                 intentAgro.putExtra(TAGID,maesocio?.ID_Soc.toString() )
                 startActivity(intentAgro)
