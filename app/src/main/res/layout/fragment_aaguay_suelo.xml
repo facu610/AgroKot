@@ -38,6 +38,7 @@
         <EditText
             android:id="@+id/et_FAgro_AyS_N"
             android:ems="4"
+            android:inputType="numberDecimal"
             android:textColor="@color/secondaryTextColor" />
         <Spinner
             android:id="@+id/s_FAgro_AyS_Nu"
@@ -56,6 +57,7 @@
         <EditText
             android:id="@+id/et_FAgro_AyS_P"
             android:ems="4"
+            android:inputType="numberDecimal"
             android:textColor="@color/secondaryTextColor" />
         <Spinner
             android:id="@+id/s_FAgro_AyS_Pu"
@@ -74,6 +76,7 @@
         <EditText
             android:id="@+id/et_FAgro_AyS_K"
             android:ems="4"
+            android:inputType="numberDecimal"
             android:textColor="@color/secondaryTextColor" />
         <Spinner
             android:id="@+id/s_FAgro_AyS_Ku"
@@ -92,6 +95,7 @@
         <EditText
             android:id="@+id/et_FAgro_AyS_MO"
             android:ems="4"
+            android:inputType="numberDecimal"
             android:textColor="@color/secondaryTextColor" />
         <Spinner
             android:id="@+id/s_FAgro_AyS_MOu"
@@ -111,6 +115,7 @@
             android:id="@+id/et_FAgro_AyS_PHSuelo"
             android:ems="4"
             app:layout_columnSpan="2"
+            android:inputType="numberDecimal"
             android:textColor="@color/secondaryTextColor" />
 
 
@@ -133,6 +138,7 @@
         <EditText
             android:id="@+id/et_FAgro_AyS_CE"
             android:ems="4"
+            android:inputType="numberDecimal"
             android:textColor="@color/secondaryTextColor" />
         <Spinner
             android:id="@+id/s_FAgro_AyS_CEu"
@@ -150,6 +156,7 @@
             android:textColor="@color/secondaryTextColor"/>
         <EditText
             android:id="@+id/et_FAgro_AyS_Carb"
+            android:inputType="numberDecimal"
             android:ems="4"
             android:textColor="@color/secondaryTextColor" />
         <Spinner
@@ -169,6 +176,7 @@
         <EditText
             android:id="@+id/et_FAgro_AyS_PHAgua"
             android:ems="4"
+            android:inputType="numberDecimal"
             android:textColor="@color/secondaryTextColor"
             app:layout_columnSpan="2"/>
 
@@ -193,7 +201,7 @@
             android:textColorHint="@color/secondaryTextColor"
             android:hint="Escriba aquí..."
             app:layout_columnSpan="3"
-            android:inputType="numberSigned" />
+            android:inputType="text" />
 
         <Button
             android:id="@+id/b_FAgro_AyS_Guardar"

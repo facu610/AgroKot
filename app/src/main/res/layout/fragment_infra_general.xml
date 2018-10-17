@@ -75,6 +75,7 @@
         <EditText
             android:id="@+id/et_FInfra_Fral_HasEst"
             android:ems="4"
+            android:inputType="number"
             android:textColor="@color/secondaryTextColor" />
 
 
@@ -98,7 +99,7 @@
             android:textColorHint="@color/secondaryTextColor"
             android:hint="Escriba aquí..."
             app:layout_columnSpan="2"
-            android:inputType="numberSigned" />
+            android:inputType="text" />
 
         <Button
             android:id="@+id/b_FInfra_Gral_Guardar"

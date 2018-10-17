@@ -63,6 +63,7 @@
         <EditText
             android:id="@+id/et_FInfra_BulkC_CI"
             android:ems="4"
+            android:inputType="number"
             android:textColor="@color/secondaryTextColor" />
         <TextView
             android:ems="5"
@@ -73,6 +74,7 @@
         <EditText
             android:id="@+id/et_FInfra_BulkC_Peines"
             android:ems="4"
+            android:inputType="number"
             android:textColor="@color/secondaryTextColor" />
 
 

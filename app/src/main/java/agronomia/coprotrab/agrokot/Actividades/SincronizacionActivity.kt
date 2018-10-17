@@ -30,6 +30,7 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_sincronizacion.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.db.insert
+import org.jetbrains.anko.db.select
 import org.jetbrains.anko.db.update
 import java.io.InputStream
 import java.net.URL
@@ -74,18 +75,21 @@ class SincronizacionActivity : AppCompatActivity() {
         bSincroFic.isEnabled = false
         bSincroFic.setBackgroundColor(Color.DKGRAY)
 
-        fgralesToSincro = DataAccess_RegistroAgrotecnico_App(this).select_FGeneralesToSincro()
-        numToSincro = fgralesToSincro!!.count()
 
-        if (numToSincro != 0){
 
-            tv_sincro_tosincro.text = "Fichas a Sincronizar: " + numToSincro.toString()
-            bSincroFic.isEnabled = true
-            bSincroFic.setBackgroundColor(ContextCompat.getColor(this, R.color.primaryLightColor))
-        }
-        else{
-            tv_sincro_tosincro.text = "No existen fichas a sincronizar "
-        }
+
+//        fgralesToSincro = DataAccess_RegistroAgrotecnico_App(this).select_FGeneralesToSincro()
+//        numToSincro = fgralesToSincro!!.count()
+//
+//        if (numToSincro != 0){
+//
+//            tv_sincro_tosincro.text = "Fichas a Sincronizar: " + numToSincro.toString()
+//            bSincroFic.isEnabled = true
+//            bSincroFic.setBackgroundColor(ContextCompat.getColor(this, R.color.primaryLightColor))
+//        }
+//        else{
+//            tv_sincro_tosincro.text = "No existen fichas a sincronizar "
+//        }
 
 
 

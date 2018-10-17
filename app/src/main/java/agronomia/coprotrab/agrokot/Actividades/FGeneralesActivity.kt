@@ -9,19 +9,15 @@ import agronomia.coprotrab.agrokot.R
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
-import android.text.Editable
 import android.view.View
 import android.widget.*
 import com.google.android.gms.location.LocationResult
 import kotlinx.android.synthetic.main.activity_fgenerales.*
 import org.jetbrains.anko.db.insert
-import org.jetbrains.anko.db.update
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.uiThread
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 class FGeneralesActivity : AppCompatActivity() {

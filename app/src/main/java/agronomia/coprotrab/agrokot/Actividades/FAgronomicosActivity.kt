@@ -33,9 +33,9 @@ class FAgronomicosActivity : AppCompatActivity(){
         tab_layout.addTab(tab_layout.newTab().setText("Generales"))
         tab_layout.addTab(tab_layout.newTab().setText("Agua y Suelo"))
 
-
+        var id_socio: Int =  (intent.getStringExtra("agronomia.coprotab.agrokot.ID_SOCIO").toInt())
         val adapter = AgronomicosFragment_Adapter(supportFragmentManager,
-                tab_layout.tabCount)
+                tab_layout.tabCount, id_socio)
         pager.adapter = adapter
 
         pager.addOnPageChangeListener(

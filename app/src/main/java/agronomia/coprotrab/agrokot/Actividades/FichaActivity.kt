@@ -77,7 +77,7 @@ class FichaActivity : AppCompatActivity() {
             }
             if (menuitems.get(position).nombre == "Agronómicos") {
                 val intentAgro = Intent(this, FAgronomicosActivity::class.java)
-                //intentAgro.putExtra(TAGID,maesocio?.ID_Soc.toString() )
+                intentAgro.putExtra(TAGID,maesocio?.ID_Soc.toString() )
                 startActivity(intentAgro)
 
             }
