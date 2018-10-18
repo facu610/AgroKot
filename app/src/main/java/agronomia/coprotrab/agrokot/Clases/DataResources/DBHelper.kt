@@ -51,6 +51,7 @@ class DBHelper (ctx: Context) : ManagedSQLiteOpenHelper(ctx, "RegistroAgrotecnic
                 "ToSincro" to INTEGER,
                 "Grado_RiesgoAPC" to INTEGER,
                 "Nombre_RiesgoAPC" to TEXT,
+
                 "Agro_Has_Propias" to INTEGER,
                 "Agro_Has_Arren" to INTEGER,
                 "Agro_Has_Tot" to INTEGER,

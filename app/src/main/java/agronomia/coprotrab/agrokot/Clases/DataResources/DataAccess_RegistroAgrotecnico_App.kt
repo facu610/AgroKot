@@ -508,6 +508,129 @@ class DataAccess_RegistroAgrotecnico_App(val context: Context) {
                         val Infra_BC_Lena_CI = columns.getValue("Infra_BC_Lena_CI")
                         val Infra_BC_Lena_Peines = columns.getValue("Infra_BC_Lena_Peines")
 
+                        var grado_riesgoapc:Int?
+                        grado_riesgoapc = null
+                        if(Grado_RiesgoAPC != null){ grado_riesgoapc = Grado_RiesgoAPC.toString().toInt() }
+
+                        var agro_has_propias:Int?
+                        agro_has_propias = null
+                        if(Agro_Has_Propias != null){ agro_has_propias = Agro_Has_Propias.toString().toInt() }
+                        var agro_has_arren:Int?
+                        agro_has_arren = null
+                        if(Agro_Has_Arren != null){ agro_has_arren = Agro_Has_Arren.toString().toInt() }
+                        var agro_has_tot:Int?
+                        agro_has_tot = null
+                        if(Agro_Has_Tot != null){ agro_has_tot = Agro_Has_Tot.toString().toInt() }
+                        var agro_cat_dtr:Int?
+                        agro_cat_dtr = null
+                        if(Agro_Cat_DTR != null){ agro_cat_dtr = Agro_Cat_DTR.toString().toInt() }
+                        var agro_verdeos_has:Int?
+                        agro_verdeos_has = null
+                        if(Agro_Verdeos_Has != null){ agro_verdeos_has = Agro_Verdeos_Has.toString().toInt() }
+                        var agro_rot_has:Int?
+                        agro_rot_has = null
+                        if(Agro_Rot_Has != null){ agro_rot_has = Agro_Rot_Has.toString().toInt() }
+                        var agro_dep_apc:Int?
+                        agro_dep_apc = null
+                        if(Agro_Dep_APC != null){ agro_dep_apc = Agro_Dep_APC.toString().toInt() }
+                        var agro_cumple_rec:Int?
+                        agro_cumple_rec = null
+                        if(Agro_Cumple_Rec != null){ agro_cumple_rec = Agro_Cumple_Rec.toString().toInt() }
+                        var agro_mangariego_has:Int?
+                        agro_mangariego_has = null
+                        if(Agro_MangaRiego_Has != null){ agro_mangariego_has = Agro_MangaRiego_Has.toString().toInt() }
+                        var agro_suelo_n:Int?
+                        agro_suelo_n = null
+                        if(Agro_Suelo_N != null){ agro_suelo_n = Agro_Suelo_N.toString().toInt() }
+                        var agro_suelo_p:Int?
+                        agro_suelo_p = null
+                        if(Agro_Suelo_P != null){ agro_suelo_p = Agro_Suelo_P.toString().toInt() }
+                        var agro_suelo_k:Int?
+                        agro_suelo_k = null
+                        if(Agro_Suelo_K != null){ agro_suelo_k = Agro_Suelo_K.toString().toInt() }
+                        var agro_suelo_mo:Int?
+                        agro_suelo_mo = null
+                        if(Agro_Suelo_MO != null){ agro_suelo_mo = Agro_Suelo_MO.toString().toInt() }
+                        var agro_suelo_ph:Int?
+                        agro_suelo_ph = null
+                        if(Agro_Suelo_PH != null){ agro_suelo_ph = Agro_Suelo_PH.toString().toInt() }
+                        var agro_agua_ce:Int?
+                        agro_agua_ce = null
+                        if(Agro_Agua_CE != null){ agro_agua_ce = Agro_Agua_CE.toString().toInt() }
+                        var agro_agua_carb:Int?
+                        agro_agua_carb = null
+                        if(Agro_Agua_Carb != null){ agro_agua_carb = Agro_Agua_Carb.toString().toInt() }
+                        var agro_agua_ph:Int?
+                        agro_agua_ph = null
+                        if(Agro_Agua_PH != null){ agro_agua_ph = Agro_Agua_PH.toString().toInt() }
+
+                        var infra_cumple_rec:Int?
+                        infra_cumple_rec = null
+                        if(Infra_Cumple_Rec != null){ infra_cumple_rec = Infra_Cumple_Rec.toString().toInt() }
+                        var infra_posee_galp:Int?
+                        infra_posee_galp = null
+                        if(Infra_Posee_Galp != null){ infra_posee_galp = Infra_Posee_Galp.toString().toInt() }
+                        var infra_galpon_m3:Int?
+                        infra_galpon_m3 = null
+                        if(Infra_Galpon_m3 != null){ infra_galpon_m3 = Infra_Galpon_m3.toString().toInt() }
+                        var infra_total_canas:Int?
+                        infra_total_canas = null
+                        if(Infra_Total_Canas != null){ infra_total_canas = Infra_Total_Canas.toString().toInt() }
+                        var infra_hasestuf:Int?
+                        infra_hasestuf = null
+                        if(Infra_HasEstuf != null){ infra_hasestuf = Infra_HasEstuf.toString().toInt() }
+                        var infra_est_conv:Int?
+                        infra_est_conv = null
+                        if(Infra_Est_Conv != null){ infra_est_conv = Infra_Est_Conv.toString().toInt() }
+                        var infra_conv_gas:Int?
+                        infra_conv_gas = null
+                        if(Infra_Conv_Gas != null){ infra_conv_gas = Infra_Conv_Gas.toString().toInt() }
+                        var infra_conv_gas_ci:Int?
+                        infra_conv_gas_ci = null
+                        if(Infra_Conv_Gas_CI != null){ infra_conv_gas_ci = Infra_Conv_Gas_CI.toString().toInt() }
+                        var infra_conv_gas_si:Int?
+                        infra_conv_gas_si = null
+                        if(Infra_Conv_Gas_SI != null){ infra_conv_gas_si = Infra_Conv_Gas_SI.toString().toInt() }
+                        var infra_conv_gas_canas:Int?
+                        infra_conv_gas_canas = null
+                        if(Infra_Conv_Gas_Canas!= null){ infra_conv_gas_canas = Infra_Conv_Gas_Canas.toString().toInt() }
+                        var infra_conv_gas_perchas:Int?
+                        infra_conv_gas_perchas = null
+                        if(Infra_Conv_Gas_Perchas != null){ infra_conv_gas_perchas = Infra_Conv_Gas_Perchas.toString().toInt() }
+                        var infra_conv_lena:Int?
+                        infra_conv_lena = null
+                        if(Infra_Conv_Lena != null){ infra_conv_lena = Infra_Conv_Lena.toString().toInt() }
+                        var infra_conv_lena_perchas:Int?
+                        infra_conv_lena_perchas = null
+                        if(Infra_Conv_Lena_Perchas != null){ infra_conv_lena_perchas = Infra_Conv_Lena_Perchas.toString().toInt() }
+                        var infra_conv_lena_canas:Int?
+                        infra_conv_lena_canas = null
+                        if(Infra_Conv_Lena_Canas != null){ infra_conv_lena_canas = Infra_Conv_Lena_Canas.toString().toInt() }
+                        var infra_bulk_cur:Int?
+                        infra_bulk_cur = null
+                        if(Infra_Bulk_Cur != null){ infra_bulk_cur = Infra_Bulk_Cur.toString().toInt() }
+                        var infra_bc_gas:Int?
+                        infra_bc_gas = null
+                        if(Infra_BC_Gas != null){ infra_bc_gas = Infra_BC_Gas.toString().toInt() }
+                        var infra_bc_gas_ci:Int?
+                        infra_bc_gas_ci = null
+                        if(Infra_BC_Gas_CI != null){ infra_bc_gas_ci = Infra_BC_Gas_CI.toString().toInt() }
+                        var infra_bc_gas_si:Int?
+                        infra_bc_gas_si = null
+                        if(Infra_BC_Gas_SI != null){ infra_bc_gas_si = Infra_BC_Gas_SI.toString().toInt() }
+                        var infra_bc_gas_peines:Int?
+                        infra_bc_gas_peines = null
+                        if(Infra_BC_Gas_Peines!= null){ infra_bc_gas_peines = Infra_BC_Gas_Peines.toString().toInt() }
+                        var infra_bc_lena:Int?
+                        infra_bc_lena = null
+                        if(Infra_BC_Lena != null){ infra_bc_lena = Infra_BC_Lena.toString().toInt() }
+                        var infra_bc_lena_ci:Int?
+                        infra_bc_lena_ci = null
+                        if(Infra_BC_Lena_CI != null){ infra_bc_lena_ci = Infra_BC_Lena_CI.toString().toInt() }
+                        var infra_bc_lena_peines:Int?
+                        infra_bc_lena_peines = null
+                        if(Infra_BC_Lena_Peines!= null){ infra_bc_lena_peines = Infra_BC_Lena_Peines.toString().toInt() }
+
                         fichaGeneral = FichaGeneral(ID_Ficha.toString().toInt(),
                                 Fecha_Grales.toString(),
                                 ID_Camp.toString().toInt(),
@@ -519,55 +642,71 @@ class DataAccess_RegistroAgrotecnico_App(val context: Context) {
                                 Coord_Soc.toString(),
                                 Zona_Soc.toString().toInt(),
                                 ToSincro.toString().toInt(),
-                                Grado_RiesgoAPC.toString().toInt(),
+
+                                grado_riesgoapc,
+
                                 Nombre_RiesgoAPC.toString(),
-                                Agro_Has_Propias.toString().toInt(),
-                                Agro_Has_Arren.toString().toInt(),
-                                Agro_Has_Tot.toString().toInt(),
-                                Agro_Cat_DTR.toString().toInt(),
-                                Agro_Verdeos_Has.toString().toInt(),
-                                Agro_Rot_Has.toString().toInt(),
-                                Agro_Dep_APC.toString().toInt(),
-                                Agro_Cumple_Rec.toString().toInt(),
-                                Agro_MangaRiego_Has.toString().toInt(),
-                                Agro_Suelo_N.toString().toInt(),
+                                agro_has_propias,
+                                agro_has_arren,
+                                agro_has_tot,
+                                agro_cat_dtr,
+                                agro_verdeos_has,
+                                agro_rot_has,
+                                agro_dep_apc,
+                                agro_cumple_rec,
+                                agro_mangariego_has,
+                                agro_suelo_n,
+
                                 Agro_Suelo_NUd.toString(),
-                                Agro_Suelo_P.toString().toInt(),
+
+                                agro_suelo_p,
+
                                 Agro_Suelo_PUd.toString(),
-                                Agro_Suelo_K.toString().toInt(),
+
+                                agro_suelo_k,
+
                                 Agro_Suelo_KUd.toString(),
-                                Agro_Suelo_MO.toString().toInt(),
+
+                                agro_suelo_mo,
+
                                 Agro_Suelo_MOUd.toString(),
-                                Agro_Suelo_PH.toString().toInt(),
-                                Agro_Agua_CE.toString().toInt(),
+
+                                agro_suelo_ph,
+                                agro_agua_ce,
+
                                 Agro_Agua_CEUd.toString(),
-                                Agro_Agua_Carb.toString().toInt(),
+
+                                agro_agua_carb,
                                 Agro_Agua_CarbUd.toString(),
-                                Agro_Agua_PH.toString().toInt(),
+                                agro_agua_ph,
+
                                 Agro_Obs.toString(),
-                                Infra_Cumple_Rec.toString().toInt(),
-                                Infra_Posee_Galp.toString().toInt(),
-                                Infra_Galpon_m3.toString().toInt(),
-                                Infra_Total_Canas.toString().toInt(),
-                                Infra_HasEstuf.toString().toInt(),
+
+                                infra_cumple_rec,
+                                infra_posee_galp,
+                                infra_galpon_m3,
+                                infra_total_canas,
+                                infra_hasestuf,
+
                                 Infra_Obs.toString(),
-                                Infra_Est_Conv.toString().toInt(),
-                                Infra_Conv_Gas.toString().toInt(),
-                                Infra_Conv_Gas_CI.toString().toInt(),
-                                Infra_Conv_Gas_SI.toString().toInt(),
-                                Infra_Conv_Gas_Canas.toString().toInt(),
-                                Infra_Conv_Gas_Perchas.toString().toInt(),
-                                Infra_Conv_Lena.toString().toInt(),
-                                Infra_Conv_Lena_Perchas.toString().toInt(),
-                                Infra_Conv_Lena_Canas.toString().toInt(),
-                                Infra_Bulk_Cur.toString().toInt(),
-                                Infra_BC_Gas.toString().toInt(),
-                                Infra_BC_Gas_CI.toString().toInt(),
-                                Infra_BC_Gas_SI.toString().toInt(),
-                                Infra_BC_Gas_Peines.toString().toInt(),
-                                Infra_BC_Lena.toString().toInt(),
-                                Infra_BC_Lena_CI.toString().toInt(),
-                                Infra_BC_Lena_Peines.toString().toInt()
+
+                                infra_est_conv,
+                                infra_conv_gas,
+                                infra_conv_gas_ci,
+                                infra_conv_gas_si,
+                                infra_conv_gas_canas,
+                                infra_conv_gas_perchas,
+                                infra_conv_lena,
+                                infra_conv_lena_perchas,
+                                infra_conv_lena_canas,
+                                infra_bulk_cur,
+                                infra_bc_gas,
+                                infra_bc_gas_ci,
+                                infra_bc_gas_si,
+                                infra_bc_gas_peines,
+                                infra_bc_lena,
+                                infra_bc_lena_ci,
+                                infra_bc_lena_peines
                         )
 
                         return fichaGeneral!!

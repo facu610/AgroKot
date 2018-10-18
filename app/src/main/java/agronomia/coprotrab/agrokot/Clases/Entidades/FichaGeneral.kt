@@ -11,59 +11,56 @@ class FichaGeneral (id_ficha:Int,
                     coord_soc: String,
                     zona_soc:Int,
                     tosincro:Int,
-                    grado_riesgoapc:Int,
+
+                    grado_riesgoapc:Int?,
                     nombre_riesgoapc: String,
-                    agro_has_propias:Int,
-                    agro_has_arren:Int,
-                    agro_has_tot:Int,
-                    agro_cat_dtr:Int,
-                    agro_verdeos_has:Int,
-                    agro_rot_has:Int,
-                    agro_dep_apc:Int,
-                    agro_cumple_rec:Int,
-                    agro_mangariego_has:Int,
-                    agro_suelo_n:Int,
+                    agro_has_propias:Int?,
+                    agro_has_arren:Int?,
+                    agro_has_tot:Int?,
+                    agro_cat_dtr:Int?,
+                    agro_verdeos_has:Int?,
+                    agro_rot_has:Int?,
+                    agro_dep_apc:Int?,
+                    agro_cumple_rec:Int?,
+                    agro_mangariego_has:Int?,
+                    agro_suelo_n:Int?,
                     agro_suelo_nud:String,
-                    agro_suelo_p:Int,
+                    agro_suelo_p:Int?,
                     agro_suelo_pud:String,
-                    agro_suelo_k:Int,
+                    agro_suelo_k:Int?,
                     agro_suelo_kud:String,
-                    agro_suelo_mo:Int,
+                    agro_suelo_mo:Int?,
                     agro_suelo_moud:String,
-                    agro_suelo_ph:Int,
-                    agro_agua_ce:Int,
+                    agro_suelo_ph:Int?,
+                    agro_agua_ce:Int?,
                     agro_agua_ceud:String,
-                    agro_agua_carb:Int,
+                    agro_agua_carb:Int?,
                     agro_agua_carbud:String,
-                    agro_agua_ph:Int,
+                    agro_agua_ph:Int?,
                     agro_obs:String,
-                    infra_cumple_rec:Int,
-                    infra_posee_galp:Int,
-                    infra_galpon_m3:Int,
-                    infra_total_canas:Int,
-                    infra_hasestuf:Int,
+                    infra_cumple_rec:Int?,
+                    infra_posee_galp:Int?,
+                    infra_galpon_m3:Int?,
+                    infra_total_canas:Int?,
+                    infra_hasestuf:Int?,
                     infra_obs:String,
-                    infra_est_conv:Int,
-                    infra_conv_gas:Int,
-                    infra_conv_gas_ci:Int,
-                    infra_conv_gas_si:Int,
-                    infra_conv_gas_canas:Int,
-                    infra_conv_gas_perchas:Int,
-                    infra_conv_lena:Int,
-                    infra_conv_lena_perchas:Int,
-                    infra_conv_lena_canas:Int,
-                    infra_bulk_cur:Int,
-                    infra_bc_gas:Int,
-                    infra_bc_gas_ci:Int,
-                    infra_bc_gas_si:Int,
-                    infra_bc_gas_peines:Int,
-                    infra_bc_lena:Int,
-                    infra_bc_lena_ci:Int,
-                    infra_bc_lena_peines:Int
-
-
-
-
+                    infra_est_conv:Int?,
+                    infra_conv_gas:Int?,
+                    infra_conv_gas_ci:Int?,
+                    infra_conv_gas_si:Int?,
+                    infra_conv_gas_canas:Int?,
+                    infra_conv_gas_perchas:Int?,
+                    infra_conv_lena:Int?,
+                    infra_conv_lena_perchas:Int?,
+                    infra_conv_lena_canas:Int?,
+                    infra_bulk_cur:Int?,
+                    infra_bc_gas:Int?,
+                    infra_bc_gas_ci:Int?,
+                    infra_bc_gas_si:Int?,
+                    infra_bc_gas_peines:Int?,
+                    infra_bc_lena:Int?,
+                    infra_bc_lena_ci:Int?,
+                    infra_bc_lena_peines:Int?
 
 ){
 
@@ -79,55 +76,55 @@ class FichaGeneral (id_ficha:Int,
     var Zona_Soc: Int = 0
     var ToSincro = 0
 
-    var Grado_RiesgoAPC: Int = 0
+    var Grado_RiesgoAPC: Int?
     var Nombre_RiesgoAPC: String = ""
-    var Agro_Has_Propias: Int = 0
-    var Agro_Has_Arren: Int = 0
-    var Agro_Has_Tot: Int = 0
-    var Agro_Cat_DTR: Int = 0
-    var Agro_Verdeos_Has: Int = 0
-    var Agro_Rot_Has: Int = 0
-    var Agro_Dep_APC: Int = 0
-    var Agro_Cumple_Rec: Int = 0
-    var Agro_MangaRiego_Has: Int = 0
-    var Agro_Suelo_N: Int = 0
+    var Agro_Has_Propias: Int?
+    var Agro_Has_Arren: Int?
+    var Agro_Has_Tot: Int?
+    var Agro_Cat_DTR: Int?
+    var Agro_Verdeos_Has: Int?
+    var Agro_Rot_Has: Int?
+    var Agro_Dep_APC: Int?
+    var Agro_Cumple_Rec: Int?
+    var Agro_MangaRiego_Has: Int?
+    var Agro_Suelo_N: Int?
     var Agro_Suelo_NUd: String = ""
-    var Agro_Suelo_P: Int = 0
+    var Agro_Suelo_P: Int?
     var Agro_Suelo_PUd: String = ""
-    var Agro_Suelo_K: Int = 0
+    var Agro_Suelo_K: Int?
     var Agro_Suelo_KUd: String = ""
-    var Agro_Suelo_MO: Int = 0
+    var Agro_Suelo_MO: Int?
     var Agro_Suelo_MOUd: String = ""
-    var Agro_Suelo_PH: Int = 0
-    var Agro_Agua_CE: Int = 0
+    var Agro_Suelo_PH: Int?
+    var Agro_Agua_CE: Int?
     var Agro_Agua_CEUd: String = ""
-    var Agro_Agua_Carb: Int = 0
+    var Agro_Agua_Carb: Int?
     var Agro_Agua_CarbUd: String = ""
-    var Agro_Agua_PH: Int = 0
+    var Agro_Agua_PH: Int?
     var Agro_Obs: String = ""
-    var Infra_Cumple_Rec: Int = 0
-    var Infra_Posee_Galp: Int = 0
-    var Infra_Galpon_m3: Int = 0
-    var Infra_Total_Canas: Int = 0
-    var Infra_HasEstuf: Int = 0
+    var Infra_Cumple_Rec: Int?
+    var Infra_Posee_Galp: Int?
+    var Infra_Galpon_m3: Int?
+    var Infra_Total_Canas: Int?
+    var Infra_HasEstuf: Int?
     var Infra_Obs: String = ""
-    var Infra_Est_Conv: Int = 0
-    var Infra_Conv_Gas: Int = 0
-    var Infra_Conv_Gas_CI: Int = 0
-    var Infra_Conv_Gas_SI: Int = 0
-    var Infra_Conv_Gas_Canas: Int = 0
-    var Infra_Conv_Gas_Perchas: Int = 0
-    var Infra_Conv_Lena: Int = 0
-    var Infra_Conv_Lena_Perchas: Int = 0
-    var Infra_Conv_Lena_Canas: Int = 0
-    var Infra_Bulk_Cur: Int = 0
-    var Infra_BC_Gas: Int = 0
-    var Infra_BC_Gas_CI: Int = 0
-    var Infra_BC_Gas_SI: Int = 0
-    var Infra_BC_Gas_Peines: Int = 0
-    var Infra_BC_Lena: Int = 0
-    var Infra_BC_Lena_CI: Int = 0
-    var Infra_BC_Lena_Peines: Int = 0
+    var Infra_Est_Conv: Int?
+    var Infra_Conv_Gas: Int?
+    var Infra_Conv_Gas_CI: Int?
+    var Infra_Conv_Gas_SI: Int?
+    var Infra_Conv_Gas_Canas: Int?
+    var Infra_Conv_Gas_Perchas: Int?
+    var Infra_Conv_Lena: Int?
+    var Infra_Conv_Lena_Perchas: Int?
+    var Infra_Conv_Lena_Canas: Int?
+    var Infra_Bulk_Cur: Int?
+    var Infra_BC_Gas: Int?
+    var Infra_BC_Gas_CI: Int?
+    var Infra_BC_Gas_SI: Int?
+    var Infra_BC_Gas_Peines: Int?
+    var Infra_BC_Lena: Int?
+    var Infra_BC_Lena_CI: Int?
+    var Infra_BC_Lena_Peines: Int?
 
     init {
         this.ID_Ficha = id_ficha

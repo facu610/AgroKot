@@ -2,6 +2,7 @@ package agronomia.coprotrab.agrokot.Fragments
 
 
 import agronomia.coprotrab.agrokot.Clases.DataResources.DataAccess_RegistroAgrotecnico_App
+import agronomia.coprotrab.agrokot.Clases.DataResources.database
 import agronomia.coprotrab.agrokot.Clases.Entidades.FichaGeneral
 import agronomia.coprotrab.agrokot.R
 import android.graphics.Color
@@ -11,6 +12,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import kotlinx.android.synthetic.main.fragment_ageneral.*
+import org.jetbrains.anko.db.update
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.longToast
+import org.jetbrains.anko.uiThread
+
 
 class AgroGeneralFragment : Fragment(){
 
@@ -37,26 +44,26 @@ class AgroGeneralFragment : Fragment(){
             }
         }
 
-
         var args: Bundle? = this.arguments
         var id_socio = args?.getInt("id_socio")
 
         fichaexistente = DataAccess_RegistroAgrotecnico_App(activity!!).select_FGenerales(id_socio!!)
 
+        var HasPropias:String? = et_FAgro_Gral_HPropias?.text.toString()
+
+        val b_fagro_gral_guardar = rootView.findViewById<Button>(R.id.b_FAgro_Gral_Guardar)
+        b_fagro_gral_guardar.setOnClickListener(View.OnClickListener {
 
 
+                activity!!.database.use {
+                    update("AA_FichasGenerales",
+                            "Agro_Has_Propias" to 12
+                    )
+                }
+            Toast.makeText(activity!!, "id socio " + id_socio.toString(), Toast.LENGTH_LONG).show()
 
-
-        //Toast.makeText(activity!!, "id socio " + id_socio.toString(), Toast.LENGTH_LONG).show()
-
-
-
-
-
-
-
+        })
         return rootView
-
     }
 
 }

@@ -2,6 +2,7 @@ package agronomia.coprotrab.agrokot.Actividades
 
 import agronomia.coprotrab.agrokot.Clases.Adapters.AgronomicosFragment_Adapter
 import agronomia.coprotrab.agrokot.Clases.DataResources.DataAccess_RegistroAgrotecnico_App
+import agronomia.coprotrab.agrokot.Clases.DataResources.database
 import agronomia.coprotrab.agrokot.Clases.Entidades.FichaGeneral
 import agronomia.coprotrab.agrokot.R
 import android.content.Intent
@@ -14,6 +15,7 @@ import android.view.View
 import android.widget.*
 import kotlinx.android.synthetic.main.fragment_ageneral.*
 import org.jetbrains.anko.act
+import org.jetbrains.anko.db.update
 
 class FAgronomicosActivity : AppCompatActivity(){
 
@@ -57,15 +59,7 @@ class FAgronomicosActivity : AppCompatActivity(){
             }
         })
 
-        fichaexistente = DataAccess_RegistroAgrotecnico_App(this).select_FGenerales(id_socio)
-        var HasPropias:String? = et_FAgro_Gral_HPropias?.text.toString()
 
-        val b_fgrales_guardar = findViewById<Button>(R.id.b_FAgro_Gral_Guardar)
-        b_FAgro_Gral_Guardar.setOnClickListener {
-
-
-
-        }
 
 
     }
