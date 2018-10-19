@@ -49,20 +49,68 @@ class AgroGeneralFragment : Fragment(){
 
         fichaexistente = DataAccess_RegistroAgrotecnico_App(activity!!).select_FGenerales(id_socio!!)
 
-        var HasPropias:String? = et_FAgro_Gral_HPropias?.text.toString()
+        var HasPropias= rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HPropias)
+        var HasArren= rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HArren)
+        var HasTotales= rootView.findViewById<TextView>(R.id.tv_FAgro_Gral_HTotal)
+        var CategDTR = rootView.findViewById<Spinner>(R.id.s_FAgro_Gral_DTR)
+        var Verdeos = rootView.findViewById<CheckBox>(R.id.cb_FAgro_Gral_Verdeos)
+        var HasVerdeos = rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HasVerdeos)
+        var Rotaciones= rootView.findViewById<CheckBox>(R.id.cb_FAgro_Gral_Rotac)
+        var HasRotac = rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HasRotac)
+        var DepAPC= rootView.findViewById<CheckBox>(R.id.cb_FAgro_Gral_DepAPC)
+        var CumpleRec= rootView.findViewById<CheckBox>(R.id.cb_FAgro_Gral_CumpRec)
+        var MangaRiego= rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HasMangRieg)
+
+        var haspropias:Int? = null
+        var hasarren:Int? = null
+        var hasmangarie:Int? = null
+        var hastotales:Int? = null
+
+//        var hasverdeos:Int? = null
+//        var hasverdeos:Int? = null
+//        var hasverdeos:Int? = null
+
+
+        if(HasPropias.text.toString() != "" && HasArren.text.toString() != "" && MangaRiego.text.toString() != "") {
+            haspropias = HasPropias.text.toString().toInt()
+            hasarren = HasArren.text.toString().toInt()
+            hasmangarie = MangaRiego.text.toString().toInt()
+            hastotales = (haspropias + hasarren)
+
+        }
+
+        Verdeos.setOnClickListener(View.OnClickListener{
+            if (Verdeos.isChecked == true){
+                HasVerdeos.isEnabled = true
+            }
+        })
+        Rotaciones.setOnClickListener(View.OnClickListener{
+            if (Rotaciones.isChecked == true){
+                HasRotac.isEnabled = true
+            }
+        })
 
         val b_fagro_gral_guardar = rootView.findViewById<Button>(R.id.b_FAgro_Gral_Guardar)
         b_fagro_gral_guardar.setOnClickListener(View.OnClickListener {
-
-
-                activity!!.database.use {
+            activity!!.database.use {
                     update("AA_FichasGenerales",
-                            "Agro_Has_Propias" to 12
-                    )
-                }
-            Toast.makeText(activity!!, "id socio " + id_socio.toString(), Toast.LENGTH_LONG).show()
+                            "Agro_Has_Propias" to haspropias,
+                                    "Agro_Has_Arren" to hasarren,
+                                    "Agro_Has_Tot" to hastotales,
+                                    "Agro_Cat_DTR" to CategDTR.selectedItem.toString()
+//                                    "Agro_Verdeos_Has"
+//                            "Agro_Rot_Has"
+//                            "Agro_Dep_APC"
+//                            "Agro_Cumple_Rec"
+//                                    "Agro_MangaRiego_Has" to hasmangarie
 
-        })
+
+                    ).where("ID_Soc = {id_socio}", "id_socio" to id_socio).exec()
+                }
+                Toast.makeText(activity!!, "id socio " + id_socio.toString(), Toast.LENGTH_LONG).show()
+
+            })
+
         return rootView
     }
 

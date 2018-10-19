@@ -30,18 +30,19 @@
         <EditText
             android:id="@+id/et_FAgro_Gral_HPropias"
             android:ems="8"
+            android:inputType="number"
             android:textColor="@color/secondaryTextColor" />
 
         <TextView
             android:ems="7"
             android:text="Has. Arrendadas: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/secondaryTextColor"
-            android:inputType="number"/>
+            android:textColor="@color/secondaryTextColor"/>
 
         <EditText
             android:id="@+id/et_FAgro_Gral_HArren"
             android:ems="8"
+            android:inputType="number"
             android:textColor="@color/secondaryTextColor" />
 
         <TextView
@@ -84,6 +85,7 @@
             android:textColor="@color/secondaryTextColor"
             android:textColorHint="@color/secondaryTextColor"
             android:hint="Hectáreas"
+            android:enabled="false"
             android:inputType="number" />
 
         <CheckBox
@@ -97,6 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:enabled="false"
             android:textColor="@color/secondaryTextColor"
             android:textColorHint="@color/secondaryTextColor"
             android:hint="Hectáreas"
