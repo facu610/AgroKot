@@ -45,9 +45,7 @@ class AgroGeneralFragment : Fragment(){
         }
 
         var args: Bundle? = this.arguments
-        var id_socio = args?.getInt("id_socio")
 
-        fichaexistente = DataAccess_RegistroAgrotecnico_App(activity!!).select_FGenerales(id_socio!!)
 
         var HasPropias= rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HPropias)
         var HasArren= rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HArren)
@@ -61,23 +59,23 @@ class AgroGeneralFragment : Fragment(){
         var CumpleRec= rootView.findViewById<CheckBox>(R.id.cb_FAgro_Gral_CumpRec)
         var MangaRiego= rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HasMangRieg)
 
-        var haspropias:Int? = null
-        var hasarren:Int? = null
-        var hasmangarie:Int? = null
-        var hastotales:Int? = null
+        var haspropias:Int?
+        haspropias = null
+        var hasarren:Int?
+        hasarren = null
+        var hasmangarie:Int?
+        hasmangarie= null
+        var hastotales:Int?
+        hastotales = null
+        var hasverdeos:Int?
+        hasverdeos = null
+        var hasrotac:Int?
+        hasrotac = null
+        var chbAPC: Int = 0
+        var chbRec: Int = 0
+        var catdtr: Int?
+        catdtr = null
 
-//        var hasverdeos:Int? = null
-//        var hasverdeos:Int? = null
-//        var hasverdeos:Int? = null
-
-
-        if(HasPropias.text.toString() != "" && HasArren.text.toString() != "" && MangaRiego.text.toString() != "") {
-            haspropias = HasPropias.text.toString().toInt()
-            hasarren = HasArren.text.toString().toInt()
-            hasmangarie = MangaRiego.text.toString().toInt()
-            hastotales = (haspropias + hasarren)
-
-        }
 
         Verdeos.setOnClickListener(View.OnClickListener{
             if (Verdeos.isChecked == true){
@@ -90,20 +88,81 @@ class AgroGeneralFragment : Fragment(){
             }
         })
 
+        var id_socio = args?.getInt("id_socio")
+        fichaexistente = DataAccess_RegistroAgrotecnico_App(activity!!).select_FGenerales(id_socio!!)
+
+        if (fichaexistente!!.Agro_Has_Propias != null || fichaexistente!!.Agro_Has_Arren != null || fichaexistente!!.Agro_MangaRiego_Has != null){
+            Toast.makeText(activity!!, "Cargando ficha previa...", Toast.LENGTH_LONG).show()
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         val b_fagro_gral_guardar = rootView.findViewById<Button>(R.id.b_FAgro_Gral_Guardar)
         b_fagro_gral_guardar.setOnClickListener(View.OnClickListener {
+
+            if (DepAPC.isChecked == true){
+                chbAPC = 1
+            }
+            if (CumpleRec.isChecked == true){
+                chbRec = 1
+            }
+
+            if(HasPropias.text.toString() != "" && HasArren.text.toString() != "" && MangaRiego.text.toString() != ""){
+                haspropias = HasPropias.text.toString().toInt()
+                hasarren = HasArren.text.toString().toInt()
+                hasmangarie = MangaRiego.text.toString().toInt()
+                hastotales = (haspropias!! + hasarren!!)
+                if ( HasVerdeos.text.toString() != "" && HasRotac.text.toString() != "") {
+                    hasverdeos = HasVerdeos.text.toString().toInt()
+                    hasrotac = HasRotac.text.toString().toInt()
+                }
+            } else {
+                Toast.makeText(activity!!, "Complete todos los campos...", Toast.LENGTH_LONG).show()
+                return@OnClickListener
+            }
+
+            when (CategDTR.selectedItem.toString()){
+                "Sin Riesgo" -> catdtr = 0
+                "Bajo Riesgo" -> catdtr = 1
+                "Medio Riesgo" -> catdtr = 2
+                "Alto Riesgo" -> catdtr = 3
+            }
+
             activity!!.database.use {
                     update("AA_FichasGenerales",
                             "Agro_Has_Propias" to haspropias,
                                     "Agro_Has_Arren" to hasarren,
                                     "Agro_Has_Tot" to hastotales,
-                                    "Agro_Cat_DTR" to CategDTR.selectedItem.toString()
-//                                    "Agro_Verdeos_Has"
-//                            "Agro_Rot_Has"
-//                            "Agro_Dep_APC"
-//                            "Agro_Cumple_Rec"
-//                                    "Agro_MangaRiego_Has" to hasmangarie
-
+                                    "Agro_Cat_DTR" to catdtr,
+                                    "Agro_Verdeos_Has" to hasverdeos,
+                                    "Agro_Rot_Has" to hasrotac,
+                                    "Agro_Dep_APC" to chbAPC,
+                                    "Agro_Cumple_Rec" to chbRec,
+                                    "Agro_MangaRiego_Has" to hasmangarie
 
                     ).where("ID_Soc = {id_socio}", "id_socio" to id_socio).exec()
                 }

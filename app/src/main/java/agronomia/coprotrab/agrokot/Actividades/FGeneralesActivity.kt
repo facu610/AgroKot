@@ -67,7 +67,7 @@ class FGeneralesActivity : AppCompatActivity() {
             //OJO  Unable to start activity ComponentInfo{agronomia.coprotrab.agrokot/agronomia.coprotrab.agrokot.Actividades.FGeneralesActivity}:
             //java.lang.StringIndexOutOfBoundsException: length=1; index=10
             tv_lat?.text = fichaexistente!!.Coord_Soc.subSequence(0,10).toString()
-            tv_lon?.text = fichaexistente!!.Coord_Soc.subSequence(11,20).toString()
+            tv_lon?.text = fichaexistente!!.Coord_Soc.subSequence(12,22).toString()
 
             }
 8

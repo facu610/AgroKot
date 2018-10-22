@@ -16,16 +16,16 @@
         android:layout_margin="10dp"
         android:padding="5dp"
         app:columnCount="2"
-        app:useDefaultMargins="true"
         app:orientation="horizontal"
-        app:rowCount="9">
+        app:rowCount="9"
+        app:useDefaultMargins="true">
 
         <TextView
             android:ems="7"
+            android:inputType="number"
             android:text="Has. Propias: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/secondaryTextColor"
-            android:inputType="number"/>
+            android:textColor="@color/secondaryTextColor" />
 
         <EditText
             android:id="@+id/et_FAgro_Gral_HPropias"
@@ -37,7 +37,7 @@
             android:ems="7"
             android:text="Has. Arrendadas: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/secondaryTextColor" />
 
         <EditText
             android:id="@+id/et_FAgro_Gral_HArren"
@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:minWidth="120dp"/>
+            android:minWidth="120dp" />
 
 
         <CheckBox
@@ -82,11 +82,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textColor="@color/secondaryTextColor"
-            android:textColorHint="@color/secondaryTextColor"
-            android:hint="Hectáreas"
             android:enabled="false"
-            android:inputType="number" />
+            android:hint="Hectáreas"
+            android:inputType="number"
+            android:textColor="@color/secondaryTextColor"
+            android:textColorHint="@color/secondaryTextColor" />
 
         <CheckBox
             android:id="@+id/cb_FAgro_Gral_Rotac"
@@ -100,16 +100,17 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:enabled="false"
-            android:textColor="@color/secondaryTextColor"
-            android:textColorHint="@color/secondaryTextColor"
             android:hint="Hectáreas"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="@color/secondaryTextColor"
+            android:textColorHint="@color/secondaryTextColor" />
 
         <CheckBox
             android:id="@+id/cb_FAgro_Gral_DepAPC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dep. APC" />
+
         <CheckBox
             android:id="@+id/cb_FAgro_Gral_CumpRec"
             android:layout_width="wrap_content"
@@ -127,21 +128,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textColor="@color/secondaryTextColor"
-            android:textColorHint="@color/secondaryTextColor"
             android:hint="Hectáreas"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="@color/secondaryTextColor"
+            android:textColorHint="@color/secondaryTextColor" />
 
         <Button
             android:id="@+id/b_FAgro_Gral_Guardar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_save_24dp"
+            android:padding="16dp"
             android:text=" Guardar"
             android:textSize="20dp"
-            android:padding="16dp"
             app:layout_columnSpan="2"
-            android:drawableLeft="@drawable/ic_save_24dp"
-            app:layout_gravity="center"/>
+            app:layout_gravity="center" />
 
 
     </android.support.v7.widget.GridLayout>
