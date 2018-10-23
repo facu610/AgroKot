@@ -8,6 +8,7 @@ import agronomia.coprotrab.agrokot.R
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -77,49 +78,41 @@ class AgroGeneralFragment : Fragment(){
         catdtr = null
 
 
-        Verdeos.setOnClickListener(View.OnClickListener{
-            if (Verdeos.isChecked == true){
+        Verdeos.setOnClickListener {
+            if (Verdeos.isChecked){
                 HasVerdeos.isEnabled = true
             }
-        })
-        Rotaciones.setOnClickListener(View.OnClickListener{
-            if (Rotaciones.isChecked == true){
+        }
+        Rotaciones.setOnClickListener {
+            if (Rotaciones.isChecked ){
                 HasRotac.isEnabled = true
             }
-        })
+        }
 
         var id_socio = args?.getInt("id_socio")
         fichaexistente = DataAccess_RegistroAgrotecnico_App(activity!!).select_FGenerales(id_socio!!)
 
         if (fichaexistente!!.Agro_Has_Propias != null || fichaexistente!!.Agro_Has_Arren != null || fichaexistente!!.Agro_MangaRiego_Has != null){
             Toast.makeText(activity!!, "Cargando ficha previa...", Toast.LENGTH_LONG).show()
+            HasPropias.text = Editable.Factory.getInstance().newEditable(fichaexistente!!.Agro_Has_Propias.toString())
+            HasArren.text = Editable.Factory.getInstance().newEditable(fichaexistente!!.Agro_Has_Arren.toString())
+            HasTotales.text = fichaexistente!!.Agro_Has_Tot.toString()
+
+            when (fichaexistente!!.Agro_Cat_DTR.toString()){
+                "Sin Riesgo" -> CategDTR.setSelection(0)
+                "Bajo Riesgo" -> CategDTR.setSelection(1)
+                "Medio Riesgo" -> CategDTR.setSelection(2)
+                "Alto Riesgo" -> CategDTR.setSelection(3)
+            }
+
+            if (fichaexistente!!.Agro_Verdeos_Has!! > 0){HasVerdeos.text = Editable.Factory.getInstance().newEditable(fichaexistente!!.Agro_Verdeos_Has.toString())}
+            if (fichaexistente!!.Agro_Rot_Has!! > 0) { HasRotac.text = Editable.Factory.getInstance().newEditable(fichaexistente!!.Agro_Rot_Has.toString())}
+            if (fichaexistente!!.Agro_Dep_APC == 1) { DepAPC.isChecked = true}
+            if (fichaexistente!!.Agro_Cumple_Rec == 1) { CumpleRec.isChecked = true}
+            if (fichaexistente!!.Agro_MangaRiego_Has!! > 0) { MangaRiego.text = Editable.Factory.getInstance().newEditable(fichaexistente!!.Agro_MangaRiego_Has.toString())}
 
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         val b_fagro_gral_guardar = rootView.findViewById<Button>(R.id.b_FAgro_Gral_Guardar)
         b_fagro_gral_guardar.setOnClickListener(View.OnClickListener {

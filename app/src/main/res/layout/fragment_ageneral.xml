@@ -29,6 +29,7 @@
 
         <EditText
             android:id="@+id/et_FAgro_Gral_HPropias"
+            android:editable="true"
             android:ems="8"
             android:inputType="number"
             android:textColor="@color/secondaryTextColor" />

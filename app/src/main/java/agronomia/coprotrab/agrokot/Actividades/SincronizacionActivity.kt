@@ -6,35 +6,26 @@ import agronomia.coprotrab.agrokot.Clases.Entidades.FichaGeneral
 import agronomia.coprotrab.agrokot.Clases.Entidades.Instructor
 import agronomia.coprotrab.agrokot.Clases.Entidades.MaeSocio
 import agronomia.coprotrab.agrokot.R
-import android.app.ProgressDialog
-import android.content.ClipData
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
-import android.support.v4.content.ContextCompat
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.core.FuelManager
 import com.github.kittinunf.fuel.httpPost
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.activity_sincronizacion.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.db.insert
-import org.jetbrains.anko.db.select
-import org.jetbrains.anko.db.update
 import java.io.InputStream
 import java.net.URL
-import java.nio.charset.Charset
 import javax.net.ssl.HttpsURLConnection
 
 class SincronizacionActivity : AppCompatActivity() {
@@ -94,7 +85,7 @@ class SincronizacionActivity : AppCompatActivity() {
 
 
 
-        bSincroInstr.setOnClickListener(View.OnClickListener {
+        bSincroInstr.setOnClickListener {
             progressBar.visibility = View.VISIBLE
             doAsync {
 
@@ -120,9 +111,9 @@ class SincronizacionActivity : AppCompatActivity() {
                 uiThread { longToast("Instructores Sincronizados") }
                 progressBar.visibility = View.INVISIBLE
             }
-        })
+        }
 
-        bSincroSoc.setOnClickListener(View.OnClickListener {
+        bSincroSoc.setOnClickListener {
             progressBar.visibility = View.VISIBLE
             doAsync {
 
@@ -147,9 +138,9 @@ class SincronizacionActivity : AppCompatActivity() {
                 uiThread { longToast("Socios Sincronizados. Total: " + maesocios.count().toString()) }
                 progressBar.visibility = View.INVISIBLE
             }
-        })
+        }
 
-        bSincroFic.setOnClickListener(View.OnClickListener {
+        bSincroFic.setOnClickListener {
             progressBar.visibility = View.VISIBLE
             doAsync {
 
@@ -166,55 +157,55 @@ class SincronizacionActivity : AppCompatActivity() {
                             item.Coord_Soc,
                             item.Zona_Soc,
                             item.ToSincro,
-                                    item.Grado_RiesgoAPC,
-                                    item.Nombre_RiesgoAPC,
-                                    item.Agro_Has_Propias,
-                                    item.Agro_Has_Arren,
-                                    item.Agro_Has_Tot,
-                                    item.Agro_Cat_DTR,
-                                    item.Agro_Verdeos_Has,
-                                    item.Agro_Rot_Has,
-                                    item.Agro_Dep_APC,
-                                    item.Agro_Cumple_Rec,
-                                    item.Agro_MangaRiego_Has,
-                                    item.Agro_Suelo_N,
-                                    item.Agro_Suelo_NUd,
-                                    item.Agro_Suelo_P,
-                                    item.Agro_Suelo_PUd,
-                                    item.Agro_Suelo_K,
-                                    item.Agro_Suelo_KUd,
-                                    item.Agro_Suelo_MO,
-                                    item.Agro_Suelo_MOUd,
-                                    item.Agro_Suelo_PH,
-                                    item.Agro_Agua_CE,
-                                    item.Agro_Agua_CEUd,
-                                    item.Agro_Agua_Carb,
-                                    item.Agro_Agua_CarbUd,
-                                    item.Agro_Agua_PH,
-                                    item.Agro_Obs,
-                                    item.Infra_Cumple_Rec,
-                                    item.Infra_Posee_Galp,
-                                    item.Infra_Galpon_m3,
-                                    item.Infra_Total_Canas,
-                                    item.Infra_HasEstuf,
-                                    item.Infra_Obs,
-                                    item.Infra_Est_Conv,
-                                    item.Infra_Conv_Gas,
-                                    item.Infra_Conv_Gas_CI,
-                                    item.Infra_Conv_Gas_SI,
-                                    item.Infra_Conv_Gas_Canas,
-                                    item.Infra_Conv_Gas_Perchas,
-                                    item.Infra_Conv_Lena,
-                                    item.Infra_Conv_Lena_Perchas,
-                                    item.Infra_Conv_Lena_Canas,
-                                    item.Infra_Bulk_Cur,
-                                    item.Infra_BC_Gas,
-                                    item.Infra_BC_Gas_CI,
-                                    item.Infra_BC_Gas_SI,
-                                    item.Infra_BC_Gas_Peines,
-                                    item.Infra_BC_Lena,
-                                    item.Infra_BC_Lena_CI,
-                                    item.Infra_BC_Lena_Peines
+                            item.Grado_RiesgoAPC,
+                            item.Nombre_RiesgoAPC,
+                            item.Agro_Has_Propias,
+                            item.Agro_Has_Arren,
+                            item.Agro_Has_Tot,
+                            item.Agro_Cat_DTR,
+                            item.Agro_Verdeos_Has,
+                            item.Agro_Rot_Has,
+                            item.Agro_Dep_APC,
+                            item.Agro_Cumple_Rec,
+                            item.Agro_MangaRiego_Has,
+                            item.Agro_Suelo_N,
+                            item.Agro_Suelo_NUd,
+                            item.Agro_Suelo_P,
+                            item.Agro_Suelo_PUd,
+                            item.Agro_Suelo_K,
+                            item.Agro_Suelo_KUd,
+                            item.Agro_Suelo_MO,
+                            item.Agro_Suelo_MOUd,
+                            item.Agro_Suelo_PH,
+                            item.Agro_Agua_CE,
+                            item.Agro_Agua_CEUd,
+                            item.Agro_Agua_Carb,
+                            item.Agro_Agua_CarbUd,
+                            item.Agro_Agua_PH,
+                            item.Agro_Obs,
+                            item.Infra_Cumple_Rec,
+                            item.Infra_Posee_Galp,
+                            item.Infra_Galpon_m3,
+                            item.Infra_Total_Canas,
+                            item.Infra_HasEstuf,
+                            item.Infra_Obs,
+                            item.Infra_Est_Conv,
+                            item.Infra_Conv_Gas,
+                            item.Infra_Conv_Gas_CI,
+                            item.Infra_Conv_Gas_SI,
+                            item.Infra_Conv_Gas_Canas,
+                            item.Infra_Conv_Gas_Perchas,
+                            item.Infra_Conv_Lena,
+                            item.Infra_Conv_Lena_Perchas,
+                            item.Infra_Conv_Lena_Canas,
+                            item.Infra_Bulk_Cur,
+                            item.Infra_BC_Gas,
+                            item.Infra_BC_Gas_CI,
+                            item.Infra_BC_Gas_SI,
+                            item.Infra_BC_Gas_Peines,
+                            item.Infra_BC_Lena,
+                            item.Infra_BC_Lena_CI,
+                            item.Infra_BC_Lena_Peines
                     )
 
                     var fichaJson = Gson().toJson(fichageneral)
@@ -239,61 +230,61 @@ class SincronizacionActivity : AppCompatActivity() {
                                 "Coord_Soc" to item.Coord_Soc,
                                 "Zona_Soc" to item.Zona_Soc,
                                 "ToSincro" to 0,
-                                    "Grado_RiesgoAPC" to item.Grado_RiesgoAPC,
-                                    "Nombre_RiesgoAPC" to item.Nombre_RiesgoAPC,
-                                    "Agro_Has_Propias" to item.Agro_Has_Propias,
-                                    "Agro_Has_Arren" to item.Agro_Has_Arren,
-                                    "Agro_Has_Tot" to item.Agro_Has_Tot,
-                                    "Agro_Cat_DTR" to item.Agro_Cat_DTR,
-                                    "Agro_Verdeos_Has" to item.Agro_Verdeos_Has,
-                                    "Agro_Rot_Has" to item.Agro_Rot_Has,
-                                    "Agro_Dep_APC" to item.Agro_Dep_APC,
-                                    "Agro_Cumple_Rec" to item.Agro_Cumple_Rec,
-                                    "Agro_MangaRiego_Has" to item.Agro_MangaRiego_Has,
-                                    "Agro_Suelo_N" to item.Agro_Suelo_N,
-                                    "Agro_Suelo_NUd" to item.Agro_Suelo_NUd,
-                                    "Agro_Suelo_P" to item.Agro_Suelo_P,
-                                    "Agro_Suelo_K" to item.Agro_Suelo_K,
-                                    "Agro_Suelo_KUd" to item.Agro_Suelo_KUd,
-                                    "Agro_Suelo_MO" to item.Agro_Suelo_MO,
-                                    "Agro_Suelo_MOUd" to item.Agro_Suelo_MOUd,
-                                    "Agro_Suelo_PH" to item.Agro_Suelo_PH,
-                                    "Agro_Agua_CE" to item.Agro_Agua_CE,
-                                    "Agro_Agua_CEUd" to item.Agro_Agua_CEUd,
-                                    "Agro_Agua_Carb" to item.Agro_Agua_Carb,
-                                    "Agro_Agua_CarbUd" to item.Agro_Agua_CarbUd,
-                                    "Agro_Agua_PH" to item.Agro_Agua_PH,
-                                    "Agro_Obs" to item.Agro_Obs,
-                                    "Infra_Cumple_Rec" to item.Infra_Cumple_Rec,
-                                    "Infra_Posee_Galp" to item.Infra_Posee_Galp,
-                                    "Infra_Galpon_m3" to item.Infra_Galpon_m3,
-                                    "Infra_Total_Canas" to item.Infra_Total_Canas,
-                                    "Infra_HasEstuf" to item.Infra_HasEstuf,
-                                    "Infra_Obs" to item.Infra_Obs,
-                                    "Infra_Est_Conv" to item.Infra_Est_Conv,
-                                    "Infra_Conv_Gas" to item.Infra_Conv_Gas,
-                                    "Infra_Conv_Gas_CI" to item.Infra_Conv_Gas_CI,
-                                    "Infra_Conv_Gas_SI" to item.Infra_Conv_Gas_SI,
-                                    "Infra_Conv_Gas_Canas" to item.Infra_Conv_Gas_Canas,
-                                    "Infra_Conv_Gas_Perchas" to item.Infra_Conv_Gas_Perchas,
-                                    "Infra_Conv_Lena" to item.Infra_Conv_Lena,
-                                    "Infra_Conv_Lena_Perchas" to item.Infra_Conv_Lena_Perchas,
-                                    "Infra_Conv_Lena_Canas" to item.Infra_Conv_Lena_Canas,
-                                    "Infra_Bulk_Cur" to item.Infra_Bulk_Cur,
-                                    "Infra_BC_Gas" to item.Infra_BC_Gas,
-                                    "Infra_BC_Gas_CI" to item.Infra_BC_Gas_CI,
-                                    "Infra_BC_Gas_SI" to item.Infra_BC_Gas_SI,
-                                    "Infra_BC_Gas_Peines" to item.Infra_BC_Gas_Peines,
-                                    "Infra_BC_Lena" to item.Infra_BC_Lena,
-                                    "Infra_BC_Lena_CI" to item.Infra_BC_Lena_CI,
-                                    "Infra_BC_Lena_Peines" to item.Infra_BC_Lena_Peines)
+                                "Grado_RiesgoAPC" to item.Grado_RiesgoAPC,
+                                "Nombre_RiesgoAPC" to item.Nombre_RiesgoAPC,
+                                "Agro_Has_Propias" to item.Agro_Has_Propias,
+                                "Agro_Has_Arren" to item.Agro_Has_Arren,
+                                "Agro_Has_Tot" to item.Agro_Has_Tot,
+                                "Agro_Cat_DTR" to item.Agro_Cat_DTR,
+                                "Agro_Verdeos_Has" to item.Agro_Verdeos_Has,
+                                "Agro_Rot_Has" to item.Agro_Rot_Has,
+                                "Agro_Dep_APC" to item.Agro_Dep_APC,
+                                "Agro_Cumple_Rec" to item.Agro_Cumple_Rec,
+                                "Agro_MangaRiego_Has" to item.Agro_MangaRiego_Has,
+                                "Agro_Suelo_N" to item.Agro_Suelo_N,
+                                "Agro_Suelo_NUd" to item.Agro_Suelo_NUd,
+                                "Agro_Suelo_P" to item.Agro_Suelo_P,
+                                "Agro_Suelo_K" to item.Agro_Suelo_K,
+                                "Agro_Suelo_KUd" to item.Agro_Suelo_KUd,
+                                "Agro_Suelo_MO" to item.Agro_Suelo_MO,
+                                "Agro_Suelo_MOUd" to item.Agro_Suelo_MOUd,
+                                "Agro_Suelo_PH" to item.Agro_Suelo_PH,
+                                "Agro_Agua_CE" to item.Agro_Agua_CE,
+                                "Agro_Agua_CEUd" to item.Agro_Agua_CEUd,
+                                "Agro_Agua_Carb" to item.Agro_Agua_Carb,
+                                "Agro_Agua_CarbUd" to item.Agro_Agua_CarbUd,
+                                "Agro_Agua_PH" to item.Agro_Agua_PH,
+                                "Agro_Obs" to item.Agro_Obs,
+                                "Infra_Cumple_Rec" to item.Infra_Cumple_Rec,
+                                "Infra_Posee_Galp" to item.Infra_Posee_Galp,
+                                "Infra_Galpon_m3" to item.Infra_Galpon_m3,
+                                "Infra_Total_Canas" to item.Infra_Total_Canas,
+                                "Infra_HasEstuf" to item.Infra_HasEstuf,
+                                "Infra_Obs" to item.Infra_Obs,
+                                "Infra_Est_Conv" to item.Infra_Est_Conv,
+                                "Infra_Conv_Gas" to item.Infra_Conv_Gas,
+                                "Infra_Conv_Gas_CI" to item.Infra_Conv_Gas_CI,
+                                "Infra_Conv_Gas_SI" to item.Infra_Conv_Gas_SI,
+                                "Infra_Conv_Gas_Canas" to item.Infra_Conv_Gas_Canas,
+                                "Infra_Conv_Gas_Perchas" to item.Infra_Conv_Gas_Perchas,
+                                "Infra_Conv_Lena" to item.Infra_Conv_Lena,
+                                "Infra_Conv_Lena_Perchas" to item.Infra_Conv_Lena_Perchas,
+                                "Infra_Conv_Lena_Canas" to item.Infra_Conv_Lena_Canas,
+                                "Infra_Bulk_Cur" to item.Infra_Bulk_Cur,
+                                "Infra_BC_Gas" to item.Infra_BC_Gas,
+                                "Infra_BC_Gas_CI" to item.Infra_BC_Gas_CI,
+                                "Infra_BC_Gas_SI" to item.Infra_BC_Gas_SI,
+                                "Infra_BC_Gas_Peines" to item.Infra_BC_Gas_Peines,
+                                "Infra_BC_Lena" to item.Infra_BC_Lena,
+                                "Infra_BC_Lena_CI" to item.Infra_BC_Lena_CI,
+                                "Infra_BC_Lena_Peines" to item.Infra_BC_Lena_Peines)
                     }
                 }
                 uiThread { longToast("Fichas Sincronizadas. Total: " + fgralesToSincro?.count().toString()) }
                 progressBar.visibility = View.INVISIBLE
 
             }
-        })
+        }
     }
 
     //Metodo Volley
