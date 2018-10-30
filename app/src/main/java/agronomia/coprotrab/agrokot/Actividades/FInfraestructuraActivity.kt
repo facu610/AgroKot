@@ -32,9 +32,9 @@ class FInfraestructuraActivity : AppCompatActivity() {
         tab_layout.addTab(tab_layout.newTab().setText("Convencionales"))
         tab_layout.addTab(tab_layout.newTab().setText("Bulk Curing"))
 
-
+        var id_socio: Int =  (intent.getStringExtra("agronomia.coprotab.agrokot.ID_SOCIO").toInt())
         val adapter = InfraestructuraFragment_Adapter(supportFragmentManager,
-                tab_layout.tabCount)
+                tab_layout.tabCount, id_socio)
         pager.adapter = adapter
 
         pager.addOnPageChangeListener(

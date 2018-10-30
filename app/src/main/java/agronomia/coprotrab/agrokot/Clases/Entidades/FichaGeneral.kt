@@ -23,20 +23,20 @@ class FichaGeneral (id_ficha:Int,
                     agro_dep_apc:Int?,
                     agro_cumple_rec:Int?,
                     agro_mangariego_has:Int?,
-                    agro_suelo_n:Int?,
+                    agro_suelo_n:Float?,
                     agro_suelo_nud:String,
-                    agro_suelo_p:Int?,
+                    agro_suelo_p:Float?,
                     agro_suelo_pud:String,
-                    agro_suelo_k:Int?,
+                    agro_suelo_k:Float?,
                     agro_suelo_kud:String,
-                    agro_suelo_mo:Int?,
+                    agro_suelo_mo:Float?,
                     agro_suelo_moud:String,
-                    agro_suelo_ph:Int?,
-                    agro_agua_ce:Int?,
+                    agro_suelo_ph:Float?,
+                    agro_agua_ce:Float?,
                     agro_agua_ceud:String,
-                    agro_agua_carb:Int?,
+                    agro_agua_carb:Float?,
                     agro_agua_carbud:String,
-                    agro_agua_ph:Int?,
+                    agro_agua_ph:Float?,
                     agro_obs:String,
                     infra_cumple_rec:Int?,
                     infra_posee_galp:Int?,
@@ -87,20 +87,20 @@ class FichaGeneral (id_ficha:Int,
     var Agro_Dep_APC: Int?
     var Agro_Cumple_Rec: Int?
     var Agro_MangaRiego_Has: Int?
-    var Agro_Suelo_N: Int?
+    var Agro_Suelo_N: Float?
     var Agro_Suelo_NUd: String = ""
-    var Agro_Suelo_P: Int?
+    var Agro_Suelo_P: Float?
     var Agro_Suelo_PUd: String = ""
-    var Agro_Suelo_K: Int?
+    var Agro_Suelo_K: Float?
     var Agro_Suelo_KUd: String = ""
-    var Agro_Suelo_MO: Int?
+    var Agro_Suelo_MO: Float?
     var Agro_Suelo_MOUd: String = ""
-    var Agro_Suelo_PH: Int?
-    var Agro_Agua_CE: Int?
+    var Agro_Suelo_PH: Float?
+    var Agro_Agua_CE: Float?
     var Agro_Agua_CEUd: String = ""
-    var Agro_Agua_Carb: Int?
+    var Agro_Agua_Carb: Float?
     var Agro_Agua_CarbUd: String = ""
-    var Agro_Agua_PH: Int?
+    var Agro_Agua_PH: Float?
     var Agro_Obs: String = ""
     var Infra_Cumple_Rec: Int?
     var Infra_Posee_Galp: Int?

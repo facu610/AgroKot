@@ -72,33 +72,35 @@ class FGeneralesActivity : AppCompatActivity() {
             }
 8
         val b_fgrales_guardar = findViewById<Button>(R.id.b_Fgrales_Guardar)
-        b_fgrales_guardar.setOnClickListener(View.OnClickListener {
+        b_fgrales_guardar.setOnClickListener {
 
 
             if (fichaexistente != null) { //LA FICHA EXISTE Y HAY QUE ACTUALIZARLA. PARA ESO, BORRAMOS LA ANTERIOR PORQUE CON EL UPDATE NO ANDA, NO SE POR QUE!
-                 DataAccess_RegistroAgrotecnico_App(this).delete_FGenerales(id_socio)
+                DataAccess_RegistroAgrotecnico_App(this).delete_FGenerales(id_socio)
             }
 
             doAsync {
 
-                    database.use {
-                        insert("AA_FichasGenerales",
-                                "ID_Ficha" to 0,
-                                "Fecha_Grales" to dateInString,
-                                "ID_Camp" to 0,
-                                "ID_Soc" to id_socio,
-                                "Fet_Soc" to socio.FET_Soc,
-                                "ID_Instr" to 1,
-                                "Finca_Soc" to et_Fgrales_Finca.text.toString(),
-                                "Local_Soc" to et_Fgrales_Local.text.toString(),
-                                "Coord_Soc" to tv_Fgrales_Lat.text.toString() + " " + tv_Fgrales_Long.text.toString(),
-                                "Zona_Soc" to 1,
-                                "ToSincro" to 1
-                        )
-                    }
-                    uiThread { longToast("Ficha Guardada ") }
+                database.use {
+                    insert("AA_FichasGenerales",
+                            "ID_Ficha" to 0,
+                            "Fecha_Grales" to dateInString,
+                            "ID_Camp" to 0,
+                            "ID_Soc" to id_socio,
+                            "Fet_Soc" to socio.FET_Soc,
+                            "ID_Instr" to 1,
+                            "Finca_Soc" to et_Fgrales_Finca.text.toString(),
+                            "Local_Soc" to et_Fgrales_Local.text.toString(),
+                            "Coord_Soc" to tv_Fgrales_Lat.text.toString() + " " + tv_Fgrales_Long.text.toString(),
+                            "Zona_Soc" to 1,
+                            "ToSincro" to 1,
+                            "Grado_RiesgoAPC" to 1,
+                            "Nombre_RiesgoAPC" to "NombreProducto"
+                    )
                 }
-            })
+                uiThread { longToast("Ficha Guardada ") }
+            }
+        }
     }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         ubicacion?.onRequestPermissionsResult(requestCode, permissions, grantResults)

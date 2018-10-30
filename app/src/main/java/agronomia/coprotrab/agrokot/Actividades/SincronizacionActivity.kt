@@ -5,15 +5,19 @@ import agronomia.coprotrab.agrokot.Clases.DataResources.database
 import agronomia.coprotrab.agrokot.Clases.Entidades.FichaGeneral
 import agronomia.coprotrab.agrokot.Clases.Entidades.Instructor
 import agronomia.coprotrab.agrokot.Clases.Entidades.MaeSocio
+import agronomia.coprotrab.agrokot.Clases.Network
+import agronomia.coprotrab.agrokot.Clases.Network.Companion
 import agronomia.coprotrab.agrokot.R
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
+import android.support.v4.content.ContextCompat
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -41,22 +45,9 @@ class SincronizacionActivity : AppCompatActivity() {
         FuelManager.instance.basePath = "http://demosmushtaq.16mb.com"
 
 
-//        if (Network.validaConeccion(this)) {
-//            Toast.makeText(this, "Si hay red", Toast.LENGTH_LONG).show()
-//            Log.d("bSincroOnClick", descargarDatos("https://google.com"))
-//            //SOLICITAR SOLICITUD HTPP
-//
-//        } else {
-//            Toast.makeText(this, "No hay Internet", Toast.LENGTH_LONG).show()
-//        }
-
-//        val bCambiarInstr = findViewById<Button>(R.id.b_CambiarInstr)
-//        bCambiarInstr.setOnClickListener(View.OnClickListener {
-//            val instr: String
-//            Toast.makeText(this, "Instructor cambiado con éxito, Bienvenido ", Toast.LENGTH_LONG).show()
-//        })
 
         val bSincroInstr = findViewById<Button>(R.id.b_SincroInstr)
+        val bPruebaConex = findViewById<Button>(R.id.b_PruebaConex)
         val bSincroSoc = findViewById<Button>(R.id.b_SincroSocios)
         val bSincroFic = findViewById<Button>(R.id.b_SincroFichas)
         val progressBar = findViewById<ProgressBar>(R.id.progressbar)
@@ -66,32 +57,33 @@ class SincronizacionActivity : AppCompatActivity() {
         bSincroFic.isEnabled = false
         bSincroFic.setBackgroundColor(Color.DKGRAY)
 
+        fgralesToSincro = DataAccess_RegistroAgrotecnico_App(this).select_FGeneralesToSincro()
+        numToSincro = fgralesToSincro!!.count()
 
+        if (numToSincro != 0){
 
+            tv_sincro_tosincro.text = "Fichas a Sincronizar: " + numToSincro.toString()
+            bSincroFic.isEnabled = true
+            bSincroFic.setBackgroundColor(ContextCompat.getColor(this, R.color.primaryLightColor))
+        }
+        else{
+            tv_sincro_tosincro.text = "No existen fichas a sincronizar "
 
-//        fgralesToSincro = DataAccess_RegistroAgrotecnico_App(this).select_FGeneralesToSincro()
-//        numToSincro = fgralesToSincro!!.count()
-//
-//        if (numToSincro != 0){
-//
-//            tv_sincro_tosincro.text = "Fichas a Sincronizar: " + numToSincro.toString()
-//            bSincroFic.isEnabled = true
-//            bSincroFic.setBackgroundColor(ContextCompat.getColor(this, R.color.primaryLightColor))
-//        }
-//        else{
-//            tv_sincro_tosincro.text = "No existen fichas a sincronizar "
-//        }
+     }
 
+        bPruebaConex.setOnClickListener{
+            if (Network.isConecctedToCoop()) {
+                Toast.makeText(this, "Conexíon a Coprotab estable.", Toast.LENGTH_LONG).show()
 
-
+            }else {
+                Toast.makeText(this, "Compruebe su conexión con Coprotab.", Toast.LENGTH_LONG).show()
+            }
+        }
 
         bSincroInstr.setOnClickListener {
             progressBar.visibility = View.VISIBLE
             doAsync {
-
                 val respuesta = URL("http://192.168.50.108/AppAgronomia/api/AA_Instructores").readText()
-                //val respuesta = URL("https://api.openweathermap.org/data/2.5/forecast/daily?mode=json&units=metric&cnt=7").readText()
-                //val respuesta = URL(" https://jsonplaceholder.typicode.com/posts").readText()
                 val gson = Gson()
                 val instructores = gson.fromJson(respuesta, Array<Instructor>::class.java)
                 DataAccess_RegistroAgrotecnico_App(applicationContext).delete_Instructores()

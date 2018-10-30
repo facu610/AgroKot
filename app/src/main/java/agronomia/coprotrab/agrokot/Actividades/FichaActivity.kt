@@ -93,7 +93,7 @@ class FichaActivity : AppCompatActivity() {
             }
             if (menuitems.get(position).nombre == "Infraestructura") {
                 val intentInfra = Intent(this, FInfraestructuraActivity::class.java)
-                //intentAgro.putExtra(TAGID,maesocio?.ID_Soc.toString() )
+                intentInfra.putExtra(TAGID,maesocio?.ID_Soc.toString() )
                 startActivity(intentInfra)
             }
             if (menuitems.get(position).nombre == "Almácigos") {

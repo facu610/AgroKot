@@ -62,7 +62,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/secondaryTextColor"/>
         <EditText
-            android:id="@+id/et_FInfra_Conv_CI"
+            android:id="@+id/et_FInfra_Conv_Gas_CI"
             android:ems="4"
             android:inputType="number"
             android:textColor="@color/secondaryTextColor" />
@@ -73,7 +73,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/secondaryTextColor"/>
         <EditText
-            android:id="@+id/et_FInfra_Conv_Ncañas"
+            android:id="@+id/et_FInfra_Conv_Gas_NCanas"
             android:ems="4"
             android:inputType="number"
             android:textColor="@color/secondaryTextColor" />
@@ -87,7 +87,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/secondaryTextColor"/>
         <EditText
-            android:id="@+id/et_FInfra_Conv_SI"
+            android:id="@+id/et_FInfra_Conv_Gas_SI"
             android:ems="4"
             android:inputType="number"
             android:textColor="@color/secondaryTextColor" />
@@ -98,7 +98,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/secondaryTextColor"/>
         <EditText
-            android:id="@+id/et_FInfra_Conv_GasNPerchas"
+            android:id="@+id/et_FInfra_Conv_Gas_NPerchas"
             android:ems="4"
             android:inputType="number"
             android:textColor="@color/secondaryTextColor" />
@@ -128,7 +128,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/secondaryTextColor"/>
         <EditText
-            android:id="@+id/et_FInfra_Conv_LenaNPerchas"
+            android:id="@+id/et_FInfra_Conv_Lena_NPerchas"
             android:ems="4"
             android:inputType="number"
             android:textColor="@color/secondaryTextColor" />
@@ -139,7 +139,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/secondaryTextColor"/>
         <EditText
-            android:id="@+id/et_FInfra_Conv_LenaNCanas"
+            android:id="@+id/et_FInfra_Conv_Lena_NCanas"
             android:ems="4"
             android:inputType="number"
             android:textColor="@color/secondaryTextColor" />
@@ -147,7 +147,7 @@
 
 
         <Button
-            android:id="@+id/b_FInfra_Gral_Guardar"
+            android:id="@+id/b_FInfra_Conv_Guardar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Guardar"

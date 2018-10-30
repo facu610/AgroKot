@@ -23,7 +23,6 @@ import org.jetbrains.anko.uiThread
 class AgroGeneralFragment : Fragment(){
 
     var spinner: Spinner? = null
-    var categoria: String? = null
     var fichaexistente: FichaGeneral? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -45,20 +44,20 @@ class AgroGeneralFragment : Fragment(){
             }
         }
 
-        var args: Bundle? = this.arguments
+        val args: Bundle? = this.arguments
 
 
-        var HasPropias= rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HPropias)
-        var HasArren= rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HArren)
-        var HasTotales= rootView.findViewById<TextView>(R.id.tv_FAgro_Gral_HTotal)
-        var CategDTR = rootView.findViewById<Spinner>(R.id.s_FAgro_Gral_DTR)
-        var Verdeos = rootView.findViewById<CheckBox>(R.id.cb_FAgro_Gral_Verdeos)
-        var HasVerdeos = rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HasVerdeos)
-        var Rotaciones= rootView.findViewById<CheckBox>(R.id.cb_FAgro_Gral_Rotac)
-        var HasRotac = rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HasRotac)
-        var DepAPC= rootView.findViewById<CheckBox>(R.id.cb_FAgro_Gral_DepAPC)
-        var CumpleRec= rootView.findViewById<CheckBox>(R.id.cb_FAgro_Gral_CumpRec)
-        var MangaRiego= rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HasMangRieg)
+        val HasPropias= rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HPropias)
+        val HasArren= rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HArren)
+        val HasTotales= rootView.findViewById<TextView>(R.id.tv_FAgro_Gral_HTotal)
+        val CategDTR = rootView.findViewById<Spinner>(R.id.s_FAgro_Gral_DTR)
+        val Verdeos = rootView.findViewById<CheckBox>(R.id.cb_FAgro_Gral_Verdeos)
+        val HasVerdeos = rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HasVerdeos)
+        val Rotaciones= rootView.findViewById<CheckBox>(R.id.cb_FAgro_Gral_Rotac)
+        val HasRotac = rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HasRotac)
+        val DepAPC= rootView.findViewById<CheckBox>(R.id.cb_FAgro_Gral_DepAPC)
+        val CumpleRec= rootView.findViewById<CheckBox>(R.id.cb_FAgro_Gral_CumpRec)
+        val MangaRiego= rootView.findViewById<EditText>(R.id.et_FAgro_Gral_HasMangRieg)
 
         var haspropias:Int?
         haspropias = null
@@ -89,7 +88,7 @@ class AgroGeneralFragment : Fragment(){
             }
         }
 
-        var id_socio = args?.getInt("id_socio")
+        val id_socio = args?.getInt("id_socio")
         fichaexistente = DataAccess_RegistroAgrotecnico_App(activity!!).select_FGenerales(id_socio!!)
 
         if (fichaexistente!!.Agro_Has_Propias != null || fichaexistente!!.Agro_Has_Arren != null || fichaexistente!!.Agro_MangaRiego_Has != null){
@@ -105,8 +104,16 @@ class AgroGeneralFragment : Fragment(){
                 "Alto Riesgo" -> CategDTR.setSelection(3)
             }
 
-            if (fichaexistente!!.Agro_Verdeos_Has!! > 0){HasVerdeos.text = Editable.Factory.getInstance().newEditable(fichaexistente!!.Agro_Verdeos_Has.toString())}
-            if (fichaexistente!!.Agro_Rot_Has!! > 0) { HasRotac.text = Editable.Factory.getInstance().newEditable(fichaexistente!!.Agro_Rot_Has.toString())}
+            HasVerdeos.text = Editable.Factory.getInstance().newEditable("")
+            if (fichaexistente!!.Agro_Verdeos_Has != null ){
+                HasVerdeos.text = Editable.Factory.getInstance().newEditable(fichaexistente!!.Agro_Verdeos_Has.toString())
+                Verdeos.isChecked = true
+            }
+            HasRotac.text = Editable.Factory.getInstance().newEditable("")
+            if (fichaexistente!!.Agro_Rot_Has != null ) {
+                HasRotac.text = Editable.Factory.getInstance().newEditable(fichaexistente!!.Agro_Rot_Has.toString())
+                Rotaciones.isChecked = true
+            }
             if (fichaexistente!!.Agro_Dep_APC == 1) { DepAPC.isChecked = true}
             if (fichaexistente!!.Agro_Cumple_Rec == 1) { CumpleRec.isChecked = true}
             if (fichaexistente!!.Agro_MangaRiego_Has!! > 0) { MangaRiego.text = Editable.Factory.getInstance().newEditable(fichaexistente!!.Agro_MangaRiego_Has.toString())}
@@ -155,11 +162,12 @@ class AgroGeneralFragment : Fragment(){
                                     "Agro_Rot_Has" to hasrotac,
                                     "Agro_Dep_APC" to chbAPC,
                                     "Agro_Cumple_Rec" to chbRec,
-                                    "Agro_MangaRiego_Has" to hasmangarie
+                                    "Agro_MangaRiego_Has" to hasmangarie,
+                                    "ToSincro" to 1
 
                     ).where("ID_Soc = {id_socio}", "id_socio" to id_socio).exec()
                 }
-                Toast.makeText(activity!!, "id socio " + id_socio.toString(), Toast.LENGTH_LONG).show()
+                Toast.makeText(activity!!, "Ficha Agronómicos - " + id_socio.toString() +" - Guardada", Toast.LENGTH_LONG).show()
 
             })
 

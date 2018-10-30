@@ -15,13 +15,19 @@ class AgronomicosFragment_Adapter(fm: FragmentManager, var fragcount: Int, var i
         when (position){
 
             0 -> {
-                var agrofragment = AgroGeneralFragment()
-                var args = Bundle()
+                val agrofragmentgral = AgroGeneralFragment()
+                val args = Bundle()
                 args.putInt("id_socio", id_socio)
-                agrofragment.arguments = args
-                return agrofragment
+                agrofragmentgral.arguments = args
+                return agrofragmentgral
             }
-            1 -> return AgroAguaySueloFragment()
+            1 -> {
+                val agrofragmentays = AgroAguaySueloFragment()
+                val args = Bundle()
+                args.putInt("id_socio", id_socio)
+                agrofragmentays.arguments = args
+                return agrofragmentays
+            }
             else -> return null
         }
     }
