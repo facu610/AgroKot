@@ -6,6 +6,7 @@ import agronomia.coprotrab.agrokot.Clases.DataResources.database
 import agronomia.coprotrab.agrokot.Clases.Entidades.FichaGeneral
 import agronomia.coprotrab.agrokot.Interfaces.UbicacionListener
 import agronomia.coprotrab.agrokot.R
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
@@ -15,6 +16,7 @@ import com.google.android.gms.location.LocationResult
 import kotlinx.android.synthetic.main.activity_fgenerales.*
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.find
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.uiThread
 import java.text.SimpleDateFormat
@@ -28,19 +30,18 @@ class FGeneralesActivity : AppCompatActivity() {
     private val permisoCoarseLocation = android.Manifest.permission.ACCESS_COARSE_LOCATION
     private val CODIGO_SOLICITUD_PERMISO = 100
     var ubicacion:Ubicacion? = null
-    var tv_lat:TextView? = null
-    var tv_lon:TextView? = null
     var toolbar: Toolbar? = null
+
 
     var fichaexistente:FichaGeneral? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fgenerales)
-        tv_lat = findViewById(R.id.tv_Fgrales_Lat)
-        tv_lon = findViewById(R.id.tv_Fgrales_Long)
+        val tv_ubic = findViewById<TextView>(R.id.tv_Fgrales_Ubi)
         toolbar = findViewById(R.id.tb_act_fgrales)
         toolbar?.title ="Generales"
+
 
         var id_socio: Int =  (intent.getStringExtra("agronomia.coprotab.agrokot.ID_SOCIO").toInt())
 
@@ -50,27 +51,25 @@ class FGeneralesActivity : AppCompatActivity() {
         val socio = DataAccess_RegistroAgrotecnico_App(this).select_MaeSocio(id_socio)
 
         if (fichaexistente == null) { // NO EXISTE FICHA PREVIA
-
             ubicacion = Ubicacion(this, object : UbicacionListener {
                 override fun ubicacionResponse(locationResult: LocationResult) {
-                    tv_lat?.text = locationResult.lastLocation.latitude.toString()
-                    tv_lon?.text = locationResult.lastLocation.longitude.toString()
-                    }
+                    val str:String = locationResult.lastLocation.latitude.toString() + locationResult.lastLocation.longitude.toString()
+                    tv_ubic?.text = str
+                }
             })
         }
         else{
             Toast.makeText(this,"Cargando ficha previa...",Toast.LENGTH_SHORT).show()
-
             et_Fgrales_Finca.setText(fichaexistente!!.Finca_Soc).toString()
             et_Fgrales_Local.setText(fichaexistente!!.Local_Soc).toString()
-
-            //OJO  Unable to start activity ComponentInfo{agronomia.coprotrab.agrokot/agronomia.coprotrab.agrokot.Actividades.FGeneralesActivity}:
-            //java.lang.StringIndexOutOfBoundsException: length=1; index=10
-            tv_lat?.text = fichaexistente!!.Coord_Soc.subSequence(0,10).toString()
-            tv_lon?.text = fichaexistente!!.Coord_Soc.subSequence(12,22).toString()
-
+            if (fichaexistente!!.Coord_Soc != "") {
+                tv_ubic?.text = fichaexistente!!.Coord_Soc
             }
-8
+            else{
+                tv_ubic?.text = ""
+            }
+        }
+
         val b_fgrales_guardar = findViewById<Button>(R.id.b_Fgrales_Guardar)
         b_fgrales_guardar.setOnClickListener {
 
@@ -91,7 +90,7 @@ class FGeneralesActivity : AppCompatActivity() {
                             "ID_Instr" to 1,
                             "Finca_Soc" to et_Fgrales_Finca.text.toString(),
                             "Local_Soc" to et_Fgrales_Local.text.toString(),
-                            "Coord_Soc" to tv_Fgrales_Lat.text.toString() + " " + tv_Fgrales_Long.text.toString(),
+                            "Coord_Soc" to tv_ubic?.text.toString(),
                             "Zona_Soc" to 1,
                             "ToSincro" to 1,
                             "Grado_RiesgoAPC" to 1,
@@ -101,6 +100,17 @@ class FGeneralesActivity : AppCompatActivity() {
                 uiThread { longToast("Ficha Guardada ") }
             }
         }
+
+        val b_reubicar = findViewById<Button>(R.id.b_Fgrales_Ubic)
+        b_reubicar.setOnClickListener {
+            ubicacion = Ubicacion(this, object : UbicacionListener {
+                override fun ubicacionResponse(locationResult: LocationResult) {
+                    val str:String = locationResult.lastLocation.latitude.toString() + locationResult.lastLocation.longitude.toString()
+                    tv_ubic?.text = str                    }
+            })
+        }
+
+
     }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         ubicacion?.onRequestPermissionsResult(requestCode, permissions, grantResults)

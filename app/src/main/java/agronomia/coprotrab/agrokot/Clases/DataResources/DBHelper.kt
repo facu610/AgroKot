@@ -4,7 +4,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import org.jetbrains.anko.db.*
 
-class DBHelper (ctx: Context) : ManagedSQLiteOpenHelper(ctx, "RegistroAgrotecnico_App") {
+class DBHelper (ctx: Context) : ManagedSQLiteOpenHelper(ctx, "RegistroAgrotecnico_App",null, 193) {
 
     companion object {
         private var instance: DBHelper? = null
@@ -36,6 +36,16 @@ class DBHelper (ctx: Context) : ManagedSQLiteOpenHelper(ctx, "RegistroAgrotecnic
                 "Idvehiculo_Instr" to INTEGER,
                 "Idmovil_Instr" to INTEGER,
                 "Pass_Instr" to TEXT)
+
+        db.insert("AA_Instructores",
+                    "ID_Instr" to 1,
+                    "User_Instr" to "admin",
+                    "Nombre_Instr" to "Administrador",
+                    "Zona_Instr" to 1,
+                    "Issuper_Instr" to 1,
+                    "Idvehiculo_Instr" to 1,
+                    "Idmovil_Instr" to 1,
+                    "Pass_Instr" to "root")
 
         db.createTable("AA_FichasGenerales", true,
                 "ID_Ficha" to INTEGER,
@@ -98,7 +108,89 @@ class DBHelper (ctx: Context) : ManagedSQLiteOpenHelper(ctx, "RegistroAgrotecnic
                 "Infra_BC_Gas_Peines" to INTEGER,
                 "Infra_BC_Lena" to INTEGER,
                 "Infra_BC_Lena_CI" to INTEGER,
-                "Infra_BC_Lena_Peines" to INTEGER
+                "Infra_BC_Lena_Peines" to INTEGER,
+
+                "AlmaConv_Is" to INTEGER,
+                "To_Sincro_AlmaConv" to INTEGER,
+                "AlmaFlot_Is" to INTEGER,
+                "To_Sincro_AlmaFlot" to INTEGER,
+                "AlmaBand_Is" to INTEGER,
+                "To_Sincro_AlmaBand" to INTEGER,
+                "AlmaApoya_Is" to INTEGER,
+                "To_Sincro_AlmaApoya" to INTEGER,
+                "AlmaVar_Is" to INTEGER,
+                "To_Sincro_AlmaVar" to INTEGER
+        )
+
+        db.createTable("AgroFertilizantes", true,
+                "Codigo_AF" to INTEGER,
+                "Nombre_AF" to TEXT,
+                "Codigo_TipoAF" to INTEGER,
+                "Permitido_AF" to TEXT
+        )
+
+        db.createTable("AA_Almacigo_ConvxDetalle", true,
+                "ID_Alma_Conv_Detalle" to INTEGER,
+                "ID_Socio" to INTEGER,
+                "Fecha" to TEXT,
+                "ID_AF_APC_Conv" to INTEGER,
+                "Nombre_AF_APC_Conv" to TEXT,
+                "AF_APC_Unid_Conv" to TEXT,
+                "AF_APC_Dosis_Conv" to REAL,
+                "ID_AF_Fert_Conv" to INTEGER,
+                "Nombre_AF_Fert_Conv" to TEXT,
+                "AF_Fert_Unid_Conv" to INTEGER,
+                "AF_Fert_Dosis_Conv" to TEXT,
+                "Codigo_TipoAF" to INTEGER,
+                "Densidad" to TEXT
+        )
+
+        db.createTable("AA_Almacigo_BandxDetalle", true,
+                "ID_Alma_Band_Detalle" to INTEGER,
+                "ID_Socio" to INTEGER,
+                "Fecha" to TEXT,
+                "ID_AF_APC_Band" to INTEGER,
+                "Nombre_AF_APC_Band" to TEXT,
+                "AF_APC_Unid_Band" to TEXT,
+                "AF_APC_Dosis_Band" to REAL,
+                "ID_AF_Fert_Band" to INTEGER,
+                "Nombre_AF_Fert_Band" to TEXT,
+                "AF_Fert_Unid_Band" to INTEGER,
+                "AF_Fert_Dosis_Band" to TEXT,
+                "Codigo_TipoAF" to INTEGER,
+                "Densidad" to TEXT
+        )
+
+        db.createTable("AA_Almacigo_ApoyaxDetalle", true,
+                "ID_Alma_Apoya_Detalle" to INTEGER,
+                "ID_Socio" to INTEGER,
+                "Fecha" to TEXT,
+                "ID_AF_APC_Apoya" to INTEGER,
+                "Nombre_AF_APC_Apoya" to TEXT,
+                "AF_APC_Unid_Apoya" to TEXT,
+                "AF_APC_Dosis_Apoya" to REAL,
+                "ID_AF_Fert_Apoya" to INTEGER,
+                "Nombre_AF_Fert_Apoya" to TEXT,
+                "AF_Fert_Unid_Apoya" to INTEGER,
+                "AF_Fert_Dosis_Apoya" to TEXT,
+                "Codigo_TipoAF" to INTEGER,
+                "Densidad" to TEXT
+        )
+
+        db.createTable("AA_Almacigo_FlotxDetalle", true,
+                "ID_Alma_Flot_Detalle" to INTEGER,
+                "ID_Socio" to INTEGER,
+                "Fecha" to TEXT,
+                "ID_AF_APC_Flot" to INTEGER,
+                "Nombre_AF_APC_Flot" to TEXT,
+                "AF_APC_Unid_Flot" to TEXT,
+                "AF_APC_Dosis_Flot" to REAL,
+                "ID_AF_Fert_Flot" to INTEGER,
+                "Nombre_AF_Fert_Flot" to TEXT,
+                "AF_Fert_Unid_Flot" to INTEGER,
+                "AF_Fert_Dosis_Flot" to TEXT,
+                "Codigo_TipoAF" to INTEGER,
+                "Densidad" to TEXT
         )
 
     }
@@ -121,7 +213,22 @@ class DBHelper (ctx: Context) : ManagedSQLiteOpenHelper(ctx, "RegistroAgrotecnic
 //                "Localidad_Soc" to TEXT,
 //                "Telefono_Soc" to TEXT)
 
-        }
+        onCreate(db)
+
+        db.dropTable("AA_MaeSocios")
+        db.dropTable("AA_Instructores")
+        db.dropTable("AA_FichasGenerales")
+        db.dropTable("AgroFertilizantes")
+        db.dropTable("AA_Almacigo_ApoyaxDetalle")
+        db.dropTable("AA_Almacigo_BandxDetalle")
+        db.dropTable("AA_Almacigo_ConvxDetalle")
+        db.dropTable("AA_Almacigo_FlotxDetalle")
+
+        onCreate(db)
+
+
+
+    }
 
 }
 

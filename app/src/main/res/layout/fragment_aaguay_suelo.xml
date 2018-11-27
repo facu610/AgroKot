@@ -18,13 +18,13 @@
         app:columnCount="3"
         app:useDefaultMargins="true"
         app:orientation="horizontal"
-        app:rowCount="13">
+        app:rowCount="14">
 
         <TextView
             android:ems="7"
             android:text="Suelo "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="3"/>
 
 
@@ -34,12 +34,12 @@
             android:text="N: "
             android:gravity="right"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FAgro_AyS_N"
             android:ems="4"
             android:inputType="numberDecimal"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
         <Spinner
             android:id="@+id/s_FAgro_AyS_Nu"
             android:layout_width="wrap_content"
@@ -53,12 +53,12 @@
             android:text="P: "
             android:gravity="right"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FAgro_AyS_P"
             android:ems="4"
             android:inputType="numberDecimal"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
         <Spinner
             android:id="@+id/s_FAgro_AyS_Pu"
             android:layout_width="wrap_content"
@@ -72,12 +72,12 @@
             android:text="K: "
             android:gravity="right"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FAgro_AyS_K"
             android:ems="4"
             android:inputType="numberDecimal"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
         <Spinner
             android:id="@+id/s_FAgro_AyS_Ku"
             android:layout_width="wrap_content"
@@ -91,12 +91,12 @@
             android:text="MO: "
             android:gravity="right"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FAgro_AyS_MO"
             android:ems="4"
             android:inputType="numberDecimal"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
         <Spinner
             android:id="@+id/s_FAgro_AyS_MOu"
             android:layout_width="wrap_content"
@@ -110,13 +110,13 @@
             android:text="PH: "
             android:gravity="right"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
         <EditText
             android:id="@+id/et_FAgro_AyS_PHSuelo"
             android:ems="4"
             app:layout_columnSpan="2"
             android:inputType="numberDecimal"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
 
 
@@ -124,7 +124,7 @@
             android:ems="7"
             android:text="Agua "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="3"/>
 
 
@@ -134,12 +134,12 @@
             android:text="CE: "
             android:gravity="right"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FAgro_AyS_CE"
             android:ems="4"
             android:inputType="numberDecimal"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
         <Spinner
             android:id="@+id/s_FAgro_AyS_CEu"
             android:layout_width="wrap_content"
@@ -153,12 +153,12 @@
             android:text="Carb: "
             android:gravity="right"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FAgro_AyS_Carb"
             android:inputType="numberDecimal"
             android:ems="4"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
         <Spinner
             android:id="@+id/s_FAgro_AyS_Carbu"
             android:layout_width="wrap_content"
@@ -172,12 +172,12 @@
             android:text="PH: "
             android:gravity="right"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
         <EditText
             android:id="@+id/et_FAgro_AyS_PHAgua"
             android:ems="4"
             android:inputType="numberDecimal"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="2"/>
 
 
@@ -186,32 +186,44 @@
             android:ems="7"
             android:text="Observaciones: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="3"/>
 
 
 
         <EditText
             android:id="@+id/et_FAgro_AyS_Obs"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:gravity="center"
-            android:textColor="@color/secondaryTextColor"
-            android:textColorHint="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
+            android:textColorHint="@color/primaryTextColor"
             android:hint="Escriba aquí..."
             app:layout_columnSpan="3"
             android:inputType="text" />
 
         <Button
             android:id="@+id/b_FAgro_AyS_Guardar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" Guardar"
-            android:textSize="20dp"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="25sp"
+            android:padding="25dp"
+            android:textAllCaps="false"
             app:layout_columnSpan="3"
-            android:drawableLeft="@drawable/ic_save_24dp"
-            app:layout_gravity="center"/>
+            app:layout_gravity="center_vertical"
+            android:text="Guardar"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            app:layout_columnSpan="3"
+            app:layout_gravity="center|bottom"
+            android:gravity="center"
+            android:textColor="@color/primaryTextColor"
+            android:text=" Departamento de Sistemas - Co.Pro.Tab - 2018"
+            android:drawableLeft="@drawable/logoiconoapp40"
+            />
 
 
     </android.support.v7.widget.GridLayout>

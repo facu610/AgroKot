@@ -73,7 +73,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="bf5454" />
+                                      <entry key="backgroundColor" value="fffff3" />
                                       <entry key="foregroundImage" value="E:\Agronomia\AgroWinPhone - 2.1\AgroWinPhone\Recursos\LogoCoprotab_dibujoJC2.png" />
                                       <entry key="outputName" value="ic_app" />
                                     </map>
@@ -120,11 +120,6 @@
                                 </PersistentState>
                               </value>
                             </entry>
-                          </map>
-                        </option>
-                        <option name="values">
-                          <map>
-                            <entry key="outputIconType" value="LAUNCHER_LEGACY" />
                           </map>
                         </option>
                       </PersistentState>

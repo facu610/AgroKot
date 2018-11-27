@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Actividades.MainActivity"/>
+        <activity android:name=".Actividades.MainActivity" />
         <activity android:name=".Actividades.FichaActivity" />
         <activity android:name=".Actividades.SincronizacionActivity" />
         <activity android:name=".Actividades.SocioActivity" />
@@ -25,16 +25,16 @@
         <activity android:name=".Actividades.FAgronomicosActivity" />
         <activity android:name=".Actividades.FInfraestructuraActivity" />
         <activity android:name=".Actividades.FAlmacigosActivity" />
-        <activity
-            android:name=".Actividades.SplashActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize">
-
+        <activity android:name=".Actividades.PopAgegar"/>
+        <activity android:name=".Actividades.PopEliminar"/>
+        <activity android:name=".Actividades.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Actividades.AyudaActivity"></activity>
     </application>
 
 </manifest>

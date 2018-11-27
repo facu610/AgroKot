@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Actividades.FichaActivity">
@@ -15,7 +16,7 @@
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/Theme.AppCompat.Light"
-        app:titleTextColor="@color/primaryTextColor" />
+        app:titleTextColor="@color/secondaryTextColor" />
 
 
     <android.support.v7.widget.GridLayout
@@ -31,7 +32,7 @@
             android:text="Código Soc.: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:ems="6"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="1"/>
         <TextView
             android:id="@+id/tv_ActFich_ID_Soc"
@@ -39,7 +40,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:ems="8"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="1"/>
 
 
@@ -48,7 +49,7 @@
             android:text="Nombre Soc.: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:ems="6"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="1"/>
         <TextView
             android:id="@+id/tv_ActFich_Nombre_Soc"
@@ -56,7 +57,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:ems="8"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="1"/>
 
 
@@ -65,7 +66,7 @@
             android:text="Domicilio: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:ems="6"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="1"/>
         <TextView
             android:id="@+id/tv_ActFich_Dom_Soc"
@@ -73,7 +74,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:ems="8"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="1"/>
 
 
@@ -82,7 +83,7 @@
             android:text="Localidad: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:ems="6"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="1"/>
         <TextView
             android:id="@+id/tv_ActFich_Loc_Soc"
@@ -90,7 +91,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:ems="8"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="1"/>
 
 
@@ -99,7 +100,7 @@
             android:text="Teléfono: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:ems="6"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="1"/>
         <TextView
             android:id="@+id/tv_ActFich_Tel_Soc"
@@ -107,7 +108,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:ems="8"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="1"/>
 
 
@@ -117,7 +118,7 @@
             android:text="Compromiso: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:ems="6"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="1"/>
         <TextView
             android:id="@+id/tv_ActFich_Compro_Soc"
@@ -125,7 +126,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:ems="8"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="1"/>
 
 
@@ -133,7 +134,7 @@
             android:id="@+id/gv_menuficha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numColumns="2"
+            android:numColumns="3"
             app:layout_columnSpan="2"/>
 
 

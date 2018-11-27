@@ -97,10 +97,24 @@ class FichaActivity : AppCompatActivity() {
                 startActivity(intentInfra)
             }
             if (menuitems.get(position).nombre == "Almácigos") {
-                val intentInfra = Intent(this, FAlmacigosActivity::class.java)
-                //intentAgro.putExtra(TAGID,maesocio?.ID_Soc.toString() )
-                startActivity(intentInfra)
+                Toast.makeText(this, "Módulo en desarrollo.", Toast.LENGTH_LONG).show()
+                val intentAlma = Intent(this, FAlmacigosActivity::class.java)
+                intentAlma.putExtra(TAGID,maesocio?.ID_Soc.toString() )
+                startActivity(intentAlma)
             }
+            if (menuitems.get(position).nombre == "Plantación") {
+                Toast.makeText(this, "Módulo en desarrollo.", Toast.LENGTH_LONG).show()
+                //val intentInfra = Intent(this, FAlmacigosActivity::class.java)
+                //intentAgro.putExtra(TAGID,maesocio?.ID_Soc.toString() )
+                //startActivity(intentInfra)
+            }
+            if (menuitems.get(position).nombre == "Emisiones GEI") {
+                Toast.makeText(this, "Módulo en desarrollo.", Toast.LENGTH_LONG).show()
+                //val intentInfra = Intent(this, FAlmacigosActivity::class.java)
+                //intentAgro.putExtra(TAGID,maesocio?.ID_Soc.toString() )
+                //startActivity(intentInfra)
+            }
+
             //Toast.makeText(this, menuitems.get(position).nombre, Toast.LENGTH_LONG).show()
         }
 

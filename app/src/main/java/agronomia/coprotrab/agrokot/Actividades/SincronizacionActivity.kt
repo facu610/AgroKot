@@ -1,23 +1,25 @@
 package agronomia.coprotrab.agrokot.Actividades
 
+import agronomia.coprotrab.agrokot.Clases.DataResources.DBHelper
 import agronomia.coprotrab.agrokot.Clases.DataResources.DataAccess_RegistroAgrotecnico_App
 import agronomia.coprotrab.agrokot.Clases.DataResources.database
+import agronomia.coprotrab.agrokot.Clases.Entidades.AgroFertilizantes
 import agronomia.coprotrab.agrokot.Clases.Entidades.FichaGeneral
 import agronomia.coprotrab.agrokot.Clases.Entidades.Instructor
 import agronomia.coprotrab.agrokot.Clases.Entidades.MaeSocio
 import agronomia.coprotrab.agrokot.Clases.Network
-import agronomia.coprotrab.agrokot.Clases.Network.Companion
 import agronomia.coprotrab.agrokot.R
+import agronomia.coprotrab.agrokot.R.drawable.button_border
+import android.annotation.SuppressLint
+import android.database.sqlite.SQLiteDatabase
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
 import android.support.v4.content.ContextCompat
 import android.view.View
-import android.widget.Button
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
+import android.support.v7.widget.Toolbar
+import android.widget.*
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -36,11 +38,18 @@ class SincronizacionActivity : AppCompatActivity() {
 
     var fgralesToSincro: ArrayList<FichaGeneral>? = null
     var numToSincro:Int = 0
+    var toolbar:Toolbar? =null
 
 
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sincronizacion)
+        toolbar = findViewById(R.id.tb_act_sincro)
+        toolbar?.title = "Sincronización"
+        toolbar?.setTitleMargin(10,10,10,10)
+        setSupportActionBar(toolbar)
+
 
         FuelManager.instance.basePath = "http://demosmushtaq.16mb.com"
 
@@ -50,12 +59,10 @@ class SincronizacionActivity : AppCompatActivity() {
         val bPruebaConex = findViewById<Button>(R.id.b_PruebaConex)
         val bSincroSoc = findViewById<Button>(R.id.b_SincroSocios)
         val bSincroFic = findViewById<Button>(R.id.b_SincroFichas)
-        val progressBar = findViewById<ProgressBar>(R.id.progressbar)
+        val bNoSincroFic = findViewById<Button>(R.id.b_NoSincroFichas)
+
         val tv_sincro_tosincro = findViewById<TextView>(R.id.tv_Sincro_ToSincro)
 
-
-        bSincroFic.isEnabled = false
-        bSincroFic.setBackgroundColor(Color.DKGRAY)
 
         fgralesToSincro = DataAccess_RegistroAgrotecnico_App(this).select_FGeneralesToSincro()
         numToSincro = fgralesToSincro!!.count()
@@ -63,25 +70,34 @@ class SincronizacionActivity : AppCompatActivity() {
         if (numToSincro != 0){
 
             tv_sincro_tosincro.text = "Fichas a Sincronizar: " + numToSincro.toString()
-            bSincroFic.isEnabled = true
+            bSincroFic.visibility = View.VISIBLE
+            bNoSincroFic.visibility = View.INVISIBLE
             bSincroFic.setBackgroundColor(ContextCompat.getColor(this, R.color.primaryLightColor))
         }
         else{
-            tv_sincro_tosincro.text = "No existen fichas a sincronizar "
+            tv_sincro_tosincro.text = ""
+            bSincroFic.visibility = View.INVISIBLE
+            bNoSincroFic.visibility = View.VISIBLE
 
      }
 
         bPruebaConex.setOnClickListener{
+            val dialog = indeterminateProgressDialog(message = "Por favor espere un momento…", title = "Estableciendo conexión")
+            dialog.setCancelable(false)
             if (Network.isConecctedToCoop()) {
+                bSincroInstr.visibility = View.VISIBLE
+                bSincroSoc.visibility = View.VISIBLE
+                dialog.dismiss()
                 Toast.makeText(this, "Conexíon a Coprotab estable.", Toast.LENGTH_LONG).show()
-
             }else {
+                dialog.dismiss()
                 Toast.makeText(this, "Compruebe su conexión con Coprotab.", Toast.LENGTH_LONG).show()
             }
         }
 
         bSincroInstr.setOnClickListener {
-            progressBar.visibility = View.VISIBLE
+            val dialog = indeterminateProgressDialog(message = "Por favor espere un momento…", title = "Descargando complementarios")
+            dialog.setCancelable(false)
             doAsync {
                 val respuesta = URL("http://192.168.50.108/AppAgronomia/api/AA_Instructores").readText()
                 val gson = Gson()
@@ -100,13 +116,34 @@ class SincronizacionActivity : AppCompatActivity() {
                                 "Pass_Instr" to it.Pass_Instr)
                     }
                 }
+
                 uiThread { longToast("Instructores Sincronizados") }
-                progressBar.visibility = View.INVISIBLE
+
+            }
+            doAsync {
+                val respuesta = URL("http://192.168.50.108/AppAgronomia/api/AgroFertilizantes").readText()
+                val gson = Gson()
+                val agrofertilizantes = gson.fromJson(respuesta, Array<AgroFertilizantes>::class.java)
+
+                DataAccess_RegistroAgrotecnico_App(applicationContext).delete_AgroFertilizantes()
+                database.use {
+                    agrofertilizantes.forEach {
+                        insert("AgroFertilizantes",
+                                "Codigo_AF" to it.Codigo_AF,
+                                "Nombre_AF" to it.Nombre_AF,
+                                "Codigo_TipoAF" to it.Codigo_TipoAF,
+                                "Permitido_AF" to it.Permitido_AF)
+                    }
+                }
+                dialog.dismiss()
+                uiThread { longToast("AgroFertilizantes Sincronizados") }
+
             }
         }
 
         bSincroSoc.setOnClickListener {
-            progressBar.visibility = View.VISIBLE
+           val dialog = indeterminateProgressDialog(message = "Por favor espere un momento…", title = "Descargando socios")
+            dialog.setCancelable(false)
             doAsync {
 
                 val respuestasocios = URL("http://192.168.50.108/AppAgronomia/api/MaeSocios").readText()
@@ -125,15 +162,14 @@ class SincronizacionActivity : AppCompatActivity() {
                                 "Telefono_Soc" to it.Telefono_Soc)
                     }
                 }
-
-
+                dialog.dismiss()
                 uiThread { longToast("Socios Sincronizados. Total: " + maesocios.count().toString()) }
-                progressBar.visibility = View.INVISIBLE
+
             }
         }
 
         bSincroFic.setOnClickListener {
-            progressBar.visibility = View.VISIBLE
+            val dialog = indeterminateProgressDialog(message = "Por favor espere un momento…", title = "Sincronizando Fichas")
             doAsync {
 
                 for ( item in fgralesToSincro!!){
@@ -197,7 +233,19 @@ class SincronizacionActivity : AppCompatActivity() {
                             item.Infra_BC_Gas_Peines,
                             item.Infra_BC_Lena,
                             item.Infra_BC_Lena_CI,
-                            item.Infra_BC_Lena_Peines
+                            item.Infra_BC_Lena_Peines,
+
+                            item.AlmaConv_Is,
+                            item.To_Sincro_AlmaConv,
+
+                            item.AlmaFlot_Is,
+                            item.To_Sincro_AlmaFlot,
+                            item.AlmaBand_Is,
+                            item.To_Sincro_AlmaBand,
+                            item.AlmaApoya_Is,
+                            item.To_Sincro_AlmaApoya,
+                            item.AlmaVar_Is,
+                            item.To_Sincro_AlmaVar
                     )
 
                     var fichaJson = Gson().toJson(fichageneral)
@@ -269,12 +317,25 @@ class SincronizacionActivity : AppCompatActivity() {
                                 "Infra_BC_Gas_Peines" to item.Infra_BC_Gas_Peines,
                                 "Infra_BC_Lena" to item.Infra_BC_Lena,
                                 "Infra_BC_Lena_CI" to item.Infra_BC_Lena_CI,
-                                "Infra_BC_Lena_Peines" to item.Infra_BC_Lena_Peines)
+                                "Infra_BC_Lena_Peines" to item.Infra_BC_Lena_Peines,
+
+                                "AlmaConv_Is" to item.AlmaConv_Is,
+                                "To_Sincro_AlmaConv" to item.To_Sincro_AlmaConv,
+
+                                "AlmaFlot_Is" to item.AlmaFlot_Is,
+                                "To_Sincro_AlmaFlot" to item.To_Sincro_AlmaFlot,
+                                "AlmaBand_Is" to item.AlmaBand_Is,
+                                "To_Sincro_AlmaBand" to item.To_Sincro_AlmaBand,
+                                "AlmaApoya_Is" to item.AlmaApoya_Is,
+                                "To_Sincro_AlmaApoya" to item.To_Sincro_AlmaApoya,
+                                "AlmaVar_Is" to item.AlmaVar_Is,
+                                "To_Sincro_AlmaVar" to item.To_Sincro_AlmaVar
+                                )
                     }
                 }
+                dialog.dismiss()
                 uiThread { longToast("Fichas Sincronizadas. Total: " + fgralesToSincro?.count().toString()) }
-                progressBar.visibility = View.INVISIBLE
-
+                act.recreate()
             }
         }
     }

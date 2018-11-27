@@ -8,13 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 
 import agronomia.coprotrab.agrokot.R
+import android.support.v7.widget.RecyclerView
 
 class AlmaApoyadoFragment : Fragment() {
 
+
+    var rv_alma_apoy_apc: RecyclerView? = null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_alma_apoyado, container, false)
+        val rootView:View = inflater.inflate(R.layout.fragment_alma_apoyado, container, false)
+
+        return rootView
     }
 
 

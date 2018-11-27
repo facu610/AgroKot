@@ -10,6 +10,9 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import android.support.v7.widget.Toolbar
+import android.view.View
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_sincronizacion.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -62,6 +65,16 @@ class MainActivity : AppCompatActivity() {
             //Toast.makeText(this, menuitems.get(position).nombre, Toast.LENGTH_LONG).show()
         }
 
+        b_Main_Ingresa.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        b_Main_Salir.setOnClickListener {
+            SharedApp.prefs?.user = ""
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     fun validaDato(et:EditText): Boolean {
@@ -73,10 +86,18 @@ class MainActivity : AppCompatActivity() {
 
     fun configView(){
         if(isSavedName()) {
-         tvInstr?.text = "Bienvenido ${SharedApp.prefs?.user}"
+            tvInstr?.visibility = View.VISIBLE
+            tvInstr?.text = "Usuario: ${SharedApp.prefs?.user}"
+            tvInstr?.visibility = View.VISIBLE
+            tvZona?.text = "Zona: 1"
+            b_Main_Salir.visibility = View.VISIBLE
+            gv_menuprin.visibility = View.VISIBLE
+
         }
         else{
-            tvInstr?.text = "Logueate perro"
+            tvInstr?.text = ""
+            b_Main_Ingresa.visibility = View.VISIBLE
+            gv_menuprin.visibility = View.INVISIBLE
         }
     }
 

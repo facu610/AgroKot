@@ -35,9 +35,11 @@ class FAlmacigosActivity : AppCompatActivity() {
         tab_layout.addTab(tab_layout.newTab().setText("Apoyado"))
         tab_layout.addTab(tab_layout.newTab().setText("Variedades"))
 
+        var id_socio: Int =  (intent.getStringExtra("agronomia.coprotab.agrokot.ID_SOCIO").toInt())
+
 
         val adapter = AlmacigosFragment_Adapter(supportFragmentManager,
-                tab_layout.tabCount)
+                tab_layout.tabCount,id_socio)
         pager.adapter = adapter
 
         pager.addOnPageChangeListener(

@@ -5,24 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/backgroundColor"
     tools:context=".Actividades.LoginActivity">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:indeterminate="true"/>
+        android:layout_height="wrap_content">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tb_act_sincro"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            app:titleTextColor="@color/secondaryTextColor" />
 
-    <!--<ImageView-->
-        <!--android:id="@+id/imageView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:adjustViewBounds="true"-->
-        <!--android:cropToPadding="false"-->
-        <!--app:srcCompat="@drawable/logoiconoapp" />-->
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:columnCount="1"
+        app:useDefaultMargins="true"
+        app:orientation="horizontal"
+        app:rowCount="5">
+
 
     <EditText
         android:id="@+id/et_Log_User"
@@ -30,8 +41,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Usuario"
-        android:textColor="@color/secondaryTextColor"
-        android:textColorHint="@color/secondaryTextColor"
+        android:textColor="@color/primaryTextColor"
+        android:textColorHint="@color/Hint"
         android:layout_margin="15dp"
         android:inputType="textPersonName"
         />
@@ -42,8 +53,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Contraseña"
-        android:textColor="@color/secondaryTextColor"
-        android:textColorHint="@color/secondaryTextColor"
+        android:textColor="@color/primaryTextColor"
+        android:textColorHint="@color/Hint"
         android:layout_margin="15dp"
         android:inputType="textPassword" />
 
@@ -52,20 +63,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/secondaryTextColor"
-        android:text="Login" />
+        android:textSize="25sp"
+        android:padding="25dp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        android:text="Ingresar"
+        />
+
+        <Button
+            android:id="@+id/tv_Log_Msj"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:background="@drawable/button_border"
+            android:layout_height="wrap_content"
+            android:text="¿No se encuentra Registrado?"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:textColor="@color/primaryColor"/>
 
     <TextView
-        android:id="@+id/tv_Log_Msj"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primaryTextColor"
+        android:text=" Departamento de Sistemas - Co.Pro.Tab - 2018"
+        android:drawableLeft="@drawable/logoiconoapp40"
         android:gravity="center"
-        android:layout_height="wrap_content"
-        android:text="¿No se encuentra en la Lista?"
-        android:textColor="@color/secondaryTextColor"/>
+        app:layout_gravity="center|bottom" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:text="Departamento de Sistemas - CO.PRO.TAB. - 2018" />
+    </android.support.v7.widget.GridLayout>
 </LinearLayout>

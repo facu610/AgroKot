@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primaryLightColor"
+
+    >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_act_pop"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:titleTextColor="@color/secondaryTextColor" />
+
+    <android.support.v7.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:columnCount="3"
+        app:orientation="horizontal"
+        app:rowCount="3"
+        app:useDefaultMargins="true">
+
+
+
+        <TextView
+            android:text="Fertilizante: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/primaryTextColor"
+            android:layout_height="wrap_content"
+            app:layout_columnSpan="1"
+            android:layout_width="wrap_content"/>
+        <Spinner
+            android:id="@+id/S_Pop_Fertilizantes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="8dp"
+            app:layout_columnSpan="2"
+            tools:layout_editor_absoluteY="233dp" />
+
+
+
+        <TextView
+            android:text="Dosis: "
+            android:ems="3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/primaryTextColor"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <EditText
+            android:id="@+id/et_Pop_Dosis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Escriba un número..."
+            android:inputType="numberDecimal"
+            android:textColor="@color/primaryTextColor"
+            android:textColorHint="@color/primaryTextColor" />
+        <Spinner
+            android:id="@+id/S_Pop_Dosis_Ud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="3"/>
+
+
+
+        <Button
+            android:id="@+id/b_Pop_Agregar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="25sp"
+            android:layout_marginTop="80dp"
+            android:padding="20dp"
+            android:textAllCaps="false"
+            app:layout_gravity="right"
+            android:text="Agregar"
+            />
+
+
+
+    </android.support.v7.widget.GridLayout>
+
+
+</LinearLayout>

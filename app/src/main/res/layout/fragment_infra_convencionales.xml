@@ -18,7 +18,7 @@
         app:columnCount="4"
         app:useDefaultMargins="true"
         app:orientation="horizontal"
-        app:rowCount="7">
+        app:rowCount="8">
 
 
 
@@ -26,13 +26,13 @@
             android:ems="10"
             android:text="Estufas Convencionales: "
             android:gravity="left"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_columnSpan="2"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FInfra_Conv_EstConv"
             android:ems="10"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="2"
             android:inputType="number"/>
 
@@ -42,14 +42,14 @@
             android:ems="5"
             android:text="Gas"
             android:gravity="left"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_columnSpan="1"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FInfra_Conv_Gas"
             android:ems="4"
             android:gravity="left"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="3"
             android:inputType="number"/>
 
@@ -60,23 +60,23 @@
             android:text="C/I: "
             android:gravity="right"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FInfra_Conv_Gas_CI"
             android:ems="4"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
         <TextView
             android:ems="5"
             android:text="Nº Cañas: "
             android:gravity="right"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FInfra_Conv_Gas_NCanas"
             android:ems="4"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
 
 
@@ -85,23 +85,23 @@
             android:text="S/I: "
             android:gravity="right"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FInfra_Conv_Gas_SI"
             android:ems="4"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
         <TextView
             android:ems="5"
             android:text="Nº Perchas: "
             android:gravity="right"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FInfra_Conv_Gas_NPerchas"
             android:ems="4"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
 
 
@@ -109,13 +109,13 @@
             android:ems="5"
             android:text="Leña"
             android:gravity="left"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_columnSpan="1"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FInfra_Conv_Lena"
             android:ems="4"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="3"
             android:inputType="number"/>
 
@@ -126,35 +126,49 @@
             android:text="Nº Perchas "
             android:gravity="right"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FInfra_Conv_Lena_NPerchas"
             android:ems="4"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
         <TextView
             android:ems="5"
             android:text="Nº Cañas: "
             android:gravity="right"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textColor="@color/primaryTextColor"/>
         <EditText
             android:id="@+id/et_FInfra_Conv_Lena_NCanas"
             android:ems="4"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
 
 
         <Button
             android:id="@+id/b_FInfra_Conv_Guardar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" Guardar"
-            android:textSize="20dp"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="25sp"
+            android:layout_marginTop="100dp"
+            android:padding="25dp"
+            android:textAllCaps="false"
             app:layout_columnSpan="4"
-            android:drawableLeft="@drawable/ic_save_24dp"
-            app:layout_gravity="center"/>
+            app:layout_gravity="bottom"
+            android:text="Guardar"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            app:layout_columnSpan="4"
+            app:layout_gravity="center|bottom"
+            android:gravity="center"
+            android:textColor="@color/primaryTextColor"
+            android:text=" Departamento de Sistemas - Co.Pro.Tab - 2018"
+            android:drawableLeft="@drawable/logoiconoapp40"
+            />
 
 
     </android.support.v7.widget.GridLayout>

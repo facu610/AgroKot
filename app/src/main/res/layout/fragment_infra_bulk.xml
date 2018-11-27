@@ -25,15 +25,15 @@
             android:ems="10"
             android:gravity="left"
             android:text="Estufas Bulk Curing: "
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="2" />
 
         <EditText
             android:id="@+id/et_FInfra_BC_EstufBC"
             android:ems="10"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="2" />
 
 
@@ -41,15 +41,15 @@
             android:ems="5"
             android:gravity="left"
             android:text="Gas"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="1" />
 
         <EditText
             android:id="@+id/et_FInfra_BC_Gas"
             android:ems="4"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="3" />
 
 
@@ -58,26 +58,26 @@
             android:gravity="right"
             android:text="C/I: "
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
         <EditText
             android:id="@+id/et_FInfra_BC_Gas_CI"
             android:ems="4"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
         <TextView
             android:ems="5"
             android:gravity="right"
             android:text="Peines: "
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
         <EditText
             android:id="@+id/et_FInfra_BC_Gas_Peines"
             android:ems="4"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
 
         <TextView
@@ -85,7 +85,7 @@
             android:gravity="right"
             android:text="S/I: "
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="2" />
 
         <EditText
@@ -93,7 +93,7 @@
             android:ems="4"
             android:gravity="left"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="2" />
 
 
@@ -101,15 +101,15 @@
             android:ems="5"
             android:gravity="left"
             android:text="Leña"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="1" />
 
         <EditText
             android:id="@+id/et_FInfra_BC_Lena"
             android:ems="4"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor"
+            android:textColor="@color/primaryTextColor"
             app:layout_columnSpan="3" />
 
 
@@ -118,37 +118,51 @@
             android:gravity="right"
             android:text="C/I "
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
         <EditText
             android:id="@+id/et_FInfra_BC_Lena_CI"
             android:ems="4"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
         <TextView
             android:ems="5"
             android:gravity="right"
             android:text="Peines: "
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
         <EditText
             android:id="@+id/et_FInfra_BC_Lena_Peines"
             android:ems="4"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
 
         <Button
             android:id="@+id/b_FInfra_BC_Guardar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_save_24dp"
-            android:text=" Guardar"
-            android:textSize="20dp"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="25sp"
+            android:layout_marginTop="100dp"
+            android:padding="25dp"
+            android:textAllCaps="false"
             app:layout_columnSpan="4"
-            app:layout_gravity="center" />
+            app:layout_gravity="bottom"
+            android:text="Guardar"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            app:layout_columnSpan="4"
+            app:layout_gravity="center|bottom"
+            android:gravity="center"
+            android:textColor="@color/primaryTextColor"
+            android:text=" Departamento de Sistemas - Co.Pro.Tab - 2018"
+            android:drawableLeft="@drawable/logoiconoapp40"
+            />
 
 
     </android.support.v7.widget.GridLayout>

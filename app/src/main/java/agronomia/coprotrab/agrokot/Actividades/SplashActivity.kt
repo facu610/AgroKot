@@ -1,5 +1,6 @@
 package agronomia.coprotrab.agrokot.Actividades
 
+import agronomia.coprotrab.agrokot.Clases.DataResources.database
 import agronomia.coprotrab.agrokot.R
 import android.animation.Animator
 import android.animation.ValueAnimator
@@ -8,9 +9,13 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.view.animation.BounceInterpolator
 import android.view.animation.LinearInterpolator
 import kotlinx.android.synthetic.main.activity_splash.*
+import org.jetbrains.anko.db.insert
+import org.jetbrains.anko.db.select
 import java.util.*
 import java.util.concurrent.Delayed
 import kotlin.concurrent.schedule
@@ -21,10 +26,16 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_splash)
-        startAnimation()
-
-        textSplash.visibility = View.INVISIBLE
+        //startAnimation()
+        val intent = Intent(this, MainActivity::class.java)
+        Timer().schedule(2000){
+            startActivity(intent)
+            finish()
+        }
 
     }
     private fun startAnimation() {

@@ -21,6 +21,6 @@
         android:layout_marginBottom="10dp"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/secondaryTextColor" />
+        android:textColor="@color/primaryTextColor" />
 
 </LinearLayout>

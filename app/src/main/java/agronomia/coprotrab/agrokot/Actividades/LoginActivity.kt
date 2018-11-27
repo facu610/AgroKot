@@ -7,9 +7,11 @@ import agronomia.coprotrab.agrokot.R
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.Toolbar
 import android.text.TextUtils
 import android.view.View
 import android.widget.*
+import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
 
 class LoginActivity : AppCompatActivity() {
@@ -20,6 +22,9 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var et_login_user: EditText
     private lateinit var et_login_contra: EditText
     private lateinit var b_log_login: Button
+    private lateinit var tv_log_msj: TextView
+    var toolbar: Toolbar? =null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -27,6 +32,11 @@ class LoginActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        toolbar = findViewById(R.id.tb_act_sincro)
+        toolbar?.title = "Ingreso de Instructor"
+        toolbar?.setTitleMargin(10,10,10,10)
+        setSupportActionBar(toolbar)
 
         et_login_user = findViewById(R.id.et_Log_User)
         et_login_contra = findViewById(R.id.et_Log_Contra)
@@ -53,10 +63,19 @@ class LoginActivity : AppCompatActivity() {
                 }
                 else
                 {
-                    Toast.makeText(this, "Volá de acá, ", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Instructor no registrado", Toast.LENGTH_LONG).show()
                 }
             }
             progressBar.visibility = View.INVISIBLE
         }
+
+        tv_log_msj = findViewById(R.id.tv_Log_Msj)
+        tv_log_msj.setOnClickListener {
+            val intent = Intent(this, AyudaActivity::class.java)
+            startActivity(intent)
+        }
+
     }
+
+
 }

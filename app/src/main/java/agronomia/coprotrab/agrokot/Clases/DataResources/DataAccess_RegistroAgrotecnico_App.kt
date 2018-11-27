@@ -1,8 +1,6 @@
 package agronomia.coprotrab.agrokot.Clases.DataResources
 
-import agronomia.coprotrab.agrokot.Clases.Entidades.FichaGeneral
-import agronomia.coprotrab.agrokot.Clases.Entidades.Instructor
-import agronomia.coprotrab.agrokot.Clases.Entidades.MaeSocio
+import agronomia.coprotrab.agrokot.Clases.Entidades.*
 import android.content.Context
 import org.jetbrains.anko.db.*
 
@@ -74,6 +72,20 @@ class DataAccess_RegistroAgrotecnico_App(val context: Context) {
         instructor!!
     }
 
+    fun obtiene_idAF(nombre:String):String = context.database.use {
+        var codigo_af:String? = null
+        select("AgroFertilizantes","Codigo_AF").where("(Nombre_AF = {nombre})",
+                "nombre" to nombre ).limit(1)
+                .parseOpt(object  : MapRowParser<String> {
+                    override fun parseRow(columns: Map<String, Any?>): String {
+                        val Codigo_AF = columns.getValue("Codigo_AF")
+                        codigo_af = Codigo_AF.toString()
+                        return codigo_af!!
+                    }
+                })
+        codigo_af!!
+    }
+
     fun insert_Instructores(instr: Instructor) = context.database.use {
         insert("AA_Instructores",
                 "ID_Inst" to instr.ID_Instr,
@@ -90,6 +102,322 @@ class DataAccess_RegistroAgrotecnico_App(val context: Context) {
     fun delete_Instructores() = context.database.use {
         delete("AA_Instructores")
     }
+
+
+
+
+
+
+    fun select_AF_NombreFertilizantes(id_tipoaf: Int): ArrayList<String> = context.database.use {
+        val af_nombrefertilizantes = ArrayList<String>()
+
+        select("AgroFertilizantes").where("(Codigo_TipoAF = {id})",
+                "id" to id_tipoaf)
+                .parseList(object : MapRowParser<List<String>> {
+                    override fun parseRow(columns: Map<String, Any?>): List<String> {
+                        val Nombre_AF = columns.getValue("Nombre_AF")
+
+                        af_nombrefertilizantes.add(Nombre_AF!!.toString())
+                        return af_nombrefertilizantes
+                    }
+                })
+
+        af_nombrefertilizantes
+    }
+
+
+    fun select_AF_APC_Conv(id_socio: Int, codigo_tipoaf:Int):ArrayList<String> = context.database.use {
+        val afs = ArrayList<String>()
+        select("AA_Almacigo_ConvxDetalle").where("(id_socio = {id_socio}) and (Codigo_TipoAF = {codigo_tipoaf})", "id_socio" to id_socio, "codigo_tipoaf" to codigo_tipoaf)
+                .parseList(object : MapRowParser<List<String>> {
+                    override fun parseRow(columns: Map<String, Any?>): List<String> {
+                        val Nombre_AF_APC_Conv = columns.getValue("Nombre_AF_APC_Conv")
+                        val Nombre_AF_Fert_Conv = columns.getValue("Nombre_AF_Fert_Conv")
+
+                        if(codigo_tipoaf == 5){
+                        afs.add(Nombre_AF_APC_Conv!!.toString())
+                        } else{
+                            afs.add(Nombre_AF_Fert_Conv!!.toString())
+                        }
+                        return  afs
+                    }
+                })
+    afs
+    }
+
+    fun select_AF_APC_Flot(id_socio: Int, codigo_tipoaf:Int):ArrayList<String> = context.database.use {
+        val afs = ArrayList<String>()
+        select("AA_Almacigo_FlotxDetalle").where("(id_socio = {id_socio}) and (Codigo_TipoAF = {codigo_tipoaf})", "id_socio" to id_socio, "codigo_tipoaf" to codigo_tipoaf)
+                .parseList(object : MapRowParser<List<String>> {
+                    override fun parseRow(columns: Map<String, Any?>): List<String> {
+                        val Nombre_AF_APC_Flot = columns.getValue("Nombre_AF_APC_Flot")
+                        val Nombre_AF_Fert_Flot = columns.getValue("Nombre_AF_Fert_Flot")
+
+                        if(codigo_tipoaf == 5){
+                            afs.add(Nombre_AF_APC_Flot!!.toString())
+                        } else{
+                            afs.add(Nombre_AF_Fert_Flot!!.toString())
+                        }
+                        return  afs
+                    }
+                })
+        afs
+    }
+
+    fun select_AF_APC_Band(id_socio: Int, codigo_tipoaf:Int):ArrayList<String> = context.database.use {
+        val afs = ArrayList<String>()
+        select("AA_Almacigo_BandxDetalle").where("(id_socio = {id_socio}) and (Codigo_TipoAF = {codigo_tipoaf})", "id_socio" to id_socio, "codigo_tipoaf" to codigo_tipoaf)
+                .parseList(object : MapRowParser<List<String>> {
+                    override fun parseRow(columns: Map<String, Any?>): List<String> {
+                        val Nombre_AF_APC_Band = columns.getValue("Nombre_AF_APC_Band")
+                        val Nombre_AF_Fert_Band = columns.getValue("Nombre_AF_Fert_Band")
+
+                        if(codigo_tipoaf == 5){
+                            afs.add(Nombre_AF_APC_Band!!.toString())
+                        } else{
+                            afs.add(Nombre_AF_Fert_Band!!.toString())
+                        }
+                        return  afs
+                    }
+                })
+        afs
+    }
+
+    fun select_AF_APC_Apoya(id_socio: Int, codigo_tipoaf:Int):ArrayList<String> = context.database.use {
+        val afs = ArrayList<String>()
+        select("AA_Almacigo_ApoyaxDetalle").where("(id_socio = {id_socio}) and (Codigo_TipoAF = {codigo_tipoaf})", "id_socio" to id_socio, "codigo_tipoaf" to codigo_tipoaf)
+                .parseList(object : MapRowParser<List<String>> {
+                    override fun parseRow(columns: Map<String, Any?>): List<String> {
+                        val Nombre_AF_APC_Apoya = columns.getValue("Nombre_AF_APC_Apoya")
+                        val Nombre_AF_Fert_Apoya = columns.getValue("Nombre_AF_Fert_Apoya")
+
+                        if(codigo_tipoaf == 5){
+                            afs.add(Nombre_AF_APC_Apoya!!.toString())
+                        } else{
+                            afs.add(Nombre_AF_Fert_Apoya!!.toString())
+                        }
+                        return  afs
+                    }
+                })
+        afs
+    }
+
+
+    fun select_Almacigo_ConvxSocios(id_socio: Int, codigo_tipoaf:Int): ArrayList<FichaAlmacigoConvxDetalle> = context.database.use {
+        val f_almacigoconvxdetalleS = ArrayList<FichaAlmacigoConvxDetalle>()
+        select("AA_Almacigo_ConvxDetalle").where("(id_socio = {id_socio}) and (Codigo_TipoAF = {codigo_tipoaf})", "id_socio" to id_socio, "codigo_tipoaf" to codigo_tipoaf )
+                .parseList(object : MapRowParser<List<FichaAlmacigoConvxDetalle>> {
+                    override fun parseRow(columns: Map<String, Any?>): List<FichaAlmacigoConvxDetalle> {
+                        val ID_Alma_Conv_Detalle = columns.getValue("ID_Alma_Conv_Detalle")
+                        val ID_Socio = columns.getValue("ID_Socio")
+                        val Fecha = columns.getValue("Fecha")
+                        val ID_AF_APC_Conv = columns.getValue("ID_AF_APC_Conv")
+                        val Nombre_AF_APC_Conv = columns.getValue("Nombre_AF_APC_Conv")
+                        val AF_APC_Unid_Conv = columns.getValue("AF_APC_Unid_Conv")
+                        val AF_APC_Dosis_Conv = columns.getValue("AF_APC_Dosis_Conv")
+                        val Nombre_AF_Fert_Conv = columns.getValue("Nombre_AF_Fert_Conv")
+                        val ID_AF_Fert_Conv = columns.getValue("ID_AF_Fert_Conv")
+                        val AF_Fert_Unid_Conv = columns.getValue("AF_Fert_Unid_Conv")
+                        val AF_Fert_Dosis_Conv = columns.getValue("AF_Fert_Dosis_Conv")
+                        val Codigo_TipoAF = columns.getValue("Codigo_TipoAF")
+                        val Densidad = columns.getValue("Densidad")
+
+
+
+                        var id_af_apc_conv:Int?
+                        id_af_apc_conv = null
+                        if(ID_AF_APC_Conv != null){ id_af_apc_conv = ID_AF_APC_Conv.toString().toInt() }
+
+                        var af_apc_dosis_conv:Float?
+                        af_apc_dosis_conv = null
+                        if(AF_APC_Dosis_Conv != null){ af_apc_dosis_conv = AF_APC_Dosis_Conv.toString().toFloat() }
+
+                        var id_af_fert_conv:Int?
+                        id_af_fert_conv = null
+                        if(ID_AF_Fert_Conv != null){ id_af_fert_conv = ID_AF_Fert_Conv.toString().toInt() }
+
+
+                        var af_fert_dosis_conv:Float?
+                        af_fert_dosis_conv = null
+                        if(AF_Fert_Dosis_Conv != null){ af_fert_dosis_conv = AF_Fert_Dosis_Conv.toString().toFloat() }
+
+                        var codigo_tipoafg:Int?
+                        codigo_tipoafg = null
+                        if(Codigo_TipoAF != null){ codigo_tipoafg = Codigo_TipoAF.toString().toInt() }
+
+
+                        val f_almacigoconvxdetalle = FichaAlmacigoConvxDetalle(
+                                ID_Alma_Conv_Detalle.toString().toInt(),
+                                ID_Socio.toString().toInt(),
+                                Fecha.toString(),
+
+                                Nombre_AF_APC_Conv.toString(),
+                                id_af_apc_conv,
+                                AF_APC_Unid_Conv.toString(),
+                                af_apc_dosis_conv,
+
+                                Nombre_AF_Fert_Conv.toString(),
+                                id_af_fert_conv,
+                                AF_Fert_Unid_Conv.toString(),
+                                af_fert_dosis_conv,
+                                codigo_tipoafg,
+                                Densidad.toString()
+                        )
+
+                        f_almacigoconvxdetalleS.add(f_almacigoconvxdetalle)
+                        return f_almacigoconvxdetalleS
+                    }
+                })
+
+        f_almacigoconvxdetalleS
+    }
+
+    fun select_Almacigo_FlotxSocios(id_socio: Int, codigo_tipoaf:Int): ArrayList<FichaAlmacigoFlotxDetalle> = context.database.use {
+        val f_almacigoflotxdetalleS = ArrayList<FichaAlmacigoFlotxDetalle>()
+        select("AA_Almacigo_FlotxDetalle").where("(id_socio = {id_socio}) and (Codigo_TipoAF = {codigo_tipoaf})", "id_socio" to id_socio, "codigo_tipoaf" to codigo_tipoaf )
+                .parseList(object : MapRowParser<List<FichaAlmacigoFlotxDetalle>> {
+                    override fun parseRow(columns: Map<String, Any?>): List<FichaAlmacigoFlotxDetalle> {
+                        val ID_Alma_Flot_Detalle = columns.getValue("ID_Alma_Flot_Detalle")
+                        val ID_Socio = columns.getValue("ID_Socio")
+                        val Fecha = columns.getValue("Fecha")
+                        val ID_AF_APC_Flot = columns.getValue("ID_AF_APC_Flot")
+                        val Nombre_AF_APC_Flot = columns.getValue("Nombre_AF_APC_Flot")
+                        val AF_APC_Unid_Flot = columns.getValue("AF_APC_Unid_Flot")
+                        val AF_APC_Dosis_Flot = columns.getValue("AF_APC_Dosis_Flot")
+                        val Nombre_AF_Fert_Flot = columns.getValue("Nombre_AF_Fert_Flot")
+                        val ID_AF_Fert_Flot = columns.getValue("ID_AF_Fert_Flot")
+                        val AF_Fert_Unid_Flot = columns.getValue("AF_Fert_Unid_Flot")
+                        val AF_Fert_Dosis_Flot = columns.getValue("AF_Fert_Dosis_Flot")
+                        val Codigo_TipoAF = columns.getValue("Codigo_TipoAF")
+                        val Densidad = columns.getValue("Densidad")
+
+
+
+                        var id_af_apc_flot:Int?
+                        id_af_apc_flot = null
+                        if(ID_AF_APC_Flot != null){ id_af_apc_flot = ID_AF_APC_Flot.toString().toInt() }
+
+                        var af_apc_dosis_flot:Float?
+                        af_apc_dosis_flot = null
+                        if(AF_APC_Dosis_Flot != null){ af_apc_dosis_flot = AF_APC_Dosis_Flot.toString().toFloat() }
+
+                        var id_af_fert_flot:Int?
+                        id_af_fert_flot = null
+                        if(ID_AF_Fert_Flot != null){ id_af_fert_flot = ID_AF_Fert_Flot.toString().toInt() }
+
+
+                        var af_fert_dosis_flot:Float?
+                        af_fert_dosis_flot = null
+                        if(AF_Fert_Dosis_Flot != null){ af_fert_dosis_flot = AF_Fert_Dosis_Flot.toString().toFloat() }
+
+                        var codigo_tipoaf:Int?
+                        codigo_tipoaf = null
+                        if(Codigo_TipoAF != null){ codigo_tipoaf = Codigo_TipoAF.toString().toInt() }
+
+
+                        val f_almacigoflotxdetalle = FichaAlmacigoFlotxDetalle(
+                                ID_Alma_Flot_Detalle.toString().toInt(),
+                                ID_Socio.toString().toInt(),
+                                Fecha.toString(),
+
+                                Nombre_AF_APC_Flot.toString(),
+                                id_af_apc_flot,
+                                AF_APC_Unid_Flot.toString(),
+                                af_apc_dosis_flot,
+
+                                Nombre_AF_Fert_Flot.toString(),
+                                id_af_fert_flot,
+                                AF_Fert_Unid_Flot.toString(),
+                                af_fert_dosis_flot,
+                                codigo_tipoaf,
+                                Densidad.toString()
+                        )
+
+                        f_almacigoflotxdetalleS.add(f_almacigoflotxdetalle)
+                        return f_almacigoflotxdetalleS
+                    }
+                })
+
+        f_almacigoflotxdetalleS
+    }
+
+    fun select_Almacigo_BandxSocios(id_socio: Int, codigo_tipoaf:Int): ArrayList<FichaAlmacigoBandxDetalle> = context.database.use {
+        val f_almacigobandxdetalleS = ArrayList<FichaAlmacigoBandxDetalle>()
+        select("AA_Almacigo_BandxDetalle").where("(ID_Socio = {id_socio}) and (Codigo_TipoAF = {codigo_tipoaf})", "id_socio" to id_socio, "codigo_tipoaf" to codigo_tipoaf )
+                .parseList(object : MapRowParser<List<FichaAlmacigoBandxDetalle>> {
+                    override fun parseRow(columns: Map<String, Any?>): List<FichaAlmacigoBandxDetalle> {
+                        val ID_Alma_Band_Detalle = columns.getValue("ID_Alma_Band_Detalle")
+                        val ID_Socio = columns.getValue("ID_Socio")
+                        val Fecha = columns.getValue("Fecha")
+                        val ID_AF_APC_Band = columns.getValue("ID_AF_APC_Band")
+                        val Nombre_AF_APC_Band= columns.getValue("Nombre_AF_APC_Band")
+                        val AF_APC_Unid_Band= columns.getValue("AF_APC_Unid_Band")
+                        val AF_APC_Dosis_Band= columns.getValue("AF_APC_Dosis_Band")
+                        val Nombre_AF_Fert_Band = columns.getValue("Nombre_AF_Fert_Band")
+                        val ID_AF_Fert_Band = columns.getValue("ID_AF_Fert_Band")
+                        val AF_Fert_Unid_Band = columns.getValue("AF_Fert_Unid_Band")
+                        val AF_Fert_Dosis_Band = columns.getValue("AF_Fert_Dosis_Band")
+                        val Codigo_TipoAF = columns.getValue("Codigo_TipoAF")
+                        val Densidad = columns.getValue("Densidad")
+
+
+
+                        var id_af_apc_band:Int?
+                        id_af_apc_band = null
+                        if(ID_AF_APC_Band != null){ id_af_apc_band = ID_AF_APC_Band.toString().toInt() }
+
+                        var af_apc_dosis_band:Float?
+                        af_apc_dosis_band = null
+                        if(AF_APC_Dosis_Band != null){ af_apc_dosis_band = AF_APC_Dosis_Band.toString().toFloat() }
+
+                        var id_af_fert_band:Int?
+                        id_af_fert_band = null
+                        if(ID_AF_Fert_Band != null){ id_af_fert_band = ID_AF_Fert_Band.toString().toInt() }
+
+
+                        var af_fert_dosis_band:Float?
+                        af_fert_dosis_band = null
+                        if(AF_Fert_Dosis_Band != null){ af_fert_dosis_band = AF_Fert_Dosis_Band.toString().toFloat() }
+
+                        var codigo_tipoaf:Int?
+                        codigo_tipoaf = null
+                        if(Codigo_TipoAF != null){ codigo_tipoaf = Codigo_TipoAF.toString().toInt() }
+
+
+                        val f_almacigobandxdetalle = FichaAlmacigoBandxDetalle(
+                                ID_Alma_Band_Detalle.toString().toInt(),
+                                ID_Socio.toString().toInt(),
+                                Fecha.toString(),
+
+                                Nombre_AF_APC_Band.toString(),
+                                id_af_apc_band,
+                                AF_APC_Unid_Band.toString(),
+                                af_apc_dosis_band,
+
+                                Nombre_AF_Fert_Band.toString(),
+                                id_af_fert_band,
+                                AF_Fert_Unid_Band.toString(),
+                                af_fert_dosis_band,
+                                codigo_tipoaf,
+                                Densidad.toString()
+                        )
+
+                        f_almacigobandxdetalleS.add(f_almacigobandxdetalle)
+                        return f_almacigobandxdetalleS
+                    }
+                })
+
+        f_almacigobandxdetalleS
+    }
+
+
+
+
+    fun delete_AgroFertilizantes() = context.database.use {
+        delete("AgroFertilizantes")
+    }
+
+
 
     fun select_MaeSocios(): ArrayList<MaeSocio> = context.database.use {
         val maesocios = ArrayList<MaeSocio>()
@@ -228,6 +556,19 @@ class DataAccess_RegistroAgrotecnico_App(val context: Context) {
                         val Infra_BC_Lena_CI = columns.getValue("Infra_BC_Lena_CI")
                         val Infra_BC_Lena_Peines = columns.getValue("Infra_BC_Lena_Peines")
 
+                        val AlmaConv_Is = columns.getValue("AlmaConv_Is")
+                        val To_Sincro_AlmaConv = columns.getValue("To_Sincro_AlmaConv")
+                        val AlmaFlot_Is = columns.getValue("AlmaFlot_Is")
+                        val To_Sincro_AlmaFlot = columns.getValue("To_Sincro_AlmaFlot")
+                        val AlmaBand_Is = columns.getValue("AlmaBand_Is")
+                        val To_Sincro_AlmaBand = columns.getValue("To_Sincro_AlmaBand")
+                        val AlmaApoya_Is = columns.getValue("AlmaApoya_Is")
+                        val To_Sincro_AlmaApoya = columns.getValue("To_Sincro_AlmaApoya")
+                        val AlmaVar_Is = columns.getValue("AlmaVar_Is")
+                        val To_Sincro_AlmaVar = columns.getValue("To_Sincro_AlmaVar")
+
+
+
                         val fichagral = FichaGeneral(ID_Ficha.toString().toInt(),
                                 Fecha_Grales.toString(),
                                 ID_Camp.toString().toInt(),
@@ -287,7 +628,18 @@ class DataAccess_RegistroAgrotecnico_App(val context: Context) {
                                         Infra_BC_Gas_Peines.toString().toInt(),
                                         Infra_BC_Lena.toString().toInt(),
                                         Infra_BC_Lena_CI.toString().toInt(),
-                                        Infra_BC_Lena_Peines.toString().toInt()
+                                        Infra_BC_Lena_Peines.toString().toInt(),
+
+                                        AlmaConv_Is.toString().toInt(),
+                                        To_Sincro_AlmaConv.toString().toInt(),
+                                        AlmaFlot_Is.toString().toInt(),
+                                        To_Sincro_AlmaFlot.toString().toInt(),
+                                        AlmaBand_Is.toString().toInt(),
+                                        To_Sincro_AlmaBand.toString().toInt(),
+                                        AlmaApoya_Is.toString().toInt(),
+                                        To_Sincro_AlmaApoya.toString().toInt(),
+                                        AlmaVar_Is.toString().toInt(),
+                                        To_Sincro_AlmaVar.toString().toInt()
                         )
 
                         fichasgrales.add(fichagral)
@@ -366,6 +718,18 @@ class DataAccess_RegistroAgrotecnico_App(val context: Context) {
                         val Infra_BC_Lena = columns.getValue("Infra_BC_Lena")
                         val Infra_BC_Lena_CI = columns.getValue("Infra_BC_Lena_CI")
                         val Infra_BC_Lena_Peines = columns.getValue("Infra_BC_Lena_Peines")
+
+                        val AlmaConv_Is = columns.getValue("AlmaConv_Is")
+                        val To_Sincro_AlmaConv = columns.getValue("To_Sincro_AlmaConv")
+                        val AlmaFlot_Is = columns.getValue("AlmaFlot_Is")
+                        val To_Sincro_AlmaFlot = columns.getValue("To_Sincro_AlmaFlot")
+                        val AlmaBand_Is = columns.getValue("AlmaBand_Is")
+                        val To_Sincro_AlmaBand = columns.getValue("To_Sincro_AlmaBand")
+                        val AlmaApoya_Is = columns.getValue("AlmaApoya_Is")
+                        val To_Sincro_AlmaApoya = columns.getValue("To_Sincro_AlmaApoya")
+                        val AlmaVar_Is = columns.getValue("AlmaVar_Is")
+                        val To_Sincro_AlmaVar = columns.getValue("To_Sincro_AlmaVar")
+
 
                         var grado_riesgoapc:Int?
                         grado_riesgoapc = null
@@ -491,6 +855,43 @@ class DataAccess_RegistroAgrotecnico_App(val context: Context) {
                         infra_bc_lena_peines = null
                         if(Infra_BC_Lena_Peines!= null){ infra_bc_lena_peines = Infra_BC_Lena_Peines.toString().toInt() }
 
+                        var almaconv_is:Int?
+                        almaconv_is = null
+                        if(AlmaConv_Is != null){ almaconv_is = AlmaConv_Is.toString().toInt() }
+                        var to_sincro_almaconv:Int?
+                        to_sincro_almaconv = null
+                        if(To_Sincro_AlmaConv != null){ to_sincro_almaconv = To_Sincro_AlmaConv.toString().toInt() }
+
+
+                        var almaflot_is:Int?
+                        almaflot_is = null
+                        if(AlmaFlot_Is != null){ almaflot_is = AlmaFlot_Is.toString().toInt() }
+                        var to_sincro_almaflot:Int?
+                        to_sincro_almaflot = null
+                        if(To_Sincro_AlmaFlot != null){ to_sincro_almaflot = To_Sincro_AlmaFlot.toString().toInt() }
+
+                        var almaband_is:Int?
+                        almaband_is = null
+                        if(AlmaBand_Is != null){ almaband_is = AlmaBand_Is.toString().toInt() }
+                        var to_sincro_almaband:Int?
+                        to_sincro_almaband = null
+                        if(To_Sincro_AlmaBand != null){ to_sincro_almaband = To_Sincro_AlmaBand.toString().toInt() }
+
+                        var almaapoya_is:Int?
+                        almaapoya_is = null
+                        if(AlmaApoya_Is != null){ almaapoya_is = AlmaApoya_Is.toString().toInt() }
+                        var to_sincro_almaapoya:Int?
+                        to_sincro_almaapoya = null
+                        if(To_Sincro_AlmaApoya != null){ to_sincro_almaapoya = To_Sincro_AlmaApoya.toString().toInt()}
+
+                        var almavar_is:Int?
+                        almavar_is = null
+                        if(AlmaVar_Is != null){ almavar_is = AlmaVar_Is.toString().toInt() }
+                        var to_sincro_almavar:Int?
+                        to_sincro_almavar = null
+                        if(To_Sincro_AlmaVar != null){ to_sincro_almavar = To_Sincro_AlmaVar.toString().toInt() }
+
+
                         val fichaGeneral = FichaGeneral(ID_Ficha.toString().toInt(),
                                 Fecha_Grales.toString(),
                                 ID_Camp.toString().toInt(),
@@ -566,7 +967,18 @@ class DataAccess_RegistroAgrotecnico_App(val context: Context) {
                                 infra_bc_gas_peines,
                                 infra_bc_lena,
                                 infra_bc_lena_ci,
-                                infra_bc_lena_peines
+                                infra_bc_lena_peines,
+
+                                almaconv_is,
+                                to_sincro_almaconv,
+                                almaflot_is,
+                                to_sincro_almaflot,
+                                almaband_is,
+                                to_sincro_almaband,
+                                almaapoya_is,
+                                to_sincro_almaapoya,
+                                almavar_is,
+                                to_sincro_almavar
                         )
 
                         fichasgrales.add(fichaGeneral)
@@ -648,6 +1060,17 @@ class DataAccess_RegistroAgrotecnico_App(val context: Context) {
                         val Infra_BC_Lena_CI = columns.getValue("Infra_BC_Lena_CI")
                         val Infra_BC_Lena_Peines = columns.getValue("Infra_BC_Lena_Peines")
 
+                        val AlmaConv_Is = columns.getValue("AlmaConv_Is")
+                        val To_Sincro_AlmaConv = columns.getValue("To_Sincro_AlmaConv")
+                        val AlmaFlot_Is = columns.getValue("AlmaFlot_Is")
+                        val To_Sincro_AlmaFlot = columns.getValue("To_Sincro_AlmaFlot")
+                        val AlmaBand_Is = columns.getValue("AlmaBand_Is")
+                        val To_Sincro_AlmaBand = columns.getValue("To_Sincro_AlmaBand")
+                        val AlmaApoya_Is = columns.getValue("AlmaApoya_Is")
+                        val To_Sincro_AlmaApoya = columns.getValue("To_Sincro_AlmaApoya")
+                        val AlmaVar_Is = columns.getValue("AlmaVar_Is")
+                        val To_Sincro_AlmaVar = columns.getValue("To_Sincro_AlmaVar")
+
                         var grado_riesgoapc:Int?
                         grado_riesgoapc = null
                         if(Grado_RiesgoAPC != null){ grado_riesgoapc = Grado_RiesgoAPC.toString().toInt() }
@@ -771,6 +1194,42 @@ class DataAccess_RegistroAgrotecnico_App(val context: Context) {
                         infra_bc_lena_peines = null
                         if(Infra_BC_Lena_Peines!= null){ infra_bc_lena_peines = Infra_BC_Lena_Peines.toString().toInt() }
 
+                        var almaconv_is:Int?
+                        almaconv_is = null
+                        if(AlmaConv_Is != null){ almaconv_is = AlmaConv_Is.toString().toInt() }
+
+                        var to_sincro_almaconv:Int?
+                        to_sincro_almaconv = null
+                        if(To_Sincro_AlmaConv != null){ to_sincro_almaconv = To_Sincro_AlmaConv.toString().toInt() }
+
+                        var almaflot_is:Int?
+                        almaflot_is = null
+                        if(AlmaFlot_Is != null){ almaflot_is = AlmaFlot_Is.toString().toInt() }
+                        var to_sincro_almaflot:Int?
+                        to_sincro_almaflot = null
+                        if(To_Sincro_AlmaFlot != null){ to_sincro_almaflot = To_Sincro_AlmaFlot.toString().toInt() }
+
+                        var almaband_is:Int?
+                        almaband_is = null
+                        if(AlmaBand_Is != null){ almaband_is = AlmaBand_Is.toString().toInt() }
+                        var to_sincro_almaband:Int?
+                        to_sincro_almaband = null
+                        if(To_Sincro_AlmaBand != null){ to_sincro_almaband = To_Sincro_AlmaBand.toString().toInt() }
+
+                        var almaapoya_is:Int?
+                        almaapoya_is = null
+                        if(AlmaApoya_Is != null){ almaapoya_is = AlmaApoya_Is.toString().toInt() }
+                        var to_sincro_almaapoya:Int?
+                        to_sincro_almaapoya = null
+                        if(To_Sincro_AlmaApoya != null){ to_sincro_almaapoya = To_Sincro_AlmaApoya.toString().toInt()}
+
+                        var almavar_is:Int?
+                        almavar_is = null
+                        if(AlmaVar_Is != null){ almavar_is = AlmaVar_Is.toString().toInt() }
+                        var to_sincro_almavar:Int?
+                        to_sincro_almavar = null
+                        if(To_Sincro_AlmaVar != null){ to_sincro_almavar = To_Sincro_AlmaVar.toString().toInt() }
+
                         fichaGeneral = FichaGeneral(ID_Ficha.toString().toInt(),
                                 Fecha_Grales.toString(),
                                 ID_Camp.toString().toInt(),
@@ -846,7 +1305,17 @@ class DataAccess_RegistroAgrotecnico_App(val context: Context) {
                                 infra_bc_gas_peines,
                                 infra_bc_lena,
                                 infra_bc_lena_ci,
-                                infra_bc_lena_peines
+                                infra_bc_lena_peines,
+                                almaconv_is,
+                                to_sincro_almaconv,
+                                almaflot_is,
+                                to_sincro_almaflot,
+                                almaband_is,
+                                to_sincro_almaband,
+                                almaapoya_is,
+                                to_sincro_almaapoya,
+                                almavar_is,
+                                to_sincro_almavar
                         )
 
                         return fichaGeneral!!

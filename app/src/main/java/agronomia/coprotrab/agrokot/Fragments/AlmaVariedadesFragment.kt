@@ -13,8 +13,9 @@ class AlmaVariedadesFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_alma_variedades, container, false)
+        val rootView:View = inflater.inflate(R.layout.fragment_alma_variedades, container, false)
+
+        return rootView
     }
 
 

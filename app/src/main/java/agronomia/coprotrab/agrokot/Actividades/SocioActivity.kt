@@ -68,7 +68,7 @@ class SocioActivity : AppCompatActivity(){
         }) // Definimos el adaptador y lo asociamos al Rec View
         rv_socios?.adapter = adapter!!
 
-        toolbar = findViewById(R.id.tb_act_soc)
+        toolbar = this.findViewById(R.id.tb_act_soc)
         toolbar?.title ="Fichas | Visitas"
         toolbar?.setTitleMargin(10,10,10,10)
         setSupportActionBar(toolbar)
@@ -80,7 +80,7 @@ class SocioActivity : AppCompatActivity(){
         val item_search = menu?.findItem(R.id.action_search)
         var searchView = item_search?.actionView as SearchView
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-        searchView.queryHint = "Escribe un nombre..."
+        searchView.queryHint = " Escribe un nombre..."
         searchView.setOnQueryTextFocusChangeListener { v, hasFocus ->
 
         }

@@ -11,7 +11,16 @@
         <item>%</item>
         <item>ppm.</item>
     </string-array>
+    <string-array name="unidades_af">
+        <item>grs.</item>
+        <item>cm3.</item>
+    </string-array>
 
+    <string-array name="densidad">
+        <item>Ralo</item>
+        <item>Normal</item>
+        <item>Denso</item>
+    </string-array>
 
 
 </resources>

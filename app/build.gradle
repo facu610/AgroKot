@@ -8,7 +8,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "agronomia.coprotrab.agrokot"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -38,7 +38,7 @@ dependencies {
 
     //Json and HTTP API DESDE C#
     implementation 'com.google.code.gson:gson:2.8.2'
-    implementation 'com.android.volley:volley:1.0.0'
+    implementation 'com.android.volley:volley:1.1.0'
 
     //FUEL para HTTP POST
     implementation 'com.github.kittinunf.fuel:fuel-android:1.9.0'

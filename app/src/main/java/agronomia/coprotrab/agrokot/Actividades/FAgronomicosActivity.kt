@@ -1,21 +1,13 @@
 package agronomia.coprotrab.agrokot.Actividades
 
 import agronomia.coprotrab.agrokot.Clases.Adapters.AgronomicosFragment_Adapter
-import agronomia.coprotrab.agrokot.Clases.DataResources.DataAccess_RegistroAgrotecnico_App
-import agronomia.coprotrab.agrokot.Clases.DataResources.database
 import agronomia.coprotrab.agrokot.Clases.Entidades.FichaGeneral
 import agronomia.coprotrab.agrokot.R
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import kotlinx.android.synthetic.main.activity_fagronomicos.*
 import android.support.v7.widget.Toolbar
-import android.view.View
-import android.widget.*
-import kotlinx.android.synthetic.main.fragment_ageneral.*
-import org.jetbrains.anko.act
-import org.jetbrains.anko.db.update
 
 class FAgronomicosActivity : AppCompatActivity(){
 

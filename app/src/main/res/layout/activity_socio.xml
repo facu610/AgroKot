@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgroundColor"
     android:orientation="vertical"
     tools:context=".Actividades.SocioActivity">
 
@@ -11,24 +12,26 @@
         android:id="@+id/tb_act_soc"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/primaryColor"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay"
         android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:titleTextColor="@color/primaryTextColor" />
+        app:titleTextColor="@color/secondaryTextColor" />
 
     <TextView
         android:id="@+id/tv_Title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="Seleccione un Socio"
+        android:textSize="20dp"
+        android:textColor="@color/primaryTextColor"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/secondaryTextColor"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_Socios"
+        android:paddingTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

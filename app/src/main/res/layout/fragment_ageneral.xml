@@ -17,7 +17,7 @@
         android:padding="5dp"
         app:columnCount="2"
         app:orientation="horizontal"
-        app:rowCount="9"
+        app:rowCount="10"
         app:useDefaultMargins="true">
 
         <TextView
@@ -25,44 +25,43 @@
             android:inputType="number"
             android:text="Has. Propias: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
         <EditText
             android:id="@+id/et_FAgro_Gral_HPropias"
-            android:editable="true"
             android:ems="8"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
         <TextView
             android:ems="7"
             android:text="Has. Arrendadas: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
         <EditText
             android:id="@+id/et_FAgro_Gral_HArren"
             android:ems="8"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
         <TextView
             android:ems="7"
             android:text="Has. Totales: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
         <TextView
             android:id="@+id/tv_FAgro_Gral_HTotal"
             android:ems="8"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
         <TextView
 
             android:text="Categoría DTR: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
         <Spinner
             android:id="@+id/s_FAgro_Gral_DTR"
@@ -75,6 +74,7 @@
         <CheckBox
             android:id="@+id/cb_FAgro_Gral_Verdeos"
             android:layout_width="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_height="wrap_content"
             android:text="Verdeos" />
 
@@ -86,13 +86,14 @@
             android:enabled="false"
             android:hint="Hectáreas"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor"
-            android:textColorHint="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor"
+            android:textColorHint="@color/primaryTextColor" />
 
         <CheckBox
             android:id="@+id/cb_FAgro_Gral_Rotac"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:text="Rotaciones" />
 
         <EditText
@@ -103,18 +104,20 @@
             android:enabled="false"
             android:hint="Hectáreas"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor"
-            android:textColorHint="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor"
+            android:textColorHint="@color/primaryTextColor" />
 
         <CheckBox
             android:id="@+id/cb_FAgro_Gral_DepAPC"
             android:layout_width="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_height="wrap_content"
             android:text="Dep. APC" />
 
         <CheckBox
             android:id="@+id/cb_FAgro_Gral_CumpRec"
             android:layout_width="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_height="wrap_content"
             android:text="¿Cumple Rec.?" />
 
@@ -122,7 +125,7 @@
 
             android:text="Manga Riego:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor" />
 
         <EditText
             android:id="@+id/et_FAgro_Gral_HasMangRieg"
@@ -131,19 +134,32 @@
             android:ems="10"
             android:hint="Hectáreas"
             android:inputType="number"
-            android:textColor="@color/secondaryTextColor"
-            android:textColorHint="@color/secondaryTextColor" />
+            android:textColor="@color/primaryTextColor"
+            android:textColorHint="@color/primaryTextColor" />
 
         <Button
             android:id="@+id/b_FAgro_Gral_Guardar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_save_24dp"
-            android:padding="16dp"
-            android:text=" Guardar"
-            android:textSize="20dp"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="25sp"
+            android:layout_marginTop="100dp"
+            android:padding="20dp"
+            android:textAllCaps="false"
             app:layout_columnSpan="2"
-            app:layout_gravity="center" />
+            app:layout_gravity="bottom"
+            android:text="Guardar"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            app:layout_columnSpan="2"
+            app:layout_gravity="center|bottom"
+            android:gravity="center"
+            android:textColor="@color/primaryTextColor"
+            android:text=" Departamento de Sistemas - Co.Pro.Tab - 2018"
+            android:drawableLeft="@drawable/logoiconoapp40"
+            />
 
 
     </android.support.v7.widget.GridLayout>

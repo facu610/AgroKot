@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primaryColor">#bf5454</color>
-    <color name="primaryLightColor">#f58380</color>
-    <color name="primaryDarkColor">#8a252b</color>
-    <color name="primaryTextColor">#F5F5F6</color>
-    <color name="secondaryTextColor">#332C33</color>
-    <color name="backgroundColor">#E1E2E1</color>
-    <color name="backgroundLightColor">#F5F5F6</color>
+
+    <!--<color name="primaryColor">#bf5454</color>-->
+    <!--<color name="primaryLightColor">#f58380</color>-->
+    <!--<color name="primaryDarkColor">#8a252b</color>-->
+    <!--<color name="primaryTextColor">#332C33</color>-->
+    <!--<color name="secondaryTextColor">#F5F5F6</color>-->
+    <!--<color name="backgroundColor">#F5F5F6</color>-->
+    <!--<color name="Accent">#f58380</color>-->
+    <!--<color name="Hint">#332C33</color>-->
+    <!--<color name="ButtonNormal">#bf5454</color>-->
 
 
-    <!--<color name="primaryColor">#356859</color>-->
-    <!--<color name="primaryLightColor">#b9e4c9</color>-->
-    <!--<color name="primaryDarkColor">#37966f</color>-->
-    <!--<color name="primaryTextColor">#F5F5F6</color>-->
-    <!--<color name="secondaryTextColor">#332C33</color>-->
-    <!--<color name="backgroundColor">#FFFBE6</color>-->
-    <!--<color name="backgroundLightColor">#F5F5F6</color>-->
+    c<color name="primaryColor">#37966f</color>
+    <color name="primaryLightColor">#b9e4c9</color>
+    <color name="primaryDarkColor">#356859</color>
+    <color name="primaryTextColor">#332C33</color>
+    <color name="secondaryTextColor">#F5F5F6</color>
+    <color name="backgroundColor">#fffff3</color>
+    <color name="Accent">#37966f</color>
+    <color name="Hint">#332C33</color>
+    <color name="ButtonNormal">#37966f</color>
+
+    <!--<color name="Olive">#ECE9D5</color>-->
+    <!--<color name="White">#FFFBE6</color>-->
+    <!--<color name="LightGreen">#b9e4c9</color>-->
+    <!--<color name="DarkGreen">#356859</color>-->
+    <!--<color name="Green">#37966f</color>-->
+    <!--<color name="Black">#332C33</color>-->
+    <!--<color name="Orange">#FD5523</color>-->
+
 
 
 </resources>

@@ -1,14 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.AlmaApoyadoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="80dp"
+        android:text="Densidad: "
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/primaryTextColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/s_FAlma_Apoy_Dens"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="160dp"
+        android:elevation="4dp"
+        android:minWidth="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="A.P.C.: "
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/primaryTextColor"
+        app:layout_columnSpan="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_Alma_Apoy_APC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:paddingTop="10dp"
+        app:layout_columnSpan="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <Button
+        android:id="@+id/b_FAlma_Apoy_APC_Agregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="8dp"
+        android:text="Agregar"
+        android:textAllCaps="false"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="25sp"
+        app:layout_columnSpan="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_Alma_Apoy_APC"
+        app:layout_gravity="center" />
+    <Button
+        android:id="@+id/b_FAlma_Apoy_APC_Eliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="8dp"
+        android:text="Eliminar"
+        android:textAllCaps="false"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="25sp"
+        app:layout_columnSpan="1"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_Alma_Apoy_APC"
+        app:layout_gravity="center" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Fertilización: "
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/primaryTextColor"
+        app:layout_columnSpan="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b_FAlma_Apoy_APC_Agregar" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_Alma_Apoy_Fert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:paddingTop="10dp"
+        app:layout_columnSpan="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+    <Button
+        android:id="@+id/b_FAlma_Apoy_Fert_Agregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="8dp"
+        android:text="Agregar"
+        android:textAllCaps="false"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="25sp"
+        app:layout_columnSpan="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_Alma_Apoy_Fert"
+        app:layout_gravity="center" />
+    <Button
+        android:id="@+id/b_FAlma_Apoy_Fert_Eliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="100dp"
+        android:text="Eliminar"
+        android:textAllCaps="false"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="25sp"
+        app:layout_columnSpan="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_Alma_Apoy_Fert"
+        app:layout_gravity="center" />
+    <Button
+        android:id="@+id/b_FAlma_Apoy_Guardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="20dp"
+        android:text="Guardar"
+        android:textAllCaps="false"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_gravity="bottom" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:drawableLeft="@drawable/logoiconoapp40"
+        android:gravity="center"
+        android:text=" Departamento de Sistemas - Co.Pro.Tab - 2018"
+        android:textColor="@color/primaryTextColor"
+        app:layout_columnSpan="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_gravity="center|bottom" />
+</android.support.constraint.ConstraintLayout>

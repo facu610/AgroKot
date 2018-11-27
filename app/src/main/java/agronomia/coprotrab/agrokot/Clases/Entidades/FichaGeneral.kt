@@ -60,7 +60,19 @@ class FichaGeneral (id_ficha:Int,
                     infra_bc_gas_peines:Int?,
                     infra_bc_lena:Int?,
                     infra_bc_lena_ci:Int?,
-                    infra_bc_lena_peines:Int?
+                    infra_bc_lena_peines:Int?,
+
+                    almaconv_is:Int?,
+                    to_sincro_almaconv:Int?,
+                    almaflot_is:Int?,
+                    to_sincro_almaflot:Int?,
+                    almaband_is:Int?,
+                    to_sincro_almaband:Int?,
+                    almaapoya_is:Int?,
+                    to_sincro_almaapoya:Int?,
+                    almavar_is:Int?,
+                    to_sincro_almavar:Int?
+
 
 ){
 
@@ -126,6 +138,17 @@ class FichaGeneral (id_ficha:Int,
     var Infra_BC_Lena_CI: Int?
     var Infra_BC_Lena_Peines: Int?
 
+    var AlmaConv_Is: Int?
+    var To_Sincro_AlmaConv: Int?
+    var AlmaFlot_Is: Int?
+    var To_Sincro_AlmaFlot: Int?
+    var AlmaBand_Is: Int?
+    var To_Sincro_AlmaBand: Int?
+    var AlmaApoya_Is: Int?
+    var To_Sincro_AlmaApoya: Int?
+    var AlmaVar_Is: Int?
+    var To_Sincro_AlmaVar: Int?
+
     init {
         this.ID_Ficha = id_ficha
         this.Fecha_Grales = fecha_grales
@@ -190,5 +213,27 @@ class FichaGeneral (id_ficha:Int,
         this.Infra_BC_Lena = infra_bc_lena
         this.Infra_BC_Lena_CI = infra_bc_lena_ci
         this.Infra_BC_Lena_Peines = infra_bc_lena_peines
+
+        this.AlmaConv_Is = almaconv_is
+        this.To_Sincro_AlmaConv = to_sincro_almaconv
+        this.AlmaFlot_Is = almaflot_is
+        this.To_Sincro_AlmaFlot = to_sincro_almaflot
+        this.AlmaBand_Is = almaband_is
+        this.To_Sincro_AlmaBand = to_sincro_almaband
+        this.AlmaApoya_Is = almaapoya_is
+        this.To_Sincro_AlmaApoya = to_sincro_almaapoya
+        this.AlmaVar_Is = almavar_is
+        this.To_Sincro_AlmaVar = to_sincro_almavar
+
+
+
+
+
+
+
+
+
+
+
     }
 }

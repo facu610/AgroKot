@@ -31,7 +31,7 @@ class AgroAguaySueloFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val rootView: View = inflater.inflate(R.layout.fragment_aaguay_suelo, container, false)
-        var arrayAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(rootView.context, R.array.unidades, android.R.layout.simple_spinner_item)
+        val arrayAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(rootView.context, R.array.unidades, android.R.layout.simple_spinner_item)
         spinnerN = rootView.findViewById(R.id.s_FAgro_AyS_Nu)
         spinnerP = rootView.findViewById(R.id.s_FAgro_AyS_Pu)
         spinnerK = rootView.findViewById(R.id.s_FAgro_AyS_Ku)
